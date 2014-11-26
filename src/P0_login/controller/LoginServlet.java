@@ -97,7 +97,7 @@ public class LoginServlet extends HttpServlet {
 				}
 				
 
-				if (mb != null && mb.getMember_loginID().equals(userId) && mb.getMember_password().equals(password)) {
+				if (mb != null && mb.getMember_loginID().equals(userId) && mb.getMember_password().equals(password) && mb.getMember_class() == 9) {
 					//request.setAttribute("userId", mb.getMember_name());
 					//request.setAttribute("userloginid", mb.getMember_loginID());
 					//將使用者存入session
@@ -115,7 +115,7 @@ public class LoginServlet extends HttpServlet {
 					return;
 				} 
 				else {
-					request.setAttribute("errorMSG", "帳號或會員密碼錯誤!");
+					request.setAttribute("errorMSG", "帳密錯誤 或 權限不足");
 					RequestDispatcher rd = request
 							.getRequestDispatcher("/P0_login/login.jsp");
 					rd.forward(request, response);

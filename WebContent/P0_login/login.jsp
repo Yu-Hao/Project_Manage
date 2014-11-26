@@ -28,7 +28,7 @@
       <div class="">
       	  <div class="col-xs-5"></div>
           <div class=" col-xs-7">
-              <h2>&nbsp;&nbsp;管理者登入</h2> 
+              <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理者登入</h2> 
           </div>
           <hr>
            <hr>
@@ -41,13 +41,12 @@
                           <form id="loginForm" method="POST" action="login" novalidate="novalidate">
                               <div class="form-group">
                                   <label for="username" class="control-label">Username</label>
-                                  <input type="text" class="form-control" id="inputLoginId" name="inputLoginId" value="" required="" title="Please enter you username" placeholder="請輸入帳號"  autofocus ><span style="color:red;" id="errorId">${errorMsgId}</span>
+                                  <input type="text" class="form-control" id="inputLoginId" name="inputLoginId" value="" required="" title="Please enter you username" placeholder="請輸入帳號"  autofocus >
                                   <span class="help-block"></span>
                               </div>
                               <div class="form-group">
                                   <label for="password" class="control-label">Password</label>
-                                  <input type="password" class="form-control" id="inputPassword" name="inputPassword" value="" required="" title="Please enter your password" placeholder="請輸入密碼"><span style="color:red;" id="errorPassword"> ${errorMsgPwd}</span>
-                                  <span class="help-block glyphicon glyphicon-eye-open" style="margin-top:115px;margin-right:20px;"></span>
+                                  <input type="password" class="form-control" id="inputPassword" name="inputPassword" value="" required="" title="Please enter your password" placeholder="請輸入密碼">
                               </div>
                               <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
                               <div class="checkbox">
@@ -58,8 +57,7 @@
                               </div>
                               <button type="submit" class="btn btn-success btn-block" id="loginBtn">Login</button>
                               <input type="hidden" name="action" value="LoginIdCheck">
-                              
-                              <a href="../P7_ForgetPassWord/ForgetPassWord.jsp" class="btn btn-default btn-block">忘記密碼</a>
+                              <h2 style="color:red;">${errorMSG}</h2>
                           </form>
                       </div>
                   </div>
@@ -128,25 +126,7 @@
 			
 	});
 	
-	
-	//登入處裡*****************************
-	
 
-	$("#inputPassword").on("keyup",function(){
-	    if($(this).val())
-	        $(".glyphicon-eye-open").show();
-	    else
-	        $(".glyphicon-eye-open").hide();
-	    });
-	$(".glyphicon-eye-open").mousedown(function(){
-	                $("#inputPassword").attr('type','text');
-	            }).mouseup(function(){
-	            	$("#inputPassword").attr('type','password');
-	            }).mouseout(function(){
-	            	$("#inputPassword").attr('type','password');
-	            });
-	
-	
 	
 })(jQuery);
 
