@@ -10,7 +10,26 @@ public class MemberService {
 	public MemberService() {
 		dao = new MemberDAO();
 	}
-
+	
+	public MemberVO insertView(	String viewId ,
+								String viewName,
+								String viewPlaceSel,
+								String viewAddr,
+								String viewLng,
+								String viewLat){
+		MemberVO memVO = new MemberVO();	
+		
+		memVO.setViewId(viewId);
+		memVO.setViewName(viewName);
+		memVO.setViewPlaceSel(viewPlaceSel);
+		memVO.setViewAddr(viewAddr);
+		memVO.setViewLng(viewLng);
+		memVO.setViewLat(viewLat);
+		
+		dao.insert(memVO);
+		return memVO;
+	}	
+	
 	public MemberVO insert(	String				member_loginID ,
 							String				member_password ,
 							String				member_email ,
@@ -75,4 +94,6 @@ public class MemberService {
 	public String memeber_Count() {
 		return dao.memeber_Count();
 	}
+	
+	
 }

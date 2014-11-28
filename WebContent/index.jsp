@@ -129,52 +129,58 @@
                  <!-- /. ROW  -->
                 <hr />
                 <div class="row">
-	                <div class="col-md-3 col-sm-6 col-xs-6">           
-						<div class="panel panel-back noti-box">
-	               			<span class="icon-box bg-color-red set-icon">
-	                   			<a href="#"><i class="fa fa-envelope-o fa-1x" ></i></a>
-	                		</span>
-	                		<div class="text-box" >
-	                			<p class="main-text notReplyMail">無客服訊息需回復</p>
-	                    		<h4 class="text-muted replyMail"></h4>
-	                		</div>
-	             		</div>
-			     	</div>
-	                <div class="col-md-3 col-sm-6 col-xs-6">       
-	                	<a href="P1_iud/register.jsp" style="text-decoration: none">    
-						<div class="panel panel-back noti-box">
-			                <span class="icon-box bg-color-green set-icon">
-			                    <i class="fa fa-bars"></i>
-			                </span>
-			                
-	                		<div class="text-box" >
-			                 	<p class="main-text memberText">總會員人數</p>
-			                    <h4 class="text-muted memberCount"></h4>
-	               			</div>
-	             		</div>
+	                <div class="col-md-3 col-sm-6 col-xs-6">    
+	               	 	<a href="#" style="text-decoration: none">       
+							<div class="panel panel-back noti-box">
+		               			<span class="icon-box bg-color-red set-icon">
+		                   			<i class="fa fa-envelope-o fa-1x" ></i>
+		                		</span>
+		                		<div class="text-box" >
+		                			<p class="main-text notReplyMail">無客服訊息需回復</p>
+		                    		<h4 class="text-muted replyMail"></h4>
+		                		</div>
+		             		</div>
 	             		</a>
 			     	</div>
-	                <div class="col-md-3 col-sm-6 col-xs-6">           
-						<div class="panel panel-back noti-box">
-			                <span class="icon-box bg-color-blue set-icon">
-			                    <i class="fa fa-bell-o"></i>
-			                </span>
-			                <div class="text-box" >
-			                    <p class="main-text">總景點數量</p>
-			                    <p class="text-muted viewCount"></p>
-			                </div>
-	             		</div>
+	                <div class="col-md-3 col-sm-6 col-xs-6">       
+	                	<a href="P1_iud/member_Manage.jsp" style="text-decoration: none">    
+							<div class="panel panel-back noti-box">
+				                <span class="icon-box bg-color-green set-icon">
+				                    <i class="fa fa-bars"></i>
+				                </span>
+				                
+		                		<div class="text-box" >
+				                 	<p class="main-text memberText">總會員人數</p>
+				                    <h4 class="text-muted memberCount"></h4>
+		               			</div>
+		             		</div>
+	             		</a>
 			     	</div>
-	                <div class="col-md-3 col-sm-6 col-xs-6">           
-						<div class="panel panel-back noti-box">
-	               			<span class="icon-box bg-color-brown set-icon">
-	                    		<i class="fa fa-rocket"></i>
-	                		</span>
-		                	<div class="text-box" >
-		                    	<p class="main-text">留言板筆數</p>
-		                    	<p class="text-muted messageCount"></p>
-		                	</div>
-	             		</div>
+	                <div class="col-md-3 col-sm-6 col-xs-6">      
+	                	<a href="P1_iud/viewName_Manage.jsp" style="text-decoration: none">        
+							<div class="panel panel-back noti-box">
+				                <span class="icon-box bg-color-blue set-icon">
+				                    <i class="fa fa-bell-o"></i>
+				                </span>
+				                <div class="text-box" >
+				                    <p class="main-text">總景點數量</p>
+				                    <p class="text-muted viewCount"></p>
+				                </div>
+		             		</div>
+	             		</a>
+			     	</div>
+	                <div class="col-md-3 col-sm-6 col-xs-6">   
+	                	<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">          
+							<div class="panel panel-back noti-box">
+		               			<span class="icon-box bg-color-brown set-icon">
+		                    		<i class="fa fa-rocket"></i>
+		                		</span>
+			                	<div class="text-box" >
+			                    	<p class="main-text">留言板筆數</p>
+			                    	<p class="text-muted messageCount"></p>
+			                	</div>
+		             		</div>
+	             		</a>  
 			     	</div>
 				</div>
                  <!-- /. ROW  -->

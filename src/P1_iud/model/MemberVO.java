@@ -16,7 +16,89 @@ public class MemberVO {
 	private String				member_type ;
 	private String				typeName ;
 	private int					member_count;
+	//viewName table
+	private String				viewId;
+	private String 				viewName;
+	private String 				viewPlaceSel;
+	private String 				viewAddr;
+	private String 				viewLng;
+	private String 				viewLat;
 	
+	//images table
+	private String 				imagesId;
+	private String 				imagesName;
+	private String 				imgDescript;
+	private String 				imgSrc;
+	private String 				images_format;
+
+	
+	
+	public String getViewLat() {
+		return viewLat;
+	}
+	public void setViewLat(String viewLat) {
+		this.viewLat = viewLat;
+	}
+	public String getViewId() {
+		return viewId;
+	}
+	public void setViewId(String viewId) {
+		this.viewId = viewId;
+	}
+	public String getViewName() {
+		return viewName;
+	}
+	public void setViewName(String viewName) {
+		this.viewName = viewName;
+	}
+	public String getViewPlaceSel() {
+		return viewPlaceSel;
+	}
+	public void setViewPlaceSel(String viewPlaceSel) {
+		this.viewPlaceSel = viewPlaceSel;
+	}
+	public String getViewAddr() {
+		return viewAddr;
+	}
+	public void setViewAddr(String viewAddr) {
+		this.viewAddr = viewAddr;
+	}
+	public String getViewLng() {
+		return viewLng;
+	}
+	public void setViewLng(String viewLng) {
+		this.viewLng = viewLng;
+	}
+	public String getImagesId() {
+		return imagesId;
+	}
+	public void setImagesId(String imagesId) {
+		this.imagesId = imagesId;
+	}
+	public String getImagesName() {
+		return imagesName;
+	}
+	public void setImagesName(String imagesName) {
+		this.imagesName = imagesName;
+	}
+	public String getImgDescript() {
+		return imgDescript;
+	}
+	public void setImgDescript(String imgDescript) {
+		this.imgDescript = imgDescript;
+	}
+	public String getImgSrc() {
+		return imgSrc;
+	}
+	public void setImgSrc(String imgSrc) {
+		this.imgSrc = imgSrc;
+	}
+	public String getImages_format() {
+		return images_format;
+	}
+	public void setImages_format(String images_format) {
+		this.images_format = images_format;
+	}
 	public int getMember_count() {
 		return member_count;
 	}

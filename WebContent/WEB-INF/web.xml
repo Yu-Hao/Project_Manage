@@ -23,4 +23,12 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/P0_login/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>addView</servlet-name>
+    <servlet-class>P1_iud.controller.addViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addView</servlet-name>
+    <url-pattern>/P1_iud/addView</url-pattern>
+  </servlet-mapping>
 </web-app>

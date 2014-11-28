@@ -9,7 +9,7 @@
 		//SQL Server
 		
 		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Project_1";
-		String query = "update sysmember set member_stop='Y' where member_loginid = ?";
+		String query = "select count(*) from viewname where viewID=?";
 		String name = request.getParameter("name");
 		try{
 			//SQL Server

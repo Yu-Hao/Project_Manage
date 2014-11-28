@@ -1,9 +1,11 @@
 package P1_iud.model;
 
 import java.util.*;
+import java.io.*;
 import java.sql.*;
 
 import javax.naming.*;
+import javax.servlet.http.Part;
 import javax.sql.*;
 
 import org.json.JSONArray;
@@ -36,7 +38,88 @@ public class MemberDAO implements MemberDAO_interface{
 		      "UPDATE sysmember set member_password=? ,member_name=? ,member_gender=?, member_birthday=?, member_address=? , member_updateTime=? , member_type=? where member_loginID = ?";
 	private static final String memberCount =
 		      "select * from sysmember;";
+	private static final String INSERT_viewName =
+		      " insert into viewName values('?','?','?','?',1,'?','?');";	
+	private static final String INSERT_images =
+	  "insert into images values('?','?','?','?','?')";
 
+	@Override
+	public void insertImages(MemberVO memVO) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(INSERT_images);
+			 
+			pstmt.setString(1, memVO.getViewId());
+			pstmt.setString(2, memVO.getViewName());
+			pstmt.setString(3, memVO.getViewPlaceSel());			
+			pstmt.setString(4, memVO.getViewAddr());
+			pstmt.setString(5, memVO.getViewLng());
+			pstmt.setString(6, memVO.getViewLat());
+			pstmt.executeUpdate();
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "+ se.getMessage());
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+	}
+	
+	
+	@Override
+	public void insertView(MemberVO memVO) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(INSERT_viewName);
+			 
+			pstmt.setString(1, memVO.getViewId());
+			pstmt.setString(2, memVO.getViewName());
+			pstmt.setString(3, memVO.getViewPlaceSel());			
+			pstmt.setString(4, memVO.getViewAddr());
+			pstmt.setString(5, memVO.getViewLng());
+			pstmt.setString(6, memVO.getViewLat());
+			pstmt.executeUpdate();
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "+ se.getMessage());
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+	}
+	
 	@Override
 	public void insert(MemberVO memVO) {
 		
@@ -364,5 +447,77 @@ public class MemberDAO implements MemberDAO_interface{
 		return member_Counts;
 	}
 	
+	public static String getFileName(final Part part) {
+		for (String content : part.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				return content.substring(content.indexOf('=') + 1).trim()
+						.replace("\"", "");
+			}
+		}
+		return null;
+	}
+	
+	public void insert_pic_test(String pic1,InputStream is , long sizeInBytes) throws ClassNotFoundException{
+		Connection con = null;
+		String insFile="";
+		PreparedStatement pstmt;
+		int count=0;
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("insert into images_ttt values(?,?);");
+			
+			pstmt.setString(1,pic1);
+			pstmt.setBinaryStream(2,is,sizeInBytes);
+			count += pstmt.executeUpdate();
+			
+			System.out.println("確認圖片成功insert: " + count + " 筆");
+			
+			
+			
+			ResultSet rs = null;
+			int cut=0;
+			for(int x=0;x<1;x++){
+				BufferedOutputStream out=null;
+				try {
+					out = new BufferedOutputStream(new FileOutputStream(new File("C:\\images\\"+pic1+".jpg")));
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} 
+				String queryFile1 =  "Select * from images_ttt where id=?";
+				pstmt = con.prepareStatement(queryFile1);
+				pstmt.setString(1, pic1);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()){
+					Blob bb = rs.getBlob(1);
+					byte[] b = bb.getBytes(1, (int)bb.length());
+					try {
+						out.write(b, 0, (int)bb.length());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					try {
+						out.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					cut++;
+				}
+				
+			}
+			System.out.println("確認圖片成功取出: "+cut+"筆");
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null){
+				try{
+					con.close();
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	
+	}
 
 }

@@ -27,7 +27,8 @@ public class MsgDAO implements MsgDAO_interface {
 	private static final String INSERT_MSG = "INSERT INTO messageboard (member_loginID, title, content, build_time, message_stop,replyfrom) VALUES (?,?,?,?,?,?)";
 //	private static final String GET_ALL_MSG = "SELECT messageNum, member_loginID, title, content, build_time, message_stop From messageboard order by messageNum DESC";
 //	private static final String GET_ALL_MSG = "SELECT messageNum, member_loginID, title, content, build_time, message_stop,replyfrom From messageboard where replyfrom=1 order by messageNum DESC";
-	private static final String GET_ALL_MSG = "SELECT * From messageboard order by messageNum DESC";
+	private static final String GET_ALL_MSG = "SELECT * From messageboard order by messageNum;";
+	
 	@Override
 	public void insert(MsgVO msgVO) {
 		Connection con = null;

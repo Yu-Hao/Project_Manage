@@ -11,11 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free Bootstrap Admin Template : Binary Admin</title>
 <%@ page import="java.util.*"%>
-<%@ page import="P1_iud.model.*"%>
+<%@ page import="P4_MessageBoard.model.*"%>
 <%
-	MemberService memSvc = new MemberService();
-		List<MemberVO> memberList = memSvc.getAll();
-		pageContext.setAttribute("memberList",memberList);
+		MsgService messageSvc = new MsgService();
+		List<MsgVO> messageList = messageSvc.getAll();
+		pageContext.setAttribute("messageList",messageList);
 %>
  <link href="../css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -125,55 +125,53 @@
         </nav>  
 	
 	<div id="page-wrapper">
-	<div id="page-inner" style="padding-top:5%;padding-right:1%;">
+	<div id="page-inner" style="padding-right:1%;">
+	<br>
+	<a href="../" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
+	<br>
+	<br>
 		<table id="example" class="display" cellspacing="0"  >
         <thead>
             <tr>
+                <th>留言板流水號</th>
                 <th>會員帳號</th>
-                <th>會員信箱</th>
-                <th>會員權限</th>
-                <th>會員權限</th>
-                <th>會員性別</th>
-                <th>會員生日</th>
-                <th>會員地址</th>
-                <th>會員建立時間</th>
-                <th>會員資料最後修改時間</th>
-                <th>停權處份</th>
+                <th>留言板標題</th>
+                <th>留言內容</th>
+                <th>回覆內容</th>
+                <th>建立時間</th>
+                <th>是否封鎖</th>
+                <th>封鎖設定</th>
             </tr>
         </thead>
  
         <tfoot>
             <tr>
+                <th>留言板流水號</th>
                 <th>會員帳號</th>
-                <th>會員信箱</th>
-                <th>會員權限</th>
-                <th>會員停權</th>
-                <th>會員性別</th>
-                <th>會員生日</th>
-                <th>會員地址</th>
-                <th>會員建立時間</th>
-                <th>會員資料最後修改時間</th>
-                <th>停權處份</th>
+                <th>留言板標題</th>
+                <th>留言內容</th>
+                <th>回覆內容</th>
+                <th>建立時間</th>
+                <th>是否封鎖</th>
+                <th>封鎖設定</th>
             </tr>
         </tfoot>
  
-        <tbody class="memberListEdit">
-        	<c:forEach var="memberList" items="${memberList}">
+        <tbody class="messageListEdit">
+        	<c:forEach var="messageList" items="${messageList}">
         		<tr>
-        			<td id="${memberList.member_loginID}">${memberList.member_loginID}</td>
-        			<td>${memberList.member_email}</td>
-        			<td>${memberList.member_class}</td>
-        			<td>${memberList.member_gender}</td>
-        			<td>${memberList.member_birthday}</td>
-        			<td>${memberList.member_address}</td>
-        			<td>${memberList.member_buildtime}</td>
-        			<td>${memberList.member_updateTime}</td>
-        			<td><input type="button" class="btn btn-danger stop_class" value="停權"></td>
+        			<td>${messageList.messageNum}</td>
+        			<td>${messageList.member_loginID}</td>
+        			<td>${messageList.title}</td>
+        			<td>${messageList.content}</td>
+        			<td>${messageList.replyfrom}</td>
+        			<td>${messageList.build_time}</td>
+        			<td>${messageList.message_stop}</td>
+        			<td><input type="button" class="btn btn-danger stop_class" value="封鎖"></td>
         		</tr>
         	</c:forEach>
         </tbody>
     </table>
-    <table><tbody id="rrr"><tr><td>3333</td><td><input type="submit" value="55"/></td></tr></tbody></table>
 	</div>
 	</div>
 	</div>
@@ -197,45 +195,36 @@
 	
 	<script>
 		(function($) {
-			 $('#example').dataTable();
+			 	$('#example').dataTable();
 		     
 // 			    $('#example tbody').on('click', 'tr', function () {
 // 			        var name = $('td', this).eq(0).text();
 // 			        alert( 'You clicked on '+name+'\'s row' );
 // 			    } );
 
-	     $(".stop_class").click(function(){
-	    	 console.log($(this).closest('tr').find('td:eq(0)').text());
-	    	 //console.log($('#rrr > tr > td:first').text());
-	    	 //console.log($(':button').text());
-	     		swal({ title: "Are you sure?",
-			 	text: "You will not be able to recover this imaginary file!",
-			  	type: "warning",   
-			  	showCancelButton: true,   
-			  	confirmButtonColor: "#DD6B55",   
-			  	confirmButtonText: "Yes, delete it!",   
-			  	closeOnConfirm: false }, function(){
-			  		var sel = $(this).closest('tr').find('td:nth-child(1)').text();
-			  		stop_class(sel);
-			  		swal("Deleted!", "Your imaginary file has been deleted.","success"); });
-	     });
-	     
+	     		$(".stop_class").click(function(){
+	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
+			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
+			     		swal({ title: "Are you sure?",
+					 	text: "確定是否對"+sel+"做出停權處分!!",
+					  	type: "warning",   
+					  	showCancelButton: true,   
+					  	confirmButtonColor: "#DD6B55",   
+					  	confirmButtonText: "Yes, do it!",   
+					  	closeOnConfirm: false }, function(){
+					  		stop_class(sel);
+					  		swal("Success!", "Your imaginary file has been stoped.","success"); 
+					  		setTimeout("self.location.reload()",3000);
+					  	});
+			     		
+	     		});
+	     		
 	     
 
 		})(jQuery);
 		
 		function stop_class(name){
-			$.get("checkAccount.jsp",{"name":name},function(data){
-    			//$("#errName").text(data);
-    			
-    			if(data==1){
-    				$("#checkAccount").html("<span id='chkAccount' style='color:red;'><img src=images/errorImg.png />此組帳號已有人使用</span>");
-    				$("#accountLabel").prop("hidden",false);
-    			}else{
-    				$("#checkAccount").html("<span id='chkAccount' style='color:blue;'><img src=images/OK.png />此組帳號可以使用</span>");
-    				$("#accountLabel").prop("hidden",true);
-    			}
-    			$("#loadding").prop("hidden",true);
+			$.get("stopAccount.jsp",{"name":name},function(data){
     		});
 		}
 	</script>
