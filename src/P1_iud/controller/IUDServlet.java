@@ -29,7 +29,7 @@ import P1_iud.model.*;
 /**
  * Servlet implementation class iduServlet
  */
-@WebServlet("/IUDServlet")
+@WebServlet("/P1_iud/IUDServlet")
 @MultipartConfig(location = "C:\\temp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 500, maxRequestSize = 1024 * 1024 * 500 * 5)
 public class IUDServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

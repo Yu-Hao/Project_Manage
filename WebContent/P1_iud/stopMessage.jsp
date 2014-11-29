@@ -9,9 +9,9 @@
 		//SQL Server
 		
 		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Project_1";
-		String query = "update sysmember set member_stop=? where member_loginid = ?";
+		String query = "update messageboard set message_stop=? where member_loginid = ?";
 		String name = request.getParameter("name");
-		String stopType = request.getParameter("stopMessage").trim();
+		String typeMath = request.getParameter("typeMath").trim();
 		int count = 0;
 		try{
 			//SQL Server
@@ -19,11 +19,11 @@
 			conn = DriverManager.getConnection(url, "sa", "sa123456");
 		
 			stmt = conn.prepareStatement(query);
-			stmt.setString(1,stopType);
+			stmt.setString(1,typeMath);
 			stmt.setString(2,name);
 			
 			count = stmt.executeUpdate();
-			
+// 			System.out.println("count="+count);
 		}
 		catch(SQLException e){
 			out.println("Error:" + e.getMessage());

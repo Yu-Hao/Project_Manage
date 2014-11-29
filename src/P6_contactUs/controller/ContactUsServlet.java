@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import P6_contactUs.model.*;
 
 
-@WebServlet("/ContactUsServlet")
+@WebServlet("/P6_contactUs/ContactUsServlet")
 public class ContactUsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

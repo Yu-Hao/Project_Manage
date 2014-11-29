@@ -33,7 +33,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom:0;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -41,12 +41,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">Binary admin</a> 
+                <a class="navbar-brand" href="index.jsp">下一站，幸福</a> 
             </div>
             
   		<div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
 			<c:if test="<%=sionName == null %>">
-				<a href="P0_login/login.jsp" class="btn btn-danger square-btn-adjust">login</a>
+				<a href="P0_login/login.jsp" class="btn btn-danger">login</a>
 			</c:if>
 			<c:if test="<%=sionName != null %>">
 	 			管理者，${userName}&nbsp;您好!!&nbsp; <a href="LoginServlet?action=logOut" class="btn btn-danger square-btn-adjust">Logout</a> 
@@ -122,8 +122,9 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Dashboard</h2>   
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                     <center>  
+                     	<h2 style="color:red;"><b>後台管理介面</b></h2>
+                     	</center> 
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -185,71 +186,17 @@
 				</div>
                  <!-- /. ROW  -->
                 <hr />                
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">           
-						<div class="panel panel-back noti-box">
-			                <span class="icon-box bg-color-blue">
-			                    <i class="fa fa-warning"></i>
-			                </span>
-			                <div class="text-box" >
-			                    <p class="main-text">52 Important Issues to Fix </p>
-			                    <p class="text-muted">Please fix these issues to work smooth</p>
-			                    <p class="text-muted">Time Left: 30 mins</p>
-			                    <hr />
-			                    <p class="text-muted">
-		                        	<span class="text-muted color-bottom-txt"><i class="fa fa-edit"></i>
-		                               Lorem ipsum dolor sit amet, consectetur adipiscing elit gthn. 
-		                               Lorem ipsum dolor sit amet, consectetur adipiscing elit gthn. 
-		                          	</span>
-			                    </p>
-			                </div>
-             			</div>
-		     		</div>
-                    
-                    
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel back-dash">
-                             <i class="fa fa-dashboard fa-3x"></i><strong> &nbsp; SPEED</strong>
-                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing sit ametsit amet elit ftr. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        </div>
-                    </div>
-                   	<div class="col-md-3 col-sm-12 col-xs-12 ">
-                   	 	<div class="panel ">
-					        <div class="main-temp-back">
-					        	<div class="panel-body">
-					              <div class="row">
-					                <div class="col-xs-6"> <i class="fa fa-cloud fa-3x"></i> Newyork City </div>
-					                <div class="col-xs-6">
-					                  <div class="text-temp"> 10° </div>
-					                </div>
-					              </div>
-					            </div>
-					        </div>
-        				</div>
-                     	<div class="panel panel-back noti-box">
-			                <span class="icon-box bg-color-green set-icon">
-			                    <i class="fa fa-desktop"></i>
-			                </span>
-			                <div class="text-box" >
-			                    <p class="main-text">Display</p>
-			                    <p class="text-muted">Looking Good</p>
-			                </div>
-             			</div>
-    				</div><!-- end col-md-3 col-sm-12 col-xs-12 -->
-        		</div> <!-- end/. ROW  -->
                 <div class="row"> 
-                    
-                      
-                               <div class="col-md-9 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Bar Chart Example
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-bar-chart"></div>
-                        </div>
-                    </div>            
-                </div>
+                   	<div class="col-md-9 col-sm-12 col-xs-12">                     
+	                    <div class="panel panel-default">
+	                        <div class="panel-heading">
+	                            Bar Chart Example
+	                        </div>
+	                        <div class="panel-body">
+	                            <div id="morris-bar-chart"></div>
+	                        </div>
+	                    </div>            
+                	</div>
                     <div class="col-md-3 col-sm-12 col-xs-12">                       
                     <div class="panel panel-primary text-center no-boder bg-color-green">
                         <div class="panel-body">
@@ -518,11 +465,11 @@
                         </div>
                         <div class="panel-body">
                             <span class="label label-default">Default</span>
-<span class="label label-primary">Primary</span>
-<span class="label label-success">Success</span>
-<span class="label label-info">Info</span>
-<span class="label label-warning">Warning</span>
-<span class="label label-danger">Danger</span>
+							<span class="label label-primary">Primary</span>
+							<span class="label label-success">Success</span>
+							<span class="label label-info">Info</span>
+							<span class="label label-warning">Warning</span>
+							<span class="label label-danger">Danger</span>
                         </div>
                     </div>
                          
@@ -572,7 +519,7 @@
 	var contextPath = "<%= request.getContextPath()%>";
 
 	//E-mail計數
-	var contactUsUrl = "ContactUsServlet";
+	var contactUsUrl = "/Project_Manage/P6_contactUs/ContactUsServlet";
    	$.getJSON(contactUsUrl,{'action':'contactUs_Count'}, function(datas){
    		$.each(datas,function(i,item){
    			//alert(item.count);
@@ -583,7 +530,7 @@
    	});
    	
  	//會員計數
-   	var memberUrl = "IUDServlet";
+   	var memberUrl = "/Project_Manage/P1_iud/IUDServlet";
    	$.getJSON(memberUrl,{'action':'member_Count'}, function(datas){
    		$.each(datas,function(i,item){
    			$(".memberCount").html("<h3 align='center'>"+item.member_Count+"人</h3>");
@@ -591,7 +538,7 @@
    	});
 
   	//景點計數
-	var imageUrl = "ImgTop6servlet";
+	var imageUrl = "/Project_Manage/P2_route/ImgTop6servlet";
    	$.getJSON(imageUrl,{'action':'img_Count'}, function(datas){
    		$.each(datas,function(i,item){
    			$(".viewCount").html("<h3 align='center'>"+item.viewNameCount+"處</h3>");

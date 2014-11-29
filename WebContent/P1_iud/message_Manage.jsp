@@ -167,7 +167,14 @@
         			<td>${messageList.replyfrom}</td>
         			<td>${messageList.build_time}</td>
         			<td>${messageList.message_stop}</td>
-        			<td><input type="button" class="btn btn-danger stop_class" value="封鎖"></td>
+        			<td>
+        			<c:if test='${messageList.message_stop==0}'>
+        				<input type="button" class="btn btn-danger stop_class" value="封鎖">
+        			</c:if>
+        			<c:if test='${messageList.message_stop==1}'>
+        				<input type="button" class="btn btn-danger open_class" value="解除封鎖">
+        			</c:if>
+        			</td>
         		</tr>
         	</c:forEach>
         </tbody>
@@ -196,35 +203,43 @@
 	<script>
 		(function($) {
 			 	$('#example').dataTable();
-		     
-// 			    $('#example tbody').on('click', 'tr', function () {
-// 			        var name = $('td', this).eq(0).text();
-// 			        alert( 'You clicked on '+name+'\'s row' );
-// 			    } );
 
 	     		$(".stop_class").click(function(){
-	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
+	     			var sel = $(this).closest('tr').find('td:nth-child(2)').text();
 			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
 			     		swal({ title: "Are you sure?",
-					 	text: "確定是否對"+sel+"做出停權處分!!",
+					 	text: "確定是否對"+sel+"的此筆留言，做出封鎖處分!!",
 					  	type: "warning",   
 					  	showCancelButton: true,   
 					  	confirmButtonColor: "#DD6B55",   
 					  	confirmButtonText: "Yes, do it!",   
 					  	closeOnConfirm: false }, function(){
-					  		stop_class(sel);
-					  		swal("Success!", "Your imaginary file has been stoped.","success"); 
-					  		setTimeout("self.location.reload()",3000);
+					  		stop_class(sel,1);
+					  		swal("Success!", "已成功封鎖"+sel+"的此筆留言!!","success"); 
+					  		setTimeout("self.location.reload()",2000);
 					  	});
-			     		
 	     		});
 	     		
-	     
+	     		$(".open_class").click(function(){
+	     			var sel = $(this).closest('tr').find('td:nth-child(2)').text();
+			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
+			     		swal({ title: "Are you sure?",
+					 	text: "確定是否對"+sel+"的此筆留言，解除封鎖處分!!",
+					  	type: "warning",   
+					  	showCancelButton: true,   
+					  	confirmButtonColor: "#DD6B55",   
+					  	confirmButtonText: "Yes, do it!",   
+					  	closeOnConfirm: false }, function(){
+					  		stop_class(sel,0);
+					  		swal("Success!","已將"+sel+"的此筆留言解除封鎖!!","success"); 
+					  		setTimeout("self.location.reload()",2000);
+					  	});
+	     		});
 
 		})(jQuery);
 		
-		function stop_class(name){
-			$.get("stopAccount.jsp",{"name":name},function(data){
+		function stop_class(name,i){
+			$.get("stopMessage.jsp",{"name":name,"typeMath":i},function(data){
     		});
 		}
 	</script>

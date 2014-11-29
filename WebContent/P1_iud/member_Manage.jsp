@@ -3,7 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 	Object sionName = session.getAttribute("userName");
 %>
@@ -130,6 +131,7 @@
 	<a href="../" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
 	<br>
 	<br>
+	
 		<table id="example" class="display" cellspacing="0"  >
         <thead>
             <tr>
@@ -167,7 +169,14 @@
         			<td>${memberList.member_gender}</td>
         			<td>${memberList.member_buildtime}</td>
         			<td>${memberList.member_updateTime}</td>
-        			<td><input type="button" class="btn btn-danger stop_class" value="停權"></td>
+        			<td>
+        			<c:if test='${fn:trim(memberList.member_stop)=="N"}'>
+        				<input type="button" class="btn btn-danger stop_class" value="停權">
+        			</c:if>
+	         		<c:if test='${fn:trim(memberList.member_stop)=="Y"}'>
+        				<input type="button" class="btn btn-danger open_class" value="解除停權">
+        			</c:if>
+        			</td>
         		</tr>
         	</c:forEach>
         </tbody>
@@ -204,6 +213,7 @@
 
 	     		$(".stop_class").click(function(){
 	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
+	     			var stopM = "Y";
 			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
 			     		swal({ title: "Are you sure?",
 					 	text: "確定是否對"+sel+"做出停權處分!!",
@@ -212,19 +222,34 @@
 					  	confirmButtonColor: "#DD6B55",   
 					  	confirmButtonText: "Yes, do it!",   
 					  	closeOnConfirm: false }, function(){
-					  		stop_class(sel);
-					  		swal("Success!", "Your imaginary file has been stoped.","success"); 
-					  		setTimeout("self.location.reload()",3000);
+					  		stop_class(sel,stopM);
+					  		swal("Success!", "已成功對"+sel+"做出停權處分","success"); 
+					  		setTimeout("self.location.reload()",2000);
 					  	});
 			     		
 	     		});
 	     		
-	     
-
+	     		$(".open_class").click(function(){
+	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
+	     			var openM = "N";
+			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
+			     		swal({ title: "Are you sure?",
+					 	text: "確定是否對"+sel+"解除停權處分!!",
+					  	type: "warning",   
+					  	showCancelButton: true,   
+					  	confirmButtonColor: "#DD6B55",   
+					  	confirmButtonText: "Yes, do it!",   
+					  	closeOnConfirm: false }, function(){
+					  		stop_class(sel,openM);
+					  		swal("Success!", "已成功對"+sel+"解除停權處分","success"); 
+					  		setTimeout("self.location.reload()",2000);
+					  	});
+			     		
+	     		});
 		})(jQuery);
 		
-		function stop_class(name){
-			$.get("stopAccount.jsp",{"name":name},function(data){
+		function stop_class(name,stopType){
+			$.get("stopAccount.jsp",{"name":name,"stopMessage":stopType},function(data){
     		});
 		}
 	</script>

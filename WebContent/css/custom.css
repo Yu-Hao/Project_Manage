@@ -18,19 +18,22 @@ body {
 
  #wrapper {
     width: 100%;
-    background:#202020;
+/*     background:#202020; */
+    background-image: url("../img/background.png");
 }
 
 #page-wrapper {
-    padding: 15px 15px;
+/*     padding: 15px 15px; */
     min-height: 600px;
     background:#F3F3F3;
-   
+   background-image: url("../img/background.png");
 }
 #page-inner {
     width:100%;
-    margin:10px 20px 10px 0px;
-    background-color:#fff!important;
+/*     margin:10px 20px 10px 0px; */
+/*     background-color:#fff!important; */
+/*     background-image: url("../img/whitediamond.png"); */
+    background-image: url("../img/background.png");
     padding:10px;
     min-height:1200px;
 }
@@ -211,8 +214,10 @@ max-width:170px;
 }
 
 .navbar-cls-top .navbar-brand {
+	/*首頁BTN*/
 	color: #fff;
-background: #C90000;
+/* background:#888888; */
+background-image: url("../img/background.png");
 width: 260px;
 text-align: center;
 height: 60px;
@@ -220,7 +225,7 @@ font-size: 30px;
 font-weight: 700;
 }
 .active-menu {
-    background-color:#C90000!important;
+    background-color:none!important;
 }
 
 .arrow {
@@ -238,7 +243,7 @@ font-weight: 700;
 
 .nav-second-level li,
 .nav-third-level li {
-    border-bottom: none !important;
+    border-bottom: none!important;
 }
 
 .nav-second-level li a {
@@ -249,27 +254,35 @@ font-weight: 700;
     padding-left: 55px;
 }
 .sidebar-collapse , .sidebar-collapse .nav{
-	background:none;
+	/*左邊連結區隔線_人像*/
+/* 	background:#888888; */
+	background-image: url("../img/background.png");
+	border-top:1px solid black;
 }
 .sidebar-collapse .nav {
 	padding:0;
 }
 .sidebar-collapse .nav > li > a {
-	color:#fff;
-	background:#202020;
+	/*左邊連結底色*/
+	color:black;
+	/*background:#202020;*/
+/* 	background:#888888; */
+	background-image: url("../img/background.png");
 	text-shadow:none;
+	font-size:18px;
 	
 }
 .sidebar-collapse > .nav > li > a {
 	padding:15px 10px;
 }
 .sidebar-collapse > .nav > li {
-	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+	/*左邊區隔線顏色*/
+	border-bottom: 1px solid black;
 }
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
-	
-	background:#0A0A0A;
+	/*滑入顏色*/
+	background:skyblue;
 	outline:0;
 }
 
@@ -306,18 +319,22 @@ font-weight: 700;
 }
 .navbar-side {
 	border:none;
-	background-color: #202020;
-	
+/* 	background-color: #202020; */
+	background-image: url("../img/background.png");
 }
 .navbar-cls-top {
-	background:#4D4D4D;
+	/*top顏色*/
+/* 	background:skyblue; */
+	background-image: url("../img/background.png");
 	border-bottom:none;
 	
 }
 .navbar-cls-top .navbar-brand:hover {
+/*首頁連結*/
 
-background: #C90000;
-color:#fff;
+/*background: #C90000;*/
+background:#888888;
+color:#C90000;
 
 }
 
@@ -326,10 +343,11 @@ border:0px solid black;
      
 }
 .navbar-header {
-    background: #A70303;
+	/*滑入首頁顏色*/
+    background: none;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-background-color: #B40101;
+background-color: blue;
 }
 .navbar-default .navbar-toggle {
 border-color: #fff;
@@ -363,7 +381,7 @@ line-height: 1.428571429;
  @media(min-width:768px) {
      #page-wrapper{
                margin: 0 0 0 260px;
-        padding: 15px 30px;
+/*         padding: 15px 30px; */
         min-height: 1200px;
 		
     }

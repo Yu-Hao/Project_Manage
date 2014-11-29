@@ -16,7 +16,7 @@ import P2_route.model.*;
 /**
  * Servlet implementation class viewnameServlet
  */
-@WebServlet("/ImgTop6servlet")
+@WebServlet("/P2_route/ImgTop6servlet")
 public class ImgTop6servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
