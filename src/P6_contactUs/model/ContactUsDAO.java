@@ -145,8 +145,7 @@ public class ContactUsDAO implements ContactUs_Interface{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<ContactUsVO> list = new ArrayList<ContactUsVO>();
-		String contactUs_Counts="";
-		ContactUsVO conVO = new ContactUsVO();
+		ContactUsVO conVO = null;
 		try{
 			
 			con = ds.getConnection();
@@ -154,13 +153,12 @@ public class ContactUsDAO implements ContactUs_Interface{
 			
 			rs = pstmt.executeQuery();
 			
-			ResultSetMetaData rsmd = rs.getMetaData();
-			int count = 0;
 			while(rs.next()){
+				conVO = new ContactUsVO();
 				conVO.setContactUsId(rs.getString(1));//contactUsId
 				conVO.setContactUsName(rs.getString(2));//contactUsName
 				conVO.setContactUsMail(rs.getString(3));//contactUsMail
-				conVO.setContactUsDateS(rs.getString(4));
+				conVO.setContactUsDateS(rs.getString(4));//date
 				conVO.setContactUsSubject(rs.getString(5));//contactUsSubject
 				conVO.setContactUsContent(rs.getString(6));//contactUsContent
 				conVO.setContactUsReply(rs.getString(7));//contactUsReply

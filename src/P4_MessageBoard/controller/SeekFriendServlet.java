@@ -46,12 +46,14 @@ public class SeekFriendServlet extends HttpServlet {
 				// Get the printwriter object from response to write the required json object to the output stream      
 				PrintWriter out = res.getWriter();
 				// Assuming your json object is **jsonObject**, perform the following, it will return your json object  
-				
+				String serverName =req.getServerName();
+				int serverPort = req.getServerPort();
+				String contextPath = req.getContextPath();
 				
 				Connection conn = null;
 				PreparedStatement stmt = null;
 				ResultSet rs = null;
-				String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Project_1";
+				String url = "jdbc:sqlserver://"+serverName+":1433;DatabaseName=Project_1";
 				String query = "select member_loginID, member_name from sysmember where member_loginID like ? OR member_name like ?";
 				String keyword = req.getParameter("keyword");
 				keyword = "%" + keyword + "%";

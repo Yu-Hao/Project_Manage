@@ -7,8 +7,10 @@
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		//SQL Server
-		
-		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Project_1";
+		String serverName =request.getServerName();
+		int serverPort = request.getServerPort();
+		String contextPath = request.getContextPath();
+		String url = "jdbc:sqlserver://" + serverName+ ":1433;DatabaseName=Project_1";
 		String query = "update sysmember set member_stop=? where member_loginid = ?";
 		String name = request.getParameter("name");
 		String stopType = request.getParameter("stopMessage").trim();
