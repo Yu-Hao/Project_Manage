@@ -6,4 +6,5 @@ public interface ContactUs_Interface {
 	public String contactUs_Count();
 	public List<ContactUsVO> getAll();
 	public ContactUsVO getOne(String i);
+	public void replyMail(ContactUsVO contactUsVO);
 }

@@ -233,4 +233,10 @@ public class ContactUsDAO implements ContactUs_Interface{
 		}
 		return conVO;
 	}
+
+	@Override
+	public void replyMail(ContactUsVO contactUsVO) {
+		// TODO Auto-generated method stub
+		
+	}
 }

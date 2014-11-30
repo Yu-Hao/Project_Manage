@@ -71,8 +71,9 @@ public class ContactUsAutoEmail extends Thread {
 	       // String text=contactUsName+"您好:\n\n 我們已經收到您的來信，請耐心等候回覆。  \n\n 謝謝。";
 	        //寫給使用者的內容
 	       // msg.setContent(text, "text/html; charset=utf-8");
-	        msg.setText(contactUsName+"您好:\n\n 我們已經收到您的來信，請耐心等候回覆。  \n\n 謝謝。");  
-	        
+//	        msg.setText(contactUsName+"您好:\n\n 我們已經收到您的來信，請耐心等候回覆。  \n\n 謝謝。"); 
+	        //回覆內容
+	        msg.setText(contactUsContent);  
 	        Transport transport = session.getTransport("smtp");
 	        transport.connect(host,username,password);
 	        

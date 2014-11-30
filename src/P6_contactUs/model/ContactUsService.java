@@ -45,4 +45,10 @@ public class ContactUsService {
 	public ContactUsVO getOne(String i){
 		return dao.getOne(i);
 	}
+	
+	
+	public void replyMail(
+			String contactUsName,String contactUsMail,java.sql.Timestamp contactUsDate,String contactUsSubject,String contactUsContent,String fromuser){
+		
+	}
 }

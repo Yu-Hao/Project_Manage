@@ -8,6 +8,10 @@
 <%
 	Object sionName = session.getAttribute("userName");
 %>
+<%
+	Date date = new Date();
+	java.util.Date right = new java.util.Date();
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free Bootstrap Admin Template : Binary Admin</title>
@@ -139,6 +143,7 @@
 	             						<div class="col-md-4">
 						                	<input id="fname" name="name" type="text" placeholder="John Stuart" class="form-control" value="${ctVO.contactUsName}" required>
 						              	  	<input type="hidden"  id="frommail" name="frommail" size="30" value="cecj0601@gmail.com" />
+		              	  	      			<input type="hidden"  id="date" name="date" value="<%=new java.sql.Timestamp(right.getTime())%>" readonly="<%=new java.sql.Timestamp(right.getTime())%>">
 						              	  	<input type="hidden"  id="contactUsReply" name="contactUsReply" value="0" />
 	              						</div>
 	            					</div>    
@@ -157,11 +162,11 @@
 						            <div class="form-group">
 						            	<span class="col-md-2 col-md-offset-2 text-center">Contact</span>
 						              	<div class="col-md-4">
-						                	<textarea class="form-control" id="userContents" name="userContents" rows="7" ></textarea>
+						                	<textarea class="form-control" id="userContents" name="userContents" rows="2"></textarea>
 						              	</div>
 						            </div>
     								<div class="form-group">
-						            	<span class="col-md-2 col-md-offset-2 text-center">Contact</span>
+						            	<span class="col-md-2 col-md-offset-2 text-center">Reply Contact</span>
 						              	<div class="col-md-4">
 						                	<textarea class="form-control" id="contents" name="contents" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7" required></textarea>
 						              	</div>
@@ -204,6 +209,66 @@
 	
 	<script>
 		(function($) {
+			
+				//回覆信件給user
+				
+				$('#send').click(function(){
+				var mail_check= /.+@.+\..+/;
+				var fname=$('#fname').val();
+				var recipients=$('#recipients').val();
+				var frommail=$('#frommail').val();
+				var date=$('#date').val();
+				var subject=$('#subject').val();
+				var contents=$('#contents').val();
+				if(fname.length==0){
+					sweetAlert("Sorry...", "請輸入姓名!", "error");
+					return false;
+				}
+				else if(recipients.length==0){
+					sweetAlert("Sorry...", "請輸入E-mail!", "error");
+					return false;
+				}else if(!recipients.match(mail_check)){
+					sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
+					return false;
+				}else if(subject.length==0){
+					sweetAlert("Sorry...", "請輸入subject!", "error");
+					return false;
+				}else if(contents.length==0){
+					sweetAlert("Sorry...", "請輸入contents!", "error");
+					return false;
+				}
+				
+				 $.ajax({
+		                "url": "../P6_contactUs/ContactUsServlet",
+		                "type": "post",
+		                "data": {'action': 'contactusReply','name':fname,'recipients':recipients,
+		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents},
+		                "dataType": "text", //json,xml
+		                "success": function(data) {
+		               		if($.trim(data)=="ok"){
+		               			swal({ title: "已成功!",   
+		         				   text: "3秒後自動關閉視窗",   
+		         				   timer: 3000 ,
+		         				   type:"success"});
+		               			$('#fname').val("");
+		        				$('#recipients').val("");
+		        				$('#subject').val("");
+		        				$('#contents').val("");
+		               		}else{
+		               			sweetAlert("申請失敗", "請確定網路是否順暢!", "error");
+		               		}
+		                }
+		            });
+				
+				
+				
+			});
+				
+					
+			
+				//回覆信件給user
+			
+			
 			 	$('#example').dataTable();
 		     
 			 	var userContents = "${ctVO.contactUsContent}";

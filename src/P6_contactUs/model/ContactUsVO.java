@@ -11,6 +11,9 @@ public class ContactUsVO implements Serializable {
 	private java.sql.Timestamp contactUsDate;   //連絡我:時間
 	private String contactUsDateS;   //連絡我:時間
 	private String contactUsReply;   
+	private java.sql.Timestamp contactUsReplyDate;
+	private String contactUsReplyContact;
+	
 	
 	
 	public String getContactUsReply() {
@@ -71,4 +74,24 @@ public class ContactUsVO implements Serializable {
 	public void setContactUsDate(java.sql.Timestamp contactUsDate) {
 		this.contactUsDate = contactUsDate;
 	}
+	//連絡我:回復時間
+	public java.sql.Timestamp getContactUsReplyDate() {
+		return contactUsReplyDate;
+	}
+	//連絡我:回復時間
+	public void setContactUsReplyDate(java.sql.Timestamp contactUsReplyDate) {
+		this.contactUsReplyDate = contactUsReplyDate;
+	}
+	//連絡我:回復內容
+	public String getContactUsReplyContact() {
+		return contactUsReplyContact;
+	}
+	//連絡我:回復內容
+	public void setContactUsReplyContact(String contactUsReplyContact) {
+		this.contactUsReplyContact = contactUsReplyContact;
+	}
+	
+	
+	
+	
 }
