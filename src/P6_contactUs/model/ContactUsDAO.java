@@ -162,7 +162,6 @@ public class ContactUsDAO implements ContactUs_Interface{
 				conVO.setContactUsSubject(rs.getString(5));//contactUsSubject
 				conVO.setContactUsContent(rs.getString(6));//contactUsContent
 				conVO.setContactUsReply(rs.getString(7));//contactUsReply
-				System.out.println("rs.getString(1)="+rs.getString(1));
 				list.add(conVO);
 			}
 			
@@ -191,7 +190,6 @@ public class ContactUsDAO implements ContactUs_Interface{
 	
 	@Override
 	public ContactUsVO getOne(String i) {
-		System.out.println("i="+i);
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
