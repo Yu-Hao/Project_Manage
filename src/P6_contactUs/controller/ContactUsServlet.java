@@ -145,45 +145,42 @@ public class ContactUsServlet extends HttpServlet {
 		}
 		
 		if("contactusReply".equals(action)){
-			//建立一個用來存放errorMsg的List
 			List<String> errorMsgs=new LinkedList<String>();
-			//在jsp用來讀取${errorMsgs}方法
 			req.setAttribute("errorMsgs", errorMsgs);
+//			String contactUsId = req.getParameter("contactUsId");
+//			System.out.println(contactUsId);
 			try{
-				//Contact欄位抓取並判別輸入是否OK(姓名 信箱 時間 標題 內容 要塞資料庫)
 				String contactUsName = req.getParameter("name");
-				System.out.println(contactUsName);
 				if(contactUsName==null||(contactUsName.trim()).length()==0){
 					errorMsgs.add("請輸入姓名");	
 				}
 				
 				String contactUsMail = req.getParameter("recipients");
-				System.out.println(contactUsMail);
 				if(contactUsMail==null||(contactUsMail.trim()).length()==0){
 					errorMsgs.add("請輸入信箱");	
 				}
 						
 				String fromuser = req.getParameter("frommail");
-				System.out.println(fromuser);
 				if(fromuser==null||(fromuser.trim()).length()==0){
 					errorMsgs.add("客服信箱有error");	
 				}
 				
 				java.sql.Timestamp contactUsReplyDate = java.sql.Timestamp.valueOf(req.getParameter("date"));
-				System.out.println(contactUsReplyDate);
 				if(contactUsReplyDate==null){
 					errorMsgs.add("時間無法抓取");	
 				}
 				
 				String contactUsSubject = req.getParameter("subject");
-				System.out.println(contactUsSubject);
 				if(contactUsSubject==null||(contactUsSubject.trim()).length()==0){
 					errorMsgs.add("請輸入主題");	
 				}
 				String contactUsReplyContact = req.getParameter("contents");
-				System.out.println(contactUsReplyContact);
 				if(contactUsReplyContact==null||(contactUsReplyContact.trim()).length()==0){
 					errorMsgs.add("請輸入內容");	
+				}
+				String contactUsId =req.getParameter("contactUsId");
+				if(contactUsId==null||(contactUsId.trim()).length()==0){
+					errorMsgs.add("流水號錯誤");	
 				}
 
 				//new VO用來放資料
@@ -194,7 +191,7 @@ public class ContactUsServlet extends HttpServlet {
 				contactUsVO.setContactUsReplyDate(contactUsReplyDate);
 				contactUsVO.setContactUsSubject(contactUsSubject);
 				contactUsVO.setContactUsReplyContact(contactUsReplyContact);
-				
+				contactUsVO.setContactUsId(contactUsId);
 				
 				//若有錯誤訊息要在原頁面顯示錯誤原因
 				if (!errorMsgs.isEmpty()) {
@@ -206,17 +203,11 @@ public class ContactUsServlet extends HttpServlet {
 					return;// 結束程式
 				}
 				
-				//step1.
-				//若沒有錯誤開始做寄信的工作
-				//先寄信再去insert工作
-				//開始呼叫service 做自動送信功能
 				ContactUsService contactUsSvc=new ContactUsService();
-				//傳參數到service 做autoEmail
+				//autoEmail
 				contactUsSvc.autoEmail(contactUsName, contactUsMail, contactUsReplyDate, contactUsSubject, contactUsReplyContact,fromuser);
 				/************************************新增資料開始******************************************/
-				//step2.
-				//當自動送信成功後開始做insert ContactUs內容到資料庫
-//				contactUsSvc.insertContactUs(contactUsName, contactUsMail, contactUsReplyDate, contactUsSubject, contactUsReplyContact);
+				contactUsSvc.replyMail(contactUsName, contactUsMail, contactUsReplyDate, contactUsSubject, contactUsReplyContact,fromuser,contactUsId);
 				/************************************新增資料完成******************************************/
 //				String url = "/P6_ContactUs/ContactUsOK.jsp";
 //				RequestDispatcher successView = req.getRequestDispatcher(url);

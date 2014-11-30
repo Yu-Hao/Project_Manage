@@ -15,7 +15,6 @@ public class ContactUsVO implements Serializable {
 	private String contactUsReplyContact;
 	
 	
-	
 	public String getContactUsReply() {
 		return contactUsReply;
 	}

@@ -48,7 +48,14 @@ public class ContactUsService {
 	
 	
 	public void replyMail(
-			String contactUsName,String contactUsMail,java.sql.Timestamp contactUsDate,String contactUsSubject,String contactUsContent,String fromuser){
-		
+			String contactUsName, String contactUsMail, java.sql.Timestamp contactUsReplyDate,String contactUsSubject,String contactUsReplyContact, String fromuser ,String contactUsId){
+		ContactUsVO  contactUsVO=new ContactUsVO();	
+		contactUsVO.setContactUsName(contactUsName);
+		contactUsVO.setContactUsMail(contactUsMail);
+		contactUsVO.setContactUsReplyDate(contactUsReplyDate);
+		contactUsVO.setContactUsSubject(contactUsSubject);
+		contactUsVO.setContactUsReplyContact(contactUsReplyContact);	
+		contactUsVO.setContactUsId(contactUsId);
+		dao.replyMail(contactUsVO);
 	}
 }

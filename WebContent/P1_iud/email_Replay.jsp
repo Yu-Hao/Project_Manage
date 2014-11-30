@@ -209,8 +209,10 @@
 	
 	<script>
 		(function($) {
-			
-				//回覆信件給user
+				var serverName = "<%= request.getServerName()%>";
+				var serverPort = "<%= request.getServerPort()%>";
+				var contextPath = "<%= request.getContextPath()%>"
+				//********************回覆信件給user**************************
 				
 				$('#send').click(function(){
 				var mail_check= /.+@.+\..+/;
@@ -220,6 +222,7 @@
 				var date=$('#date').val();
 				var subject=$('#subject').val();
 				var contents=$('#contents').val();
+				var contactUsId="${ctVO.contactUsId}";
 				if(fname.length==0){
 					sweetAlert("Sorry...", "請輸入姓名!", "error");
 					return false;
@@ -242,32 +245,29 @@
 		                "url": "../P6_contactUs/ContactUsServlet",
 		                "type": "post",
 		                "data": {'action': 'contactusReply','name':fname,'recipients':recipients,
-		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents},
+		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents,'contactUsId':contactUsId},
 		                "dataType": "text", //json,xml
 		                "success": function(data) {
 		               		if($.trim(data)=="ok"){
-		               			swal({ title: "已成功!",   
-		         				   text: "3秒後自動關閉視窗",   
-		         				   timer: 3000 ,
+		               			swal({ title: "Good Job!",   
+		         				   text: "已成功回信!!",   
 		         				   type:"success"});
 		               			$('#fname').val("");
 		        				$('#recipients').val("");
 		        				$('#subject').val("");
 		        				$('#contents').val("");
+
+		        				$("#ok_sweetAlert").click(function(){
+		             				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P1_iud/email_Manage.jsp';
+		            			});	
 		               		}else{
 		               			sweetAlert("申請失敗", "請確定網路是否順暢!", "error");
 		               		}
 		                }
 		            });
+				});
 				
-				
-				
-			});
-				
-					
-			
-				//回覆信件給user
-			
+				//********************回覆信件給user**************************
 			
 			 	$('#example').dataTable();
 		     

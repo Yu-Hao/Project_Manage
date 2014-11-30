@@ -170,7 +170,7 @@
         			<td>${contactUsS.contactUsId}</td>
         			<td>${contactUsS.contactUsName}</td>
         			<td>${contactUsS.contactUsMail}</td>
-        			<td>${contactUsS.contactUsDate}</td>
+        			<td>${contactUsS.contactUsDateS}</td>
         			<td>${contactUsS.contactUsSubject}</td>
         			<td>${contactUsS.contactUsContent}</td>
         			<td>${contactUsS.contactUsReply}</td>

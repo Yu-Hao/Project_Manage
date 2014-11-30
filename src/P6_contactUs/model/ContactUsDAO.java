@@ -30,6 +30,7 @@ public class ContactUsDAO implements ContactUs_Interface{
 			" select * from contactus order by contactUsId";
 	private static final String getOne=
 			" select * from contactus where contactUsId =?";
+	private static final String updateReplyMail="update ContactUs set contactUsReply=?,contactUsReplyDate=?,contactUsReplyContact=? where contactUsId=?";
 
 	
 
@@ -231,10 +232,39 @@ public class ContactUsDAO implements ContactUs_Interface{
 		}
 		return conVO;
 	}
-
+	
+	//admin回信後要將回覆內容與回覆時間與回覆狀態改變
 	@Override
 	public void replyMail(ContactUsVO contactUsVO) {
-		// TODO Auto-generated method stub
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(updateReplyMail);
+			pstmt.setString(1, "1");
+			pstmt.setTimestamp(2, contactUsVO.getContactUsReplyDate());
+			pstmt.setString(3, contactUsVO.getContactUsReplyContact());
+			pstmt.setString(4,contactUsVO.getContactUsId() );
 		
+			pstmt.executeUpdate();
+		}catch(SQLException e){
+			throw new RuntimeException("A database error occured. "
+					+ e.getMessage());
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
 	}
 }
