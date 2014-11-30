@@ -133,8 +133,9 @@ public class ContactUsServlet extends HttpServlet {
 		}
 		
 		if("contactUs_Reply".equals(action)){
+			System.out.println("id="+req.getParameter("contactUsId").toString());
 			HttpSession sion = req.getSession();
-			sion.setAttribute("ctVO", new ContactUsService().getOne(req.getParameter("contactUsId")));
+			sion.setAttribute("ctVO", new ContactUsService().getOne((req.getParameter("contactUsId")).toString()));
 			res.sendRedirect(contextPath+"/P1_iud/email_Replay.jsp");
 			return;
 		}

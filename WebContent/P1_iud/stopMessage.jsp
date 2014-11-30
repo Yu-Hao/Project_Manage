@@ -3,12 +3,17 @@
 <%@ page import="java.sql.*;" %>
 
 <% 
+		String serverName =request.getServerName();
+		int serverPort = request.getServerPort();
+		String contextPath = request.getContextPath();
+		
+
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		//SQL Server
 		
-		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Project_1";
+		String url = "jdbc:sqlserver://"+serverName+":1433;DatabaseName=Project_1";
 		String query = "update messageboard set message_stop=? where member_loginid = ?";
 		String name = request.getParameter("name");
 		String typeMath = request.getParameter("typeMath").trim();
