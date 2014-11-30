@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.ws.RespectBinding;
 
 import P6_contactUs.model.*;
 
@@ -38,7 +40,7 @@ public class ContactUsServlet extends HttpServlet {
 		String action=req.getParameter("action");
 		res.setContentType("text/html; charset=UTF-8");
 		PrintWriter out=res.getWriter();
-		
+		String contextPath = req.getContextPath();
 		
 		if("contactus".equals(action)){
 			//建立一個用來存放errorMsg的List
@@ -128,6 +130,13 @@ public class ContactUsServlet extends HttpServlet {
 			ContactUsService conService = new ContactUsService();
 			String contactUsCount = conService.contactUs_Count();
 			out.println(contactUsCount);
+		}
+		
+		if("contactUs_Reply".equals(action)){
+			HttpSession sion = req.getSession();
+			sion.setAttribute("ctVO", new ContactUsService().getOne(req.getParameter("contactUsId")));
+			res.sendRedirect(contextPath+"/P1_iud/email_Replay.jsp");
+			return;
 		}
 		
 	}

@@ -26,6 +26,10 @@ public class ContactUsDAO implements ContactUs_Interface{
 			"insert into ContactUs (contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent)values(?,?,?,?,?)";
 	private static final String contactUs_Count=
 			" select * from contactus where contactUsReply=0";
+	private static final String getAll=
+			" select * from contactus order by contactUsId";
+	private static final String getOne=
+			" select * from contactus where contactUsId =?";
 
 	
 
@@ -135,4 +139,98 @@ public class ContactUsDAO implements ContactUs_Interface{
 		return contactUs_Counts;
 	}
 
+	@Override
+	public List<ContactUsVO> getAll() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<ContactUsVO> list = new ArrayList<ContactUsVO>();
+		String contactUs_Counts="";
+		ContactUsVO conVO = new ContactUsVO();
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(getAll);	
+			
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = 0;
+			while(rs.next()){
+				conVO.setContactUsId(rs.getString(1));//contactUsId
+				conVO.setContactUsName(rs.getString(2));//contactUsName
+				conVO.setContactUsMail(rs.getString(3));//contactUsMail
+				conVO.setContactUsDateS(rs.getString(4));
+				conVO.setContactUsSubject(rs.getString(5));//contactUsSubject
+				conVO.setContactUsContent(rs.getString(6));//contactUsContent
+				conVO.setContactUsReply(rs.getString(7));//contactUsReply
+				list.add(conVO);
+			}
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+			
+		}
+		return list;
+	}
+	
+	@Override
+	public ContactUsVO getOne(String i) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ContactUsVO conVO = new ContactUsVO();
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(getOne);	
+			pstmt.setString(1,i);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				conVO.setContactUsId(rs.getString(1));//contactUsId
+				conVO.setContactUsName(rs.getString(2));//contactUsName
+				conVO.setContactUsMail(rs.getString(3));//contactUsMail
+				conVO.setContactUsDateS(rs.getString(4));
+				conVO.setContactUsSubject(rs.getString(5));//contactUsSubject
+				conVO.setContactUsContent(rs.getString(6));//contactUsContent
+				conVO.setContactUsReply(rs.getString(7));//contactUsReply
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+			
+		}
+		return conVO;
+	}
 }

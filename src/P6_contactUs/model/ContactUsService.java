@@ -37,4 +37,12 @@ public class ContactUsService {
 		return dao.contactUs_Count();
 	}
 	
+	public List<ContactUsVO> getAll(){
+		return dao.getAll();
+	}
+	
+
+	public ContactUsVO getOne(String i){
+		return dao.getOne(i);
+	}
 }

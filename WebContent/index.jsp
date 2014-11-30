@@ -131,7 +131,7 @@
                 <hr />
                 <div class="row">
 	                <div class="col-md-3 col-sm-6 col-xs-6">    
-	               	 	<a href="#" style="text-decoration: none">       
+	               	 	<a href="P1_iud/email_Manage.jsp" style="text-decoration: none">       
 							<div class="panel panel-back noti-box">
 		               			<span class="icon-box bg-color-red set-icon">
 		                   			<i class="fa fa-envelope-o fa-1x" ></i>
