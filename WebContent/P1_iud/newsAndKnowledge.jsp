@@ -12,11 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free Bootstrap Admin Template : Binary Admin</title>
 <%@ page import="java.util.*"%>
-<%@ page import="P1_iud.model.*"%>
+<%@ page import="P6_contactUs.model.*"%>
 <%
-		MemberService memSvc = new MemberService();
-		List<MemberVO> memberList = memSvc.getAll();
-		pageContext.setAttribute("memberList",memberList);
+		ContactUsService conSvc = new ContactUsService();
+		List<ContactUsVO> contactUsS = conSvc.getAll();
+		pageContext.setAttribute("contactUsS",contactUsS);
+		
+		
+		String serverName = request.getServerName() ;
+		int serverPort = request.getServerPort();
+		String contextPath = request.getContextPath();
 %>
  <link href="../css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -125,65 +130,43 @@
             
         </nav>  
 	
-	<div id="page-wrapper">
+<div id="page-wrapper">
 	<div id="page-inner" style="padding-right:1%;">
-	<br>
-	<a href="../" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
-	<br>
-	<br>
-	
-		<table id="example" class="display" cellspacing="0"  >
-        <thead>
-            <tr>
-                <th>會員帳號</th>
-                <th>會員信箱</th>
-                <th>會員權限</th>
-                <th>會員停權</th>
-                <th>會員性別</th>
-                <th>會員建立時間</th>
-                <th>會員資料最後修改時間</th>
-                <th>停權處份</th>
-            </tr>
-        </thead>
- 
-        <tfoot>
-            <tr>
-                <th>會員帳號</th>
-                <th>會員信箱</th>
-                <th>會員權限</th>
-                <th>會員停權</th>
-                <th>會員性別</th>
-                <th>會員建立時間</th>
-                <th>會員資料最後修改時間</th>
-                <th>停權處份</th>
-            </tr>
-        </tfoot>
- 
-        <tbody class="memberListEdit">
-        	<c:forEach var="memberList" items="${memberList}">
-        		<tr>
-        			<td>${memberList.member_loginID}</td>
-        			<td>${memberList.member_email}</td>
-        			<td>${memberList.member_class}</td>
-        			<td>${memberList.member_stop}</td>
-        			<td>${memberList.member_gender}</td>
-        			<td>${memberList.member_buildtime}</td>
-        			<td>${memberList.member_updateTime}</td>
-        			<td>
-        			<c:if test='${fn:trim(memberList.member_stop)=="N"}'>
-        				<input type="button" class="btn btn-danger stop_class" value="停權">
-        			</c:if>
-	         		<c:if test='${fn:trim(memberList.member_stop)=="Y"}'>
-        				<input type="button" class="btn btn-danger open_class" value="解除停權">
-        			</c:if>
-        			</td>
-        		</tr>
-        	</c:forEach>
-        </tbody>
-    </table>
+		<br>
+		<a href="../" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
+		<br><br>
+		<div class="row">
+                	<div class="col-md-6 col-sm-6 col-xs-6">   
+	                	<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">          
+							<div class="panel panel-back noti-box">
+		               			<span class="icon-box bg-color-brown set-icon" style="margin-left:240px;">
+		                    		<i class="fa fa-rocket"></i>
+		                		</span>
+			                	<div class="text-box" >
+			                		<br><br><br><br>
+			                    	<h5 class="main-text" align='center'>最新消息&nbsp;&nbsp;急救小知識<br>管理</h5>
+			                    	<h6 class="text-muted "></h6>
+			                	</div>
+		             		</div>
+	             		</a>  
+			     	</div>
+	                <div class="col-md-6 col-sm-6 col-xs-6">    
+	               	 	<a href="P1_iud/email_Manage.jsp" style="text-decoration: none">       
+							<div class="panel panel-back noti-box">
+		               			<span class="icon-box bg-color-red set-icon" style="margin-left:240px;">
+		                   			<i class="fa fa-envelope-o fa-1x" ></i>
+		                		</span>
+		                		<div class="text-box" >
+		                			<br><br><br><br>
+		                			<h4 class="main-text notReplyMail"  align='center'>無客服訊息需回復</h4>
+		                    		<h6 class="text-muted replyMail"></h6>
+		                		</div>
+		             		</div>
+	             		</a>
+			     	</div>
+		</div><!-- end row  -->
 	</div>
-	</div>
-	</div>
+</div>
 	<!-- /. WRAPPER  -->
 	<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 	<!-- JQUERY SCRIPTS -->
@@ -205,53 +188,7 @@
 	<script>
 		(function($) {
 			 	$('#example').dataTable();
-		     
-// 			    $('#example tbody').on('click', 'tr', function () {
-// 			        var name = $('td', this).eq(0).text();
-// 			        alert( 'You clicked on '+name+'\'s row' );
-// 			    } );
-
-	     		$(".stop_class").click(function(){
-	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
-	     			var stopM = "Y";
-			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
-			     		swal({ title: "Are you sure?",
-					 	text: "確定是否對"+sel+"做出停權處分!!",
-					  	type: "warning",   
-					  	showCancelButton: true,   
-					  	confirmButtonColor: "#DD6B55",   
-					  	confirmButtonText: "Yes, do it!",   
-					  	closeOnConfirm: false }, function(){
-					  		stop_class(sel,stopM,1);
-					  		swal("Success!", "已成功對"+sel+"做出停權處分","success"); 
-					  		setTimeout("self.location.reload()",2000);
-					  	});
-			     		
-	     		});
-	     		
-	     		$(".open_class").click(function(){
-	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
-	     			var openM = "N";
-			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
-			     		swal({ title: "Are you sure?",
-					 	text: "確定是否對"+sel+"解除停權處分!!",
-					  	type: "warning",   
-					  	showCancelButton: true,   
-					  	confirmButtonColor: "#DD6B55",   
-					  	confirmButtonText: "Yes, do it!",   
-					  	closeOnConfirm: false }, function(){
-					  		stop_class(sel,openM,0);
-					  		swal("Success!", "已成功對"+sel+"解除停權處分","success"); 
-					  		setTimeout("self.location.reload()",2000);
-					  	});
-			     		
-	     		});
 		})(jQuery);
-		
-		function stop_class(name,stopType,i){
-			$.get("stopAccount.jsp",{"name":name,"stopType":stopType,"stopMessage":i},function(data){
-    		});
-		}
 	</script>
 </body>
 </html>

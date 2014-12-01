@@ -11,12 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Bootstrap Admin Template : Binary Admin</title>
     <%@ page import="java.util.*" %>
-    <%@ page import="P4_MessageBoard.model.*"%>
+    <%@ page import="P4_MessageBoard.model.*,P3_TravelDiary.model.*"%>
     
 <%
+	//message
 	MsgService msgSvc = new MsgService();
 	List<MsgVO> messagelist = msgSvc.getAll();
 	pageContext.setAttribute("messagelist",messagelist);
+	
+	//blog
+	TravelDiaryService blogSvc = new TravelDiaryService();
+	String blogAllCount = blogSvc.getAllCount();
 %>
 	
 	<!-- BOOTSTRAP STYLES-->
@@ -130,20 +135,35 @@
                  <!-- /. ROW  -->
                 <hr />
                 <div class="row">
-	                <div class="col-md-3 col-sm-6 col-xs-6">    
+                	<div class="col-md-2 col-sm-6 col-xs-6">   
+	                	<a href="P1_iud/newsAndKnowledge.jsp" style="text-decoration: none">          
+							<div class="panel panel-back noti-box">
+		               			<span class="icon-box bg-color-brown set-icon">
+		                    		<i class="fa fa-rocket"></i>
+		                		</span>
+			                	<div class="text-box" >
+			                		<br><br><br><br>
+			                    	<h5 class="main-text" align='center'>最新消息<br>&<br>急救小知識管理</h5>
+			                    	<h6 class="text-muted "></h6>
+			                	</div>
+		             		</div>
+	             		</a>  
+			     	</div>
+	                <div class="col-md-2 col-sm-6 col-xs-6">    
 	               	 	<a href="P1_iud/email_Manage.jsp" style="text-decoration: none">       
 							<div class="panel panel-back noti-box">
 		               			<span class="icon-box bg-color-red set-icon">
 		                   			<i class="fa fa-envelope-o fa-1x" ></i>
 		                		</span>
 		                		<div class="text-box" >
-		                			<p class="main-text notReplyMail">無客服訊息需回復</p>
-		                    		<h4 class="text-muted replyMail"></h4>
+		                			<br><br><br><br>
+		                			<h4 class="main-text notReplyMail">無客服訊息需回復</h4>
+		                    		<h6 class="text-muted replyMail"></h6>
 		                		</div>
 		             		</div>
 	             		</a>
 			     	</div>
-	                <div class="col-md-3 col-sm-6 col-xs-6">       
+	                <div class="col-md-2 col-sm-6 col-xs-6">       
 	                	<a href="P1_iud/member_Manage.jsp" style="text-decoration: none">    
 							<div class="panel panel-back noti-box">
 				                <span class="icon-box bg-color-green set-icon">
@@ -151,34 +171,51 @@
 				                </span>
 				                
 		                		<div class="text-box" >
-				                 	<p class="main-text memberText">總會員人數</p>
-				                    <h4 class="text-muted memberCount"></h4>
+		                			<br><br><br><br>
+				                 	<h4 class="main-text memberText">總會員人數</h4>
+				                    <h6 class="text-muted memberCount"></h6>
 		               			</div>
 		             		</div>
 	             		</a>
 			     	</div>
-	                <div class="col-md-3 col-sm-6 col-xs-6">      
+	                <div class="col-md-2 col-sm-6 col-xs-6">      
 	                	<a href="P1_iud/viewName_Manage.jsp" style="text-decoration: none">        
 							<div class="panel panel-back noti-box">
 				                <span class="icon-box bg-color-blue set-icon">
 				                    <i class="fa fa-bell-o"></i>
 				                </span>
 				                <div class="text-box" >
-				                    <p class="main-text">總景點數量</p>
-				                    <p class="text-muted viewCount"></p>
+				                	<br><br><br><br>
+				                 	<h4 class="main-text">總景點數量</h4>
+				                    <h6 class="text-muted viewCount"></h6>
 				                </div>
 		             		</div>
 	             		</a>
 			     	</div>
-	                <div class="col-md-3 col-sm-6 col-xs-6">   
+	                <div class="col-md-2 col-sm-6 col-xs-6">   
 	                	<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">          
 							<div class="panel panel-back noti-box">
 		               			<span class="icon-box bg-color-brown set-icon">
 		                    		<i class="fa fa-rocket"></i>
 		                		</span>
 			                	<div class="text-box" >
-			                    	<p class="main-text">留言板筆數</p>
-			                    	<p class="text-muted messageCount"></p>
+			                		<br><br><br><br>
+			                    	<h4 class="main-text">留言板筆數</h4>
+			                    	<h6 class="text-muted messageCount"></h6>
+			                	</div>
+		             		</div>
+	             		</a>  
+			     	</div>
+			     	<div class="col-md-2 col-sm-6 col-xs-6">   
+	                	<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">          
+							<div class="panel panel-back noti-box">
+		               			<span class="icon-box bg-color-brown set-icon">
+		                    		<i class="fa fa-rocket"></i>
+		                		</span>
+			                	<div class="text-box" >
+			                		<br><br><br><br>
+			                    	<h4 class="main-text" align='center'>Blog筆數</h4>
+			                    	<h3 class="text-muted blogCount" align='center'>共有<%=blogAllCount%>筆</h3>
 			                	</div>
 		             		</div>
 	             		</a>  

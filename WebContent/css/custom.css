@@ -77,7 +77,7 @@ padding: 20px;
     .noti-box .icon-box {
 display: block;
 float: left;
-margin: 10px 15px 10px 0;
+margin: 10px 15px 10px 35px;/*昱豪   margin: 10px 15px 10px 0;*/
 width: 70px;
 height: 70px;
 line-height: 75px;
