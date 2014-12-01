@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.viewimge{
+	width:100%;
+	height:100px;
+}
+/* .fixli{ */
+/* 	float:left; */
+/* 	border:2px solid red; */
+/* } */
+
+#stickerContainer{
+	width:100%;
+}
+.viewul li { float: left; width: 38%; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;}
+.viewul li h5 { margin: 0 0 0.4em; cursor: move;}
+
+.boardul li { float: left; width: 20%; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;}
+.boardul li h5 { margin: 0 0 0.4em; cursor: move;}
+
+ 
