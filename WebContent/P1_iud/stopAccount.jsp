@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*;" %>
-
+<%@ page import="java.sql.*,
+ javax.naming.Context,
+ javax.naming.InitialContext,
+ javax.sql.DataSource;
+" %>
 <% 
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -12,7 +15,7 @@
 		String serverName =request.getServerName();
 		int serverPort = request.getServerPort();
 		String contextPath = request.getContextPath();
-		String url = "jdbc:sqlserver://" + serverName+ ":1433;DatabaseName=Project_1";
+// 		String url = "jdbc:sqlserver://" + serverName+ ":1433;DatabaseName=Project_1";
 		String query = "update sysmember set member_stop=? where member_loginid = ?";
 		String queryMessage = "update messageboard set message_stop=? where member_loginid = ?";
 		String name = request.getParameter("name").trim();
@@ -21,9 +24,12 @@
 		int count = 0;
 		try{
 			//SQL Server
-			DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-			conn = DriverManager.getConnection(url, "sa", "sa123456");
-			
+// 			DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+// 			conn = DriverManager.getConnection(url, "sa", "sa123456");
+
+			Context context = new InitialContext();
+			DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/Project_1");
+			conn = ds.getConnection();
 			//會員
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1,stopType);

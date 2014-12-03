@@ -6,10 +6,10 @@
 <head>
 	<!-- Bootstrap core CSS -->
 	<!-- Custom styles for this template -->
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/signin.css" rel="stylesheet">
-	<script src="js/ie-emulation-modes-warning.js"></script>
-  	<script src="../js/jquery-1.10.2.js"></script>	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="login_css/signin.css" rel="stylesheet">
+	<script src="login_js/ie-emulation-modes-warning.js"></script>
+  	<script src="js/jquery-1.10.2.js"></script>	
   	
 <style>
 	.form-group .glyphicon {
@@ -77,7 +77,7 @@
 
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 (function ($) {
 	var serverName = "<%= request.getServerName()%>";

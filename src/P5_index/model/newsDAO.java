@@ -258,6 +258,44 @@ public class newsDAO implements newsDAO_interface {
 	}
 	
 	@Override
+	public String getAllCount() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<newsVO> list = new ArrayList<newsVO>();
+		newsVO nsVO =null;
+		String news_Content = null;
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("select count(*) from news;");	
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				news_Content =  rs.getString(1);//news_Content
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return news_Content;
+	}
+	
+	@Override
 	public List<newsVO> getAll() {
 		Connection con = null;
 		PreparedStatement pstmt = null;

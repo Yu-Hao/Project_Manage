@@ -10,4 +10,5 @@ public interface newsDAO_interface {
 	public int insertNews(newsVO nsVO);
 	public int updateNews(newsVO nsVO);
 	public void deleteNews(String news_identity);
+	public String getAllCount();
 }

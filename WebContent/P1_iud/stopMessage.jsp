@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*;" %>
-
+<%@ page import="java.sql.*,
+ javax.naming.Context,
+ javax.naming.InitialContext,
+ javax.sql.DataSource;
+" %>
 <% 
 		String serverName =request.getServerName();
 		int serverPort = request.getServerPort();
@@ -13,16 +16,19 @@
 		ResultSet rs = null;
 		//SQL Server
 		
-		String url = "jdbc:sqlserver://"+serverName+":1433;DatabaseName=Project_1";
+// 		String url = "jdbc:sqlserver://"+serverName+":1433;DatabaseName=Project_1";
 		String query = "update messageboard set message_stop=? where member_loginid = ?";
 		String name = request.getParameter("name");
 		String typeMath = request.getParameter("typeMath").trim();
 		int count = 0;
 		try{
 			//SQL Server
-			DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-			conn = DriverManager.getConnection(url, "sa", "sa123456");
+// 			DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+// 			conn = DriverManager.getConnection(url, "sa", "sa123456");
 		
+			Context context = new InitialContext();
+			DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/Project_1");
+			conn = ds.getConnection();
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1,typeMath);
 			stmt.setString(2,name);

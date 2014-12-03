@@ -109,528 +109,71 @@
                                         <a href="#">Third Level Link</a>
                                     </li>
 
-                                </ul>
-                               
-                            </li>
-                        </ul>
-                      </li>  
-                  <li  >
-                        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	
-                </ul>
-               
-            </div>
-            
-        </nav>  
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-12">
-                     <center>  
-                     	<h2 style="color:red;"><b>後台管理介面</b></h2>
-                     	</center> 
-                    </div>
-                </div>              
-                 <!-- /. ROW  -->
-                <hr />
-                <div class="row">
-                	<div class="col-md-2 col-sm-6 col-xs-6">   
-	                	<a href="P1_iud/newsAndKnowledge.jsp" style="text-decoration: none">          
-							<div class="panel panel-back noti-box">
-		               			<span class="icon-box bg-color-brown set-icon">
-		                    		<i class="fa fa-rocket"></i>
-		                		</span>
-			                	<div class="text-box" >
-			                		<br><br><br><br>
-			                    	<h5 class="main-text" align='center'>最新消息<br>&<br>急救小知識管理</h5>
-			                    	<h6 class="text-muted "></h6>
-			                	</div>
-		             		</div>
-	             		</a>  
-			     	</div>
-	                <div class="col-md-2 col-sm-6 col-xs-6">    
-	               	 	<a href="P1_iud/email_Manage.jsp" style="text-decoration: none">       
-							<div class="panel panel-back noti-box">
-		               			<span class="icon-box bg-color-red set-icon">
-		                   			<i class="fa fa-envelope-o fa-1x" ></i>
-		                		</span>
-		                		<div class="text-box" >
-		                			<br><br><br><br>
-		                			<h4 class="main-text notReplyMail">無客服訊息需回復</h4>
-		                    		<h6 class="text-muted replyMail"></h6>
-		                		</div>
-		             		</div>
-	             		</a>
-			     	</div>
-	                <div class="col-md-2 col-sm-6 col-xs-6">       
-	                	<a href="P1_iud/member_Manage.jsp" style="text-decoration: none">    
-							<div class="panel panel-back noti-box">
-				                <span class="icon-box bg-color-green set-icon">
-				                    <i class="fa fa-bars"></i>
-				                </span>
-				                
-		                		<div class="text-box" >
-		                			<br><br><br><br>
-				                 	<h4 class="main-text memberText">總會員人數</h4>
-				                    <h6 class="text-muted memberCount"></h6>
-		               			</div>
-		             		</div>
-	             		</a>
-			     	</div>
-	                <div class="col-md-2 col-sm-6 col-xs-6">      
-	                	<a href="P1_iud/viewName_Manage.jsp" style="text-decoration: none">        
-							<div class="panel panel-back noti-box">
-				                <span class="icon-box bg-color-blue set-icon">
-				                    <i class="fa fa-bell-o"></i>
-				                </span>
-				                <div class="text-box" >
-				                	<br><br><br><br>
-				                 	<h4 class="main-text">總景點數量</h4>
-				                    <h6 class="text-muted viewCount"></h6>
-				                </div>
-		             		</div>
-	             		</a>
-			     	</div>
-	                <div class="col-md-2 col-sm-6 col-xs-6">   
-	                	<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">          
-							<div class="panel panel-back noti-box">
-		               			<span class="icon-box bg-color-brown set-icon">
-		                    		<i class="fa fa-rocket"></i>
-		                		</span>
-			                	<div class="text-box" >
-			                		<br><br><br><br>
-			                    	<h4 class="main-text">留言板筆數</h4>
-			                    	<h6 class="text-muted messageCount"></h6>
-			                	</div>
-		             		</div>
-	             		</a>  
-			     	</div>
-			     	<div class="col-md-2 col-sm-6 col-xs-6">   
-	                	<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">          
-							<div class="panel panel-back noti-box">
-		               			<span class="icon-box bg-color-brown set-icon">
-		                    		<i class="fa fa-rocket"></i>
-		                		</span>
-			                	<div class="text-box" >
-			                		<br><br><br><br>
-			                    	<h4 class="main-text" align='center'>Blog筆數</h4>
-			                    	<h3 class="text-muted blogCount" align='center'>共有<%=blogAllCount%>筆</h3>
-			                	</div>
-		             		</div>
-	             		</a>  
-			     	</div>
-				</div>
-                 <!-- /. ROW  -->
-                <hr />                
-                <div class="row"> 
-                   	<div class="col-md-9 col-sm-12 col-xs-12">                     
-	                    <div class="panel panel-default">
-	                        <div class="panel-heading">
-	                            Bar Chart Example
-	                        </div>
-	                        <div class="panel-body">
-	                            <div id="morris-bar-chart"></div>
-	                        </div>
-	                    </div>            
-                	</div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">                       
-                    <div class="panel panel-primary text-center no-boder bg-color-green">
-                        <div class="panel-body">
-<!--                   <i class="fa fa-bar-chart-o fa-5x"></i> -->
-<!--                             <h3>線上客服</h3> -->
-                           		 <div id="onlinesvc">
-<!--          							<a href="#" id=""><p>※線上克服</p></a>     -->
-        						</div>
-       
-                        </div>
-                        <div class="panel-footer back-footer-green">
-                            		線上客服
-                        </div>
-                    </div>
-                    <div class="panel panel-primary text-center no-boder bg-color-red">
-                        <div class="panel-body">
-                            <i class="fa fa-edit fa-5x"></i>
-                            <h3>20,000 </h3>
-                        </div>
-                        <div class="panel-footer back-footer-red">
-                            Articles Pending
-                            
-                        </div>
-                    </div>                         
-                        </div>
-                
-           </div>
-                 <!-- /. ROW  -->
-                <div class="row" >
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-  <div class="panel panel-primary text-center no-boder bg-color-green">
-                        <div class="panel-body">
-                            <i class="fa fa-comments-o fa-5x"></i>
-                            <h4>200 New Comments </h4>
-                             <h4>See All Comments  </h4>
-                        </div>
-                        <div class="panel-footer back-footer-green">
-                             <i class="fa fa-rocket fa-5x"></i>
-                            Lorem ipsum dolor sit amet sit sit, consectetur adipiscing elitsit sit gthn ipsum dolor sit amet ipsum dolor sit amet
-                            
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12 col-xs-12">
-               
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                           Responsive Table Example
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
-                                             <th>User No.</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td>100090</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>100090</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                            <td>100090</td>
-                                        </tr>
-                                         <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td>100090</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>100090</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                            <td>100090</td>
-                                        </tr>
+    <div id="" class="">
+      <div class="">
+      	  <div class="col-xs-5"></div>
+          <div class=" col-xs-7">
+              <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理者登入</h2> 
+          </div>
+          <hr>
+           <hr>
+            <hr style="color:red;">
+          <div class="modal-body">
+              <div class="row">
+              	  <div class="col-xs-4"></div>
+                  <div class="col-xs-4">
+                      <div class="well">
+                          <form id="loginForm" method="POST" action="login" novalidate="novalidate">
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Username</label>
+                                  <input type="text" class="form-control" id="inputLoginId" name="inputLoginId" value="" required="" title="Please enter you username" placeholder="請輸入帳號"  autofocus >
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="inputPassword" name="inputPassword" value="" required="" title="Please enter your password" placeholder="請輸入密碼">
+                              </div>
+                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" name="remember" id="remember"> Remember login
+                                  </label>
+                                  <p class="help-block">(if this is a private computer)</p>
+                              </div>
+                              <button type="submit" class="btn btn-success btn-block" id="loginBtn">Login</button>
+                              <input type="hidden" name="action" value="LoginIdCheck">
+                              <h2 style="color:red;">${errorMSG}</h2>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-xs-4"></div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                 <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                   
-                    <div class="chat-panel panel panel-default chat-boder chat-panel-head" >
-                        <div class="panel-heading">
-                            <i class="fa fa-comments fa-fw"></i>
-                            Chat Box
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                                <ul class="dropdown-menu slidedown">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-refresh fa-fw"></i>Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-check-circle fa-fw"></i>Available
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-times fa-fw"></i>Busy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o fa-fw"></i>Away
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-sign-out fa-fw"></i>Sign Out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="panel-body">
-                            <ul class="chat-box">
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="img/1.png" alt="User" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body">                                        
-                                            <strong >Jack Sparrow</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>12 mins ago
-                                            </small>                                      
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
 
-                                        <img src="img/2.png" alt="User" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>13 mins ago</small>
-                                            <strong class="pull-right">Jhonson Deed</strong>
-                                      
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                         <img src="img/3.png" alt="User" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        
-                                            <strong >Jack Sparrow</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>14 mins ago</small>
-                                        
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                         <img src="img/4.png" alt="User" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                      
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>15 mins ago</small>
-                                            <strong class="pull-right">Jhonson Deed</strong>
-                                       
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                    <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="img/1.png" alt="User" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body">                                        
-                                            <strong >Jack Sparrow</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>12 mins ago
-                                            </small>                                      
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                       <img src="img/2.png" alt="User" class="img-circle" />
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i>13 mins ago</small>
-                                            <strong class="pull-right">Jhonson Deed</strong>
-                                      
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
 
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message to send..." />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
-                                        Send
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
+<!-- ***********************script************************** -->
+   
+<!-- jQuery Version 1.11.0 -->
 
-                    </div>
-                    
-                </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                         <div class="panel panel-default">
-                        <div class="panel-heading">
-                           Label Examples
-                        </div>
-                        <div class="panel-body">
-                            <span class="label label-default">Default</span>
-							<span class="label label-primary">Primary</span>
-							<span class="label label-success">Success</span>
-							<span class="label label-info">Info</span>
-							<span class="label label-warning">Warning</span>
-							<span class="label label-danger">Danger</span>
-                        </div>
-                    </div>
-                         
-                         <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Donut Chart Example
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-donut-chart"></div>
-                        </div>
-                    </div>
-                      
-                    </div>
-                </div>     
-                 <!-- /. ROW  -->           
-    </div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
-        </div>
-<!-- /. WRAPPER  -->
-<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-<!-- JQUERY SCRIPTS -->
-<script src="js/jquery-1.10.2.js"></script>
-  <!-- BOOTSTRAP SCRIPTS -->
+<!-- Bootstrap Core JavaScript -->
+<!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.min.js"></script>
-<!-- METISMENU SCRIPTS -->
-<script src="js/jquery.metisMenu.js"></script>
- <!-- MORRIS CHART SCRIPTS -->
- <script src="js/morris/raphael-2.1.0.min.js"></script>
-<script src="js/morris/morris.js"></script>
-  <!-- CUSTOM SCRIPTS -->
-<script src="js/custom.js"></script>
-<script>
+<script type="text/javascript">
 (function ($) {
-	
-/************************************\製作gerSvc讓他不停地去掃資料******************************************************/
-		
-	
-	//SSE服務瀏覽器端實作
-	var getSvcUrl="platform/getSvc.jsp";
-	var source = new EventSource(getSvcUrl);
-	//開啟連結的路徑
-	var url="";
-	//判別是否有傳回相同ID
-	var getID="";
-	source.addEventListener('message', function(e) {
-			  if((e.data).length!=0){
-				  console.log(e.data);
-				  console.log("1"+getID);
-				  //當第一次近來時候一定不一樣所以只會append 一次
-				  if(e.data!=getID){
-					  url="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/Project_1/P9_OnlineService/OnlineService.jsp?svcmember="+e.data+"&admin=admin123";
-					  
-					  $('#onlinesvc').append("<a href='#' style='color:white;text-decoration: none' class='removeSvc' id="+url+"><p>※您有新訊息※</p></a> ");
-					  getID=e.data;
-					  console.log("2"+getID);
-						
-				  }
-<%-- 				  url="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/P9_OnlineService/OnlineService.jsp?svcmember="+e.data; --%>
-// 				  $('#onlinesvc').append("<a href="+url+"><p>※線上克服2</p></a> ");
-// 					$('#tiles').append("<li id='"+item.TravelDiary_ID+"'>"+item.TravelDiary_Content+"<p>"+item.TravelDiary_Name+"</p></li>");
-						  	
-// 				  var notifymsg = JSON.parse(e.data);
-// 				  frdplatform = notifymsg.cooperation_friend;
-// 				  $('#dialog-checkCoFromFrd').dialog('option', 'title', notifymsg.frdName+' 邀請你一起規劃路線');
-// 				  $('#dialog-checkCoFromFrd > h4').text(notifymsg.invite_msg);
-// 				  dialogCoFromFrd.dialog("open");	
+	var serverName = "<%= request.getServerName()%>";
+	var serverPort = "<%= request.getServerPort()%>";
+	var contextPath = "<%= request.getContextPath()%>";
 
-
-			  }else{
-				  console.log("3"+getID);
-				  console.log(e.data);
-				  //當是null時候清空
-				  getID="";
-			  }
-			}, false);
-	var propID='';
-	var servletURL='';
-	//當後臺管理者下超連結的時候將連結取消掉
-	//因為是動態生成的所以要用on來綁他老爸底下小孩有符合.removeSvc都可以使用click的事件
-	$('#onlinesvc').on('click','.removeSvc',(function(){
-		window.open(propID=$(this).prop('id'), "_blank", " top=5, left=50, width=660, height=600");
-		//當按下管理者按下click時候把超連結移除
-		//並去資料庫將這一筆的欄位改成null
-		//這樣在getSvc.jsp就不會傳資料過來
-		propID=$(this).prop('id');
-		$(this).remove();
-		
-//		應該是要在關閉服務的時候再update null字串(所以是在StoryWebSocket這裡)		
-// 		servletURL = "P9_OnlineService/OnlineServiceServlet";
-//   		$.ajax({
-//     		"type": 'post',
-//       		"url": servletURL,
-//       		"data": {"action":"changeToNULL", "svcID":propID},
-//       		"dataType":"text",
-//       		"async":false,
-//       		"success":function(datas){
-      			
-//      		}
-//      	});
-		
-  		
-		
-	}));
-	/************************************\製作gerSvc讓他不停地去掃資料******************************************************/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//照片輪播間格秒數
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    });
+  //照片輪播間格秒數
+  
   //上方工具列滑鼠滑入自動彈出
     $('.nav .dropdown').hover(function() {
             $(this).addClass('open');
@@ -638,42 +181,46 @@
             $(this).removeClass('open');
         });
   //上方工具列滑鼠滑入自動彈出
-    
-  	var serverName = "<%= request.getServerName()%>";
-	var serverPort = "<%= request.getServerPort()%>";
-	var contextPath = "<%= request.getContextPath()%>";
-
-	//E-mail計數
-	var contactUsUrl = "/Project_Manage/P6_contactUs/ContactUsServlet";
-   	$.getJSON(contactUsUrl,{'action':'contactUs_Count'}, function(datas){
-   		$.each(datas,function(i,item){
-   			//alert(item.count);
-   			$(".notReplyMail").html("待回復訊息:");
-   			$(".replyMail").html("<h3 align='center'>"+item.contactCount+"則</h3>");
-   			
-   		});
-   	});
-   	
- 	//會員計數
-   	var memberUrl = "/Project_Manage/P1_iud/IUDServlet";
-   	$.getJSON(memberUrl,{'action':'member_Count'}, function(datas){
-   		$.each(datas,function(i,item){
-   			$(".memberCount").html("<h3 align='center'>"+item.member_Count+"人</h3>");
-   		});
-   	});
-
-  	//景點計數
-	var imageUrl = "/Project_Manage/P2_route/ImgTop6servlet";
-   	$.getJSON(imageUrl,{'action':'img_Count'}, function(datas){
-   		$.each(datas,function(i,item){
-   			$(".viewCount").html("<h3 align='center'>"+item.viewNameCount+"處</h3>");
-   		});
-   	});
-   
-   	$(".messageCount").html("<h3 align='center'>共有"+<%=messagelist.size()%>+"筆</h3>");
+  
+  //登入處裡*****************************
+  	
+    $("#loginBtn").click(function(){
+    	
+    	$("#errorId").html("");
+    	$("#errorPassword").html("");
+    	var loginId = $("#inputLoginId").val();
+    	var password = $("#inputPassword").val();
+    	if($.trim(loginId).length==0){
+    		$("#errorId").html("&nbsp;帳號欄位不能空白!!");
+    		return false;
+    	}
+    	else if($.trim(password).length == 0){
+    		$("#errorPassword").html("&nbsp;密碼欄位不能空白!!");
+    		return false;
+    	}
+    	
+    	//return true;
+    });
+  	
+  
+  
+  
+	$(".noLogin").click(function(){	
+		//alert("請先登入會員!!");
+		sweetAlert("此功能需先行登入會員!!","","warning");
+		$("#ok_btn123456").click(function(){
+			window.location.href="http://"+serverName+":"+ serverPort + contextPath +"/index.jsp";
+		});
+			
+	});
 	
-   	//setTimeout("self.location.reload()",5000);
-})(jQuery);   
-</script>   
+
+	
+})(jQuery);
+
+		
+ 	
+</script>
+
 </body>
 </html>

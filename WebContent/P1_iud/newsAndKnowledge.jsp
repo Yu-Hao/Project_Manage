@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Free Bootstrap Admin Template : Binary Admin</title>
 <%@ page import="java.util.*"%>
-<%@ page import="P6_contactUs.model.*"%>
+<%@ page import="P6_contactUs.model.*,P5_index.model.*"%>
 <%
 		ContactUsService conSvc = new ContactUsService();
 		List<ContactUsVO> contactUsS = conSvc.getAll();
@@ -22,6 +22,13 @@
 		String serverName = request.getServerName() ;
 		int serverPort = request.getServerPort();
 		String contextPath = request.getContextPath();
+		
+		
+		knowledgeDAO klDAO = new knowledgeDAO();
+		String knowledgeCount = klDAO.getAllCount();
+		
+		newsDAO newsDAO = new newsDAO();
+		String newsCount = newsDAO.getAllCount();
 %>
  <link href="../css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -145,7 +152,14 @@
 			                	<div class="text-box" >
 			                		<br><br><br><br>
 			                    	<h5 class="main-text" align='center'>最新消息&nbsp;&nbsp;管理</h5>
-			                    	<h6 class="text-muted "></h6>
+			                    	<h3 class="text-muted " align='center'>
+			                    		<c:if test='<%=!newsCount.equals("0")%>'>
+			                    			共<%=newsCount%>筆
+			                    		</c:if>
+			                    		<c:if test='<%=newsCount.equals("0")%>'>
+			                    			尚無資料
+			                    		</c:if>
+			                    	</h3>
 			                	</div>
 		             		</div>
 	             		</a>  
@@ -159,7 +173,14 @@
 		                		<div class="text-box" >
 		                			<br><br><br><br>
 		                			<h4 class="main-text notReplyMail"  align='center'>急救小知識&nbsp;&nbsp;管理</h4>
-		                    		<h6 class="text-muted replyMail"></h6>
+		                    		<h3 class="text-muted replyMail" align='center'>
+		                    			<c:if test='<%=!knowledgeCount.equals("0")%>'>
+			                    			共<%=knowledgeCount%>筆
+			                    		</c:if>
+			                    		<c:if test='<%=knowledgeCount.equals("0")%>'>
+			                    			尚無資料
+			                    		</c:if>
+		                    		</h3>
 		                		</div>
 		             		</div>
 	             		</a>
