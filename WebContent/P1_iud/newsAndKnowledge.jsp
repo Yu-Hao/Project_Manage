@@ -154,7 +154,7 @@
 			                    	<h5 class="main-text" align='center'>最新消息&nbsp;&nbsp;管理</h5>
 			                    	<h3 class="text-muted " align='center'>
 			                    		<c:if test='<%=!newsCount.equals("0")%>'>
-			                    			共<%=knowledgeCount%>筆
+			                    			共<%=newsCount%>筆
 			                    		</c:if>
 			                    		<c:if test='<%=newsCount.equals("0")%>'>
 			                    			尚無資料
