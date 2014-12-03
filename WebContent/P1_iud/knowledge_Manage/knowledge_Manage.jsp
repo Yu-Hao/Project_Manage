@@ -167,9 +167,12 @@
         </tfoot>
  
         <tbody class="klVOEdit">
+         <%int memCount=0; %>
         	<c:forEach var="klVO" items="${klVO}">
         		<tr>
-        			<td>${klVO.knowledge_identity}</td>
+        			<%memCount++;%>
+        			<td><%=memCount%></td>
+<%--         			<td>${klVO.knowledge_identity}</td> --%>
         			<td>${klVO.knowledge_type}</td>
         			<td>${klVO.knowledge_title}</td>
         			<td>${klVO.knowledge_content}</td>
@@ -178,7 +181,10 @@
 <%--         			<td>${klVO.knowledge_ImgFormat}</td> --%>
         			<td>${klVO.knowledge_build}</td>
 <!--         		<td><input type="button" class="btn btn-danger" value="維護" ></td> -->
-					<td><a href="../updateServlet?name=updateKnowledge&id=${klVO.knowledge_identity}"><input type="button"  class="btn btn-danger" value="修改" ></a></td> 
+					<td>
+						<a href="../updateServlet?name=updateKnowledge&id=${klVO.knowledge_identity}"><input type="button"  class="btn btn-danger" value="修改" ></a>
+						<input type="button"  class="btn btn-danger deleteBtn" id="${klVO.knowledge_identity}" value="刪除" >
+					</td> 
         		</tr>
         	</c:forEach>
         </tbody>
@@ -207,7 +213,30 @@
 	<script>
 		(function($) {
 			 	$('#example').dataTable();
+			 	$(".deleteBtn").click(function(){
+			 		//var sel = $(this).closest('tr').find('td:nth-child(1)').text();
+	     			var sel = $(this).attr("id");
+	     			alert(sel);
+			     		swal({ title: "Are you sure?",
+					 	text: "確定是否刪除第"+sel+"筆小知識!!",
+					  	type: "warning",   
+					  	showCancelButton: true,   
+					  	confirmButtonColor: "#DD6B55",   
+					  	confirmButtonText: "Yes, do it!",   
+					  	closeOnConfirm: false }, function(){
+					  		stop_class(sel);
+					  		swal("Success!", "已成功刪除第"+sel+"筆小知識!!","success"); 
+					  		setTimeout("self.location.reload()",2000);
+					  	});
+	     		});
 		})(jQuery);
+		
+		function stop_class(name){
+			$.get("stopKnowledge.jsp",{"name":name},function(data){
+    		});
+		}
+			 	
+			 	
 	</script>
 </body>
 </html>

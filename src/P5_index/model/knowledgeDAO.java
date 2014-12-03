@@ -280,4 +280,44 @@ public class knowledgeDAO implements knowledgeDAO_interface {
 		
 		return klVO;
 	}
+	
+	
+	public String getAllCount() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		knowledgeVO klVO =null;
+		String knowledgeCount=null;
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("select count(*) from knowledge;");	
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				knowledgeCount = rs.getString(1);
+			}
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return knowledgeCount;
+	}
 }

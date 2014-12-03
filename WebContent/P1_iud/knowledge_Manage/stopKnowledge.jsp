@@ -30,15 +30,15 @@
 		OutputStream os = null;
 		PreparedStatement pstmt = null;
 		
-		String news_identity = request.getParameter("name");
+		String knowledge_identity = request.getParameter("name");
 		
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/Project_1");
 			conn = ds.getConnection();
 		
-			pstmt = conn.prepareStatement("delete from news where news_identity = ? ;");	
-			pstmt.setString(1,news_identity);
+			pstmt = conn.prepareStatement("delete from knowledge where knowledge_identity = ? ;");	
+			pstmt.setString(1,knowledge_identity);
 			pstmt.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

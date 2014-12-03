@@ -168,7 +168,7 @@
         		<tr>
         			<%memCount++;%>
         			<td><%=memCount%></td>
-<%--         		<td>${nsVO.news_identity}</td> --%>
+<%--         			<td>${nsVO.news_identity}</td> --%>
         			<td>${nsVO.news_title}</td>
         			<td>${nsVO.news_Content}</td>
         			<td>${nsVO.news_date}</td>
@@ -178,7 +178,8 @@
 <!--         			</td> -->
 					<td>
 						<a href="../updateServlet?name=updateNews&id=${nsVO.news_identity}"><input type="button"  class="btn btn-danger" value="修改" ></a>
-						<a href="<%=request.getContextPath()%>/newsServlet?action=deleteNews&id=${nsVO.news_identity}"><input type="button"  class="btn btn-danger deleteBtn" value="刪除" ></a>
+<%-- 						<a href="<%=request.getContextPath()%>/newsServlet?action=deleteNews&id=${nsVO.news_identity}"><input type="button"  class="btn btn-danger deleteBtn" value="刪除" ></a> --%>
+						<input type="button"  class="btn btn-danger deleteBtn" id="${nsVO.news_identity}" value="刪除" >
 					</td>
         		</tr>
         	</c:forEach>
@@ -208,27 +209,25 @@
 	<script>
 		(function($) {
 			 	$('#example').dataTable();
-			 	$(".open_class").click(function(){
-	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
-	     			var openM = "N";
+			 	$(".deleteBtn").click(function(){
+// 	     			var sel = $(this).closest('tr').find('td:nth-child(1)').text();
+	     			var sel = $(this).attr("id");
 			    	 //console.log($(this).closest('tr').find('td:eq(0)').text());
 			     		swal({ title: "Are you sure?",
-					 	text: "確定是否對"+sel+"解除停權處分!!",
+					 	text: "確定是否刪除第"+sel+"筆最新消息!!",
 					  	type: "warning",   
 					  	showCancelButton: true,   
 					  	confirmButtonColor: "#DD6B55",   
 					  	confirmButtonText: "Yes, do it!",   
 					  	closeOnConfirm: false }, function(){
-					  		stop_class(sel,openM,0);
-					  		swal("Success!", "已成功對"+sel+"解除停權處分","success"); 
+					  		stop_class(sel);
+					  		swal("Success!", "已成功刪除第"+sel+"筆最新消息!!","success"); 
 					  		setTimeout("self.location.reload()",2000);
 					  	});
-			     		
 	     		});
-			 	
 		})(jQuery);
 		
-		function stop_class(name,stopType,i){
+		function stop_class(name){
 			$.get("stopNews.jsp",{"name":name},function(data){
     		});
 		}

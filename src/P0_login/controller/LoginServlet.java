@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 		if("logOut".equals(action)){
 			HttpSession session = request.getSession();					
 			session.invalidate();
-			response.sendRedirect(path+"/index.jsp");
+			response.sendRedirect("index.jsp");
 			return;
 		}
 		
@@ -75,14 +75,14 @@ public class LoginServlet extends HttpServlet {
 				if (userId == null || userId.trim().length() == 0) {
 					request.setAttribute("errorMsgId", "帳號不可為空值或空白!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("/index.jsp");
 					rd.forward(request, response);					
 				}
 				
 				if (password == null || password.trim().length() == 0) {
 					request.setAttribute("errorMsgPwd", "密碼不可為空值或空白!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("/index.jsp");
 					rd.forward(request, response);
 				}
 				
@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet {
 				if(mb == null && userId != null){
 					request.setAttribute("errorMsgId", "無此會員帳號");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("/index.jsp");
 					rd.forward(request, response);
 				}
 				
@@ -111,13 +111,13 @@ public class LoginServlet extends HttpServlet {
 					//RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 					//rd.forward(request, response);
 					
-					response.sendRedirect(path+"/index.jsp");
+					response.sendRedirect("index2.jsp");
 					return;
 				} 
 				else {
 					request.setAttribute("errorMSG", "帳密錯誤 或 權限不足");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
 				}
 			} catch (Exception e) {

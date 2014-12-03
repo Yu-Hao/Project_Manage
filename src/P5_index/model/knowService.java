@@ -167,7 +167,7 @@ public class knowService {
 					   klVO.setKnowledge_build(java.sql.Date.valueOf(value));
 				   }
 				}
-				System.out.printf("%-15s %-15s %8d  %-20s \n", name, contentType, size, value);
+//				System.out.printf("%-15s %-15s %8d  %-20s \n", name, contentType, size, value);
 			}
 			
 //			System.out.println("1="+klVO.getKnowledge_title());
