@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
@@ -15,7 +17,26 @@
 <!-- GOOGLE FONTS-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans'
 	rel='stylesheet' type='text/css' />
-
+<%@ page import="java.util.*,P10_Chart.model.*"%>	
+<%  
+	eachAreaTopOneDAO topDAO = new eachAreaTopOneDAO();
+	List<eachAreaTopOneVO> listCount = new ArrayList<eachAreaTopOneVO>();
+	listCount = topDAO.getTopOne();
+	int i2=0;
+	String p0=null;String p1=null;String p2=null;String p3=null;
+	for(eachAreaTopOneVO p:listCount){
+		if(i2==0)
+			p0= p.getView_hitrate();
+		if(i2==1)
+			p1= p.getView_hitrate();
+		if(i2==2)
+			p2= p.getView_hitrate();
+		if(i2==3)
+			p3= p.getView_hitrate();
+		i2++;
+	}
+	
+%>
 </head>
 <body>
 	<div id="wrapper">
@@ -50,7 +71,7 @@
 							UI Elements</a></li>
 					<li><a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i>
 							Tabs & Panels</a></li>
-					<li><a class="active-menu" href="chart.html"><i
+					<li><a class="active-menu" href="chart.jsp"><i
 							class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a></li>
 					<li><a href="table.html"><i class="fa fa-table fa-3x"></i>
 							Table Examples</a></li>
@@ -117,7 +138,7 @@
 
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-default">
-							<div class="panel-heading">Donut Chart Example</div>
+							<div class="panel-heading">旅遊地區點擊率統計</div>
 							<div class="panel-body">
 								<div id="morris-donut-chart"></div>
 							</div>
@@ -155,41 +176,38 @@
 
 	<script>
 	(function ($) {
+	//先var變數到外面之後才可以給圓餅圖使用	
+	var team = new Array();
+	//因為圓餅圖網頁一載入時候就會執行所以我撈資料庫的值必須比他之前要先執行
+	//所以先包成function並讓ajax設定改成非同步
+	function gethit(){
 		
-		var north="";
-		var center="";
-		var south="";
-		var east="";
-		var hitArr=new Array();　
 		//去資料庫撈點擊率前4名
 		$.ajax({ 
  			"url": "getEachAreaTopOneServlet",
  			"type":"post",
  			"data":{'action':'getEachTopOne'},
  			"dataType":"text",
+ 			"async": false,
  			"success":function(datas){
  				var myObject = JSON.parse(datas); 
  				$.each(myObject,function(i,item){
  					if(i==0){
- 						north=item.北部;
+ 						team[0]=item.北部;
  					}
  					if(i==1){
- 						center=item.中部;
+ 						team[1]=item.中部;
  					}
  					if(i==2){
- 						south=item.南部;
+ 						team[2]=item.南部;
  					}
  					if(i==3){
- 						east=item.東部;
+ 						team[3]=item.東部;
  					}
  				});
  			}
  		});	 
-		
-		
-		
-		
-		
+	}	
 	    "use strict";
 	    var mainApp = {
 
@@ -250,31 +268,31 @@
 	                hideHover: 'auto',
 	                resize: true
 	            });
-
+	    		
 	            /*====================================
-	          MORRIS DONUT CHART
+	          				MORRIS DONUT CHART
 	      		 ======================================*/
 	            Morris.Donut({
 	                element: 'morris-donut-chart',
 	                data: [{
 	                    label: "北部",
-	                    value: 1
+	                    value: team[0]
 	                }, {
 	                    label: "中部",
-	                    value: 2
+	                    value: team[1]
 	                }, {
 	                    label: "南部",
-	                    value: 3
+	                    value: team[2]
 	                }, {
-	                    label: "Hello",
-	                    value: 4   
+	                    label: "東部",
+	                    value: team[3]  
 	                }],
 	                resize: true
 	            });
-
+	            
 	            /*====================================
-	         MORRIS AREA CHART
-	      ======================================*/
+	         			MORRIS AREA CHART
+	      		======================================*/
 
 	            Morris.Area({
 	                element: 'morris-area-chart',
@@ -338,8 +356,8 @@
 	            });
 
 	            /*====================================
-	    MORRIS LINE CHART
-	 ======================================*/
+	   					 MORRIS LINE CHART
+				 ======================================*/
 	            Morris.Line({
 	                element: 'morris-line-chart',
 	                data: [{
@@ -390,6 +408,7 @@
 	    // Initializing ///
 
 	    $(document).ready(function () {
+	    	gethit();
 	        mainApp.main_fun();
 	    });
 
