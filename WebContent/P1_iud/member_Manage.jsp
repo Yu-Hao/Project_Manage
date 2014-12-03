@@ -35,6 +35,7 @@
 <!-- <link href="css/style.css" rel='stylesheet' type='text/css' /> -->
 <link href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
+<link rel="stylesheet" href="css/table_yuHao.css">
 	
 </head>
 <body>

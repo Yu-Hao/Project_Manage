@@ -34,6 +34,7 @@
 <!-- <link href="css/style.css" rel='stylesheet' type='text/css' /> -->
 <link href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
+<link rel="stylesheet" href="css/table_yuHao.css">
 	
 </head>
 <body>
@@ -128,7 +129,7 @@
 	<div id="page-inner" style="padding-right:1%;">
 	<br>
 	<a href="../" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
-	<a href="addView.jsp"><input type="button"  class="btn btn-danger" value="新增" style="float:right;"></a>
+	<a href="addView.jsp"><input type="button"  class="btn btn-danger btn-lg" value="新增" style="float:right;"></a>
 	<br>
 	<br>
 		<table id="example" class="display" cellspacing="0"  >

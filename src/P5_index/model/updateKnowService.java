@@ -1,4 +1,4 @@
-package P1_iud.model;
+package P5_index.model;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import javax.xml.bind.DatatypeConverter;
 
-public class GlobalService {
+public class updateKnowService {
 	public static final int    RECORDS_PER_PAGE = 3;
 	public static final String host = "127.0.0.1";
 	public static final String USERID = "sa";
@@ -30,7 +30,6 @@ public class GlobalService {
 	public static final String SYSTEM_NAME = "書豪網路購物商城";
 	public static final String JNDI_DB_NAME = "java:comp/env/jdbc/BookDataSQLver";
 	public static final int IMAGE_FILENAME_LENGTH = 20;
-	public static final String DB_URL = "jdbc:sqlserver://" + GlobalService.host + ":1433;databaseName=JSPDB" ;
 	public static final String KEY = "KittySnoopyMicky";
 	
 	public static final String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -124,11 +123,11 @@ public class GlobalService {
 		return null;
 	}
 	// 此方法可檢視上傳資料的每個欄位與每個檔案，
-	public static void exploreParts(Collection<Part> parts, HttpServletRequest req){
-		imginfoVO imgVO = new imginfoVO();
-		viewnameVO viewVO = new viewnameVO();
+	public static void exploreParts(Collection<Part> parts, HttpServletRequest req , String id){
+		knowledgeVO klVO = new knowledgeVO();
 		int imgCount = 0;
-		int viewCount = 0;
+		int knowledgeCount = 0;
+		
 		try {
 			for (Part part: parts){
 				String name = part.getName();
@@ -138,90 +137,60 @@ public class GlobalService {
 				InputStream is =part.getInputStream();
 				if (contentType != null) { // 表示該part為檔案
 				   // 取出上傳檔案的檔名
-				   String filename =  GlobalService.getFileName(part);
+				   String filename =  updateKnowService.getFileName(part);
 				   // 將上傳的檔案寫入到location屬性所指定的資料夾
 				   if (filename != null && filename.trim().length() > 0) {
 					   part.write(filename);		
 				   }
 				   value = filename;
 				   imgCount++;
-					if(imgCount == 1){
-						imgVO.setPic1(value);
-						imgVO.setIs1(is);
-						imgVO.setSize1(size);
-					}
-					if(imgCount == 2){
-						imgVO.setPic2(value);
-						imgVO.setIs2(is);
-						imgVO.setSize2(size);
-					}
-					if(imgCount == 3){
-						imgVO.setPic3(value);
-						imgVO.setIs3(is);
-						imgVO.setSize3(size);
-					}
-					
+				   
+				   String imgName = value.substring(0,(value.lastIndexOf(".")));
+				   String img_format = value.substring((value.lastIndexOf("."))+1);
+				   klVO.setKnowledge_imgName(imgName);
+				   
+				   klVO.setSize(size);
+				   klVO.setIs(is);
+				   klVO.setKnowledge_ImgFormat(img_format);
 				} else {  // 表示該part為一般的欄位
 				   // 將上傳的欄位資料寫入到location屬性所指定的資料夾，檔名為"part_"+ name
 				   part.write("part_"+ name);	
 				   value = req.getParameter(name);
-				   
-				   viewCount++;
-					if(viewCount == 1){
-						viewVO.setViewID(value);
-					}
-					if(viewCount == 2){
-						viewVO.setViewname(value);
-					}
-					if(viewCount == 3){
-						viewVO.setViewArea(value);
-					}
-					if(viewCount == 4){
-						viewVO.setViewAddr(value);
-					}
-					if(viewCount == 5){
-						viewVO.setViewlng(value);
-					}
-					if(viewCount == 6){
-						viewVO.setViewlat(value);
-					}
-					if(viewCount == 7){
-						imgVO.setImgDescript1(value);
-					}
-					if(viewCount == 8){
-						imgVO.setImgDescript2(value);
-					}
-					if(viewCount == 9){
-						imgVO.setImgDescript3(value);
-					}
+				   knowledgeCount++;
+				   if(knowledgeCount == 1){
+					   klVO.setKnowledge_title(value);
+				   }
+				   if(knowledgeCount == 2){
+					   klVO.setKnowledge_content(value);	   
+				   }
+				   if(knowledgeCount == 3){
+					   klVO.setKnowledge_build(java.sql.Date.valueOf(value));
+				   }
 				}
 				System.out.printf("%-15s %-15s %8d  %-20s \n", name, contentType, size, value);
-				
 			}
 			
-			String viewIdPK = (viewVO.getViewID()).substring(2,(viewVO.getViewID()).lastIndexOf("_"));
+//			System.out.println("1="+klVO.getKnowledge_title());
+//			System.out.println("1="+klVO.getKnowledge_content());
+//			System.out.println("1="+klVO.getKnowledge_imgName());
+//			System.out.println("1="+klVO.getKnowledge_build());
+//			System.out.println("1="+klVO.getKnowledge_ImgFormat());
+//			System.out.println("1="+klVO.getIs());
+//			System.out.println("id="+id);
+//			System.out.println(klVO.getK);
+//			System.out.println(klVO.getK);
 			
-			String imgPK1 =imgVO.getPic1().substring(0,imgVO.getPic1().lastIndexOf("."));
-			String imgPK2 =imgVO.getPic2().substring(0,imgVO.getPic2().lastIndexOf("."));
-			String imgPK3 =imgVO.getPic3().substring(0,imgVO.getPic3().lastIndexOf("."));
-			viewnameService vnSvc = new viewnameService();
-			String successMsg = vnSvc.insert(viewIdPK,viewVO.getViewname(),viewVO.getViewArea()
-											,viewVO.getViewAddr(),viewVO.getViewlng(),viewVO.getViewlat());
+			new knowledgeDAO().updateKnowledge(
+					klVO.getKnowledge_title(),
+					klVO.getKnowledge_content(),
+					klVO.getKnowledge_imgName(),
+					klVO.getIs(),
+					klVO.getSize(),
+					klVO.getKnowledge_ImgFormat(),
+					klVO.getKnowledge_build(),
+					id
+					);
 			
-			System.out.println("successMsg = " + successMsg);
-			
-			System.out.println("pic1ImagesPK= "+imgVO.getPic1());
-			imginfoDAO imgDAO = new imginfoDAO();
-			String successImagesMsg = imgDAO.insertImg(imgPK1,viewIdPK,imgVO.getImgDescript1(),imgVO.getIs1(),imgVO.getSize1(),"jpg");
-			System.out.println("pic1 = "+ successImagesMsg);
-			
-			System.out.println("pic2ImagesPK= "+imgVO.getPic2());
-			successImagesMsg = imgDAO.insertImg(imgPK2,viewIdPK,imgVO.getImgDescript2(),imgVO.getIs2(),imgVO.getSize2(),"jpg");
-			System.out.println("pic2 = "+ successImagesMsg);
-			
-			System.out.println("pic3ImagesPK= "+imgVO.getPic3());
-			successImagesMsg = imgDAO.insertImg(imgPK3,viewIdPK,imgVO.getImgDescript3(),imgVO.getIs3(),imgVO.getSize3(),"jpg");
-			System.out.println("pic3 = "+ successImagesMsg);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

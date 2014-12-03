@@ -137,28 +137,28 @@
 		<br><br>
 		<div class="row">
                 	<div class="col-md-6 col-sm-6 col-xs-6">   
-	                	<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">          
+	                	<a href="news_Manage/news_Manage.jsp" style="text-decoration: none">          
 							<div class="panel panel-back noti-box">
 		               			<span class="icon-box bg-color-brown set-icon" style="margin-left:240px;">
 		                    		<i class="fa fa-rocket"></i>
 		                		</span>
 			                	<div class="text-box" >
 			                		<br><br><br><br>
-			                    	<h5 class="main-text" align='center'>最新消息&nbsp;&nbsp;急救小知識<br>管理</h5>
+			                    	<h5 class="main-text" align='center'>最新消息&nbsp;&nbsp;管理</h5>
 			                    	<h6 class="text-muted "></h6>
 			                	</div>
 		             		</div>
 	             		</a>  
 			     	</div>
 	                <div class="col-md-6 col-sm-6 col-xs-6">    
-	               	 	<a href="P1_iud/email_Manage.jsp" style="text-decoration: none">       
+	               	 	<a href="knowledge_Manage/knowledge_Manage.jsp" style="text-decoration: none">       
 							<div class="panel panel-back noti-box">
 		               			<span class="icon-box bg-color-red set-icon" style="margin-left:240px;">
 		                   			<i class="fa fa-envelope-o fa-1x" ></i>
 		                		</span>
 		                		<div class="text-box" >
 		                			<br><br><br><br>
-		                			<h4 class="main-text notReplyMail"  align='center'>無客服訊息需回復</h4>
+		                			<h4 class="main-text notReplyMail"  align='center'>急救小知識&nbsp;&nbsp;管理</h4>
 		                    		<h6 class="text-muted replyMail"></h6>
 		                		</div>
 		             		</div>

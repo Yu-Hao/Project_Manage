@@ -128,4 +128,8 @@ public class viewnameService {
 	public String getViewDetailByViewID(String viewID){
 		return dao.getViewDetailByViewID(viewID);
 	}
+	
+	public List<viewnameVO> getViewAll(){
+		return dao.getViewAll();
+	}
 }

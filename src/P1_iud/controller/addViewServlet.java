@@ -49,8 +49,7 @@ import P1_iud.model.*;
 public class addViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String> errorMsgs = new HashMap<String, String>();
 		Map<String, String> successMsgs = new HashMap<String, String>();
 		request.setCharacterEncoding("UTF-8");

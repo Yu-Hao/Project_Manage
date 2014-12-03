@@ -31,4 +31,36 @@
     <servlet-name>addView</servlet-name>
     <url-pattern>/P1_iud/addView</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>addNews</servlet-name>
+    <servlet-class>P5_index.controller.newsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addNews</servlet-name>
+    <url-pattern>/P1_iud/news_Manage/addNews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updateNews</servlet-name>
+    <servlet-class>P5_index.controller.newsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateNews</servlet-name>
+    <url-pattern>/P1_iud/news_Manage/updateNews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addKnowledge</servlet-name>
+    <servlet-class>P5_index.controller.knowledgeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addKnowledge</servlet-name>
+    <url-pattern>/P1_iud/knowledge_Manage/addKnowledge</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updateKnowledge</servlet-name>
+    <servlet-class>P5_index.controller.knowledgeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateKnowledge</servlet-name>
+    <url-pattern>/P1_iud/knowledge_Manage/updateKnowledge</url-pattern>
+  </servlet-mapping>
 </web-app>

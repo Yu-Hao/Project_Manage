@@ -43,6 +43,22 @@ public class updateServlet extends HttpServlet {
 			response.sendRedirect("updateView.jsp");
 			return;
 		}
+		
+		if("updateKnowledge".equals(name)){
+			HttpSession sion = request.getSession();
+			String id = request.getParameter("id");
+			sion.setAttribute("id", id);
+			response.sendRedirect("knowledge_Manage/updateKnowledge.jsp");
+			return;
+		}
+		
+		if("updateNews".equals(name)){
+			HttpSession sion = request.getSession();
+			String id = request.getParameter("id");
+			sion.setAttribute("id", id);
+			response.sendRedirect("news_Manage/updateNews.jsp");
+			return;
+		}
 	}
 
 	/**

@@ -22,5 +22,6 @@ public interface viewnameDAO_interface {
     public Integer increaseHitRate(String routeResultView, Integer hitRate);
     public Integer getHitRate(String routeResultView);
     public String getViewDetailByViewID(String viewID);
-   
+    public List<viewnameVO> getViewAll();
+    
 }

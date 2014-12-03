@@ -89,7 +89,6 @@ public class OnlineServiceDAO implements OnlineService_Interface{
 			while(rs.next()){
 				memOnline=rs.getString(1);
 			}		
-//			System.out.println("DAO"+memOnline);
 		}catch(SQLException e){
 			throw new RuntimeException("A database error occured."+e.getMessage());
 		}finally{

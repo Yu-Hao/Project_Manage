@@ -50,6 +50,7 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_VIEWHITRATE_STMT_VIEWID ="SELECT view_HitRate FROM viewname where viewID = ?";
 	private static final String GET_VIEWDETAIL_STMT_VIEWID ="SELECT top(1) viewID, viewname, viewaddr, imgDescript FROM viewname JOIN images ON viewname.viewID=images.imagesName WHERE viewID= ?";
 	private static final String viewName_count ="select * from viewName;";
+	private static final String viewName_All ="select * from viewName;";
 	
 	@Override
 	public void insert(viewnameVO vnVO) {
@@ -835,5 +836,49 @@ try{
 			
 		}
 		return viewName_Counts;
+	}
+	
+
+	@Override
+	public List<viewnameVO> getViewAll() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<viewnameVO> list = new ArrayList<viewnameVO>();
+		viewnameVO vnVO = null;
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(viewName_All);	
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				vnVO = new viewnameVO();
+				vnVO.setViewID(rs.getString("viewID"));
+				vnVO.setViewname(rs.getString("viewName"));
+				list.add(vnVO);
+			}
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return list;
 	}
 }
