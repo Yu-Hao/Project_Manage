@@ -22,7 +22,7 @@
 			</div>
 			<div
 				style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-		 			管理者，${userName}&nbsp;您好!!&nbsp; <a href="<%=contextPath%>/LoginServlet?action=logOut" class="btn btn-danger square-btn-adjust">Logout</a>
+		 			管理者，${userName}&nbsp;您好!!&nbsp; <a href="<%=contextPath%>/LoginServlet?action=logOut" class="btn btn-warning square-btn-adjust">Logout</a>
 			</div>
 		</nav>
 		<!-- /. NAV TOP  -->

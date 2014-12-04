@@ -35,10 +35,15 @@
      <!-- GOOGLE FONTS-->
 <!--    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
  	<link href='css/googleapis.css' rel='stylesheet' type='text/css' />
+ 	 <style>
+ 	 	body {
+ 		 	background-image: url("img/background.png");
+ 		 }
+ 	 </style>
 </head>
 <body>
     <br><br>
-    <div id="" class="">
+    <div id="" class="aa123">
       <div class="">
       	  <div class="col-xs-5"></div>
           <div class=" col-xs-7">

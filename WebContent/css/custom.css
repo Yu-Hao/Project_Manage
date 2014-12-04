@@ -17,9 +17,10 @@ body {
 }
 
  #wrapper {
+	/*左下角區塊*/ 
     width: 100%;
-/*     background:#202020; */
-    background-image: url("../img/background.png");
+    background:#424a5d;
+/*     background-image: url("../img/background.png"); */
 }
 
 #page-wrapper {
@@ -216,8 +217,8 @@ max-width:170px;
 .navbar-cls-top .navbar-brand {
 	/*首頁BTN*/
 	color: #fff;
-/* background:#888888; */
-background-image: url("../img/background.png");
+background:#424a5d;
+/* background-image: url("../img/background.png"); */
 width: 260px;
 text-align: center;
 height: 60px;
@@ -254,20 +255,20 @@ font-weight: 700;
     padding-left: 55px;
 }
 .sidebar-collapse , .sidebar-collapse .nav{
-	/*左邊連結區隔線_人像*/
-/* 	background:#888888; */
-	background-image: url("../img/background.png");
+	/*左邊連結區隔線_人像背景*/
+	background:#424a5d;
+/* 	background-image: url("../img/background.png"); */
 	border-top:1px solid black;
 }
 .sidebar-collapse .nav {
 	padding:0;
 }
 .sidebar-collapse .nav > li > a {
-	/*左邊連結底色*/
-	color:black;
+	/*左邊連結底色與字體顏色*/
+	color:white;
 	/*background:#202020;*/
-/* 	background:#888888; */
-	background-image: url("../img/background.png");
+	background:#424a5d;
+/* 	background-image: url("../img/background.png"); */
 	text-shadow:none;
 	font-size:18px;
 	
@@ -282,7 +283,7 @@ font-weight: 700;
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
 	/*滑入顏色*/
-	background:skyblue;
+	background:#818692;
 	outline:0;
 }
 
@@ -323,18 +324,18 @@ font-weight: 700;
 	background-image: url("../img/background.png");
 }
 .navbar-cls-top {
-	/*top顏色*/
-/* 	background:skyblue; */
-	background-image: url("../img/background.png");
+	/*top navbar橫條區塊背景顏色*/
+	background:#e14364;
+/* 	background-image: url("../img/background.png"); */
 	border-bottom:none;
 	
 }
 .navbar-cls-top .navbar-brand:hover {
-/*首頁連結*/
+/*首頁左上角連結背景與字體顏色*/
 
 /*background: #C90000;*/
-background:#888888;
-color:#C90000;
+background:#424a5d;
+color:#e53885;
 
 }
 

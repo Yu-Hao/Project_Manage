@@ -50,8 +50,8 @@
                 	<div class="col-md-6 col-sm-6 col-xs-6">   
 	                	<a href="news_Manage/news_Manage.jsp" style="text-decoration: none">          
 							<div class="panel panel-back noti-box">
-		               			<span class="icon-box bg-color-brown set-icon" style="margin-left:240px;">
-		                    		<i class="fa fa-rocket"></i>
+		               			<span class="icon-box bg-color-brown set-icon" style="margin-left:240px;background-color:#60b2ff">
+		                    		<i class="fa fa-bell-o"></i>
 		                		</span>
 			                	<div class="text-box" >
 			                		<br><br><br><br>
@@ -72,7 +72,7 @@
 	               	 	<a href="knowledge_Manage/knowledge_Manage.jsp" style="text-decoration: none">       
 							<div class="panel panel-back noti-box">
 		               			<span class="icon-box bg-color-red set-icon" style="margin-left:240px;">
-		                   			<i class="fa fa-envelope-o fa-1x" ></i>
+		                   			<i class="fa fa-plus" ></i>
 		                		</span>
 		                		<div class="text-box" >
 		                			<br><br><br><br>

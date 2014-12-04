@@ -49,51 +49,51 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Binary admin</a>
+				<a class="navbar-brand" href="index2.jsp">下一站，幸福</a>
 			</div>
 			<div
-				style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-				Last access : 30 May 2014 &nbsp; <a href="#"
-					class="btn btn-danger square-btn-adjust">Logout</a>
-			</div>
+			style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+			管理者，${userName}&nbsp;您好!!&nbsp; <a href="LoginServlet?action=logOut"
+				class="btn btn-warning square-btn-adjust">Logout</a>
+		</div>
 		</nav>
 		<!-- /. NAV TOP  -->
 		<nav class="navbar-default navbar-side" role="navigation">
 			<div class="sidebar-collapse">
 				<ul class="nav" id="main-menu">
-					<li class="text-center"><img src="img/find_user.png"
+					<li class="text-center"><img src="img/chen.jpg"
 						class="user-image img-responsive" /></li>
 
 
-					<li><a href="index.html"><i class="fa fa-dashboard fa-3x"></i>
+					<li><a href="index2.jsp"><i class="fa fa-dashboard fa-3x"></i>
 							Dashboard</a></li>
-					<li><a href="ui.html"><i class="fa fa-desktop fa-3x"></i>
-							UI Elements</a></li>
-					<li><a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i>
-							Tabs & Panels</a></li>
+<!-- 					<li><a href="ui.html"><i class="fa fa-desktop fa-3x"></i> -->
+<!-- 							UI Elements</a></li> -->
+<!-- 					<li><a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> -->
+<!-- 							Tabs & Panels</a></li> -->
 					<li><a class="active-menu" href="chart.jsp"><i
 							class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a></li>
-					<li><a href="table.html"><i class="fa fa-table fa-3x"></i>
-							Table Examples</a></li>
-					<li><a href="form.html"><i class="fa fa-edit fa-3x"></i>
-							Forms </a></li>
+<!-- 					<li><a href="table.html"><i class="fa fa-table fa-3x"></i> -->
+<!-- 							Table Examples</a></li> -->
+<!-- 					<li><a href="form.html"><i class="fa fa-edit fa-3x"></i> -->
+<!-- 							Forms </a></li> -->
 
 
-					<li><a href="#"><i class="fa fa-sitemap fa-3x"></i>
-							Multi-Level Dropdown<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="#">Second Level Link</a></li>
-							<li><a href="#">Second Level Link</a></li>
-							<li><a href="#">Second Level Link<span class="fa arrow"></span></a>
-								<ul class="nav nav-third-level">
-									<li><a href="#">Third Level Link</a></li>
-									<li><a href="#">Third Level Link</a></li>
-									<li><a href="#">Third Level Link</a></li>
+<!-- 					<li><a href="#"><i class="fa fa-sitemap fa-3x"></i> -->
+<!-- 							Multi-Level Dropdown<span class="fa arrow"></span></a> -->
+<!-- 						<ul class="nav nav-second-level"> -->
+<!-- 							<li><a href="#">Second Level Link</a></li> -->
+<!-- 							<li><a href="#">Second Level Link</a></li> -->
+<!-- 							<li><a href="#">Second Level Link<span class="fa arrow"></span></a> -->
+<!-- 								<ul class="nav nav-third-level"> -->
+<!-- 									<li><a href="#">Third Level Link</a></li> -->
+<!-- 									<li><a href="#">Third Level Link</a></li> -->
+<!-- 									<li><a href="#">Third Level Link</a></li> -->
 
-								</ul></li>
-						</ul></li>
-					<li><a href="blank.html"><i class="fa fa-square-o fa-3x"></i>
-							Blank Page</a></li>
+<!-- 								</ul></li> -->
+<!-- 						</ul></li> -->
+<!-- 					<li><a href="blank.html"><i class="fa fa-square-o fa-3x"></i> -->
+<!-- 							Blank Page</a></li> -->
 				</ul>
 
 			</div>
@@ -104,8 +104,8 @@
 			<div id="page-inner">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Morris Charts</h2>
-						<h5>Welcome Jhon Deo , Love to see you back.</h5>
+						<h2>圖表分析</h2>
+						<h5>歡迎來到，下一站，幸福 !</h5>
 
 					</div>
 				</div>
@@ -285,7 +285,7 @@
 	                    value: team[2]
 	                }, {
 	                    label: "東部",
-	                    value: team[3]  
+	                    value: team[3],
 	                }],
 	                resize: true
 	            });

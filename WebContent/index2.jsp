@@ -54,7 +54,7 @@
 		<div
 			style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
 			管理者，${userName}&nbsp;您好!!&nbsp; <a href="LoginServlet?action=logOut"
-				class="btn btn-danger square-btn-adjust">Logout</a>
+				class="btn btn-warning square-btn-adjust">Logout</a>
 		</div>
 		</nav>
 		<!-- /. NAV TOP  -->
@@ -63,35 +63,35 @@
 			<ul class="nav" id="main-menu">
 				<li class="text-center"><img src="img/benny.jpg"
 					class="user-image img-responsive" /></li>
-				<li><a class="active-menu" href="index2.html"><i
+				<li><a class="active-menu" href="index2.jsp"><i
 						class="fa fa-dashboard fa-3x"></i> Dashboard</a></li>
-				<li><a href="ui.html"><i class="fa fa-desktop fa-3x"></i>
-						UI Elements</a></li>
-				<li><a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i>
-						Tabs & Panels</a></li>
-				<li><a href="chart.html"><i
+<!-- 				<li><a href="ui.html"><i class="fa fa-desktop fa-3x"></i> -->
+<!-- 						UI Elements</a></li> -->
+<!-- 				<li><a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> -->
+<!-- 						Tabs & Panels</a></li> -->
+				<li><a href="chart.jsp"><i
 						class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a></li>
-				<li><a href="table.html"><i class="fa fa-table fa-3x"></i>
-						Table Examples</a></li>
-				<li><a href="form.html"><i class="fa fa-edit fa-3x"></i>
-						Forms </a></li>
+<!-- 				<li><a href="table.html"><i class="fa fa-table fa-3x"></i> -->
+<!-- 						Table Examples</a></li> -->
+<!-- 				<li><a href="form.html"><i class="fa fa-edit fa-3x"></i> -->
+<!-- 						Forms </a></li> -->
 
 
-				<li><a href="#"><i class="fa fa-sitemap fa-3x"></i>
-						Multi-Level Dropdown<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level">
-						<li><a href="#">Second Level Link</a></li>
-						<li><a href="#">Second Level Link</a></li>
-						<li><a href="#">Second Level Link<span class="fa arrow"></span></a>
-							<ul class="nav nav-third-level">
-								<li><a href="#">Third Level Link</a></li>
-								<li><a href="#">Third Level Link</a></li>
-								<li><a href="#">Third Level Link</a></li>
+<!-- 				<li><a href="#"><i class="fa fa-sitemap fa-3x"></i> -->
+<!-- 						Multi-Level Dropdown<span class="fa arrow"></span></a> -->
+<!-- 					<ul class="nav nav-second-level"> -->
+<!-- 						<li><a href="#">Second Level Link</a></li> -->
+<!-- 						<li><a href="#">Second Level Link</a></li> -->
+<!-- 						<li><a href="#">Second Level Link<span class="fa arrow"></span></a> -->
+<!-- 							<ul class="nav nav-third-level"> -->
+<!-- 								<li><a href="#">Third Level Link</a></li> -->
+<!-- 								<li><a href="#">Third Level Link</a></li> -->
+<!-- 								<li><a href="#">Third Level Link</a></li> -->
 
-							</ul></li>
-					</ul></li>
-				<li><a href="blank.html"><i class="fa fa-square-o fa-3x"></i>
-						Blank Page</a></li>
+<!-- 							</ul></li> -->
+<!-- 					</ul></li> -->
+<!-- 				<li><a href="blank.html"><i class="fa fa-square-o fa-3x"></i> -->
+<!-- 						Blank Page</a></li> -->
 			</ul>
 
 		</div>
@@ -103,7 +103,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<center>
-							<h2 style="color: red;">
+							<h2 style="color:#d86714;">
 								<b>後台管理介面</b>
 							</h2>
 						</center>
@@ -116,8 +116,8 @@
 						<a href="P1_iud/newsAndKnowledge.jsp"
 							style="text-decoration: none">
 							<div class="panel panel-back noti-box">
-								<span class="icon-box bg-color-brown set-icon"> <i
-									class="fa fa-rocket"></i>
+								<span class="icon-box bg-color-brown set-icon" style="background-color:#915eff"> <i
+									class="fa fa-bolt"></i>
 								</span>
 								<div class="text-box">
 									<br>
@@ -153,7 +153,7 @@
 						<a href="P1_iud/member_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-green set-icon"> <i
-									class="fa fa-bars"></i>
+									class="fa fa-user"></i>
 								</span>
 
 								<div class="text-box">
@@ -170,8 +170,8 @@
 					<div class="col-md-2 col-sm-6 col-xs-6">
 						<a href="P1_iud/viewName_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
-								<span class="icon-box bg-color-blue set-icon"> <i
-									class="fa fa-bell-o"></i>
+								<span class="icon-box set-icon" style="background-color:#0fbbff"> <i
+									class="fa fa-camera"></i>
 								</span>
 								<div class="text-box">
 									<br>
@@ -187,8 +187,8 @@
 					<div class="col-md-2 col-sm-6 col-xs-6">
 						<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
-								<span class="icon-box bg-color-brown set-icon"> <i
-									class="fa fa-rocket"></i>
+								<span class="icon-box bg-color-brown set-icon" style="background-color:#ffc870"> <i
+									class="fa fa-pencil"></i>
 								</span>
 								<div class="text-box">
 									<br>
@@ -204,8 +204,8 @@
 					<div class="col-md-2 col-sm-6 col-xs-6">
 						<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
-								<span class="icon-box bg-color-brown set-icon"> <i
-									class="fa fa-rocket"></i>
+								<span class="icon-box bg-color-brown set-icon" style="background-color:#ff56bb"> <i
+									class="fa fa-book"></i>
 								</span>
 								<div class="text-box">
 									<br>
@@ -232,12 +232,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="col-md-3 col-sm-12 col-xs-12" style="padding-top:100px">
 						<div
 							class="panel panel-primary text-center no-boder bg-color-green">
 							<div class="panel-body">
-								<!--                   <i class="fa fa-bar-chart-o fa-5x"></i> -->
-								<!--                             <h3>線上客服</h3> -->
+								<i class="fa fa-comments-o fa-5x"></i>
 								<div id="onlinesvc">
 									<!--          							<a href="#" id=""><p>※線上克服</p></a>     -->
 								</div>
@@ -245,37 +244,37 @@
 							</div>
 							<div class="panel-footer back-footer-green">線上客服</div>
 						</div>
-						<div class="panel panel-primary text-center no-boder bg-color-red">
-							<div class="panel-body">
-								<i class="fa fa-edit fa-5x"></i>
-								<h3>20,000</h3>
-							</div>
-							<div class="panel-footer back-footer-red">Articles Pending
+<!-- 						<div class="panel panel-primary text-center no-boder bg-color-red"> -->
+<!-- 							<div class="panel-body"> -->
+<!-- 								<i class="fa fa-edit fa-5x"></i> -->
+<!-- 								<h3>20,000</h3> -->
+<!-- 							</div> -->
+<!-- 							<div class="panel-footer back-footer-red">Articles Pending -->
 
-							</div>
-						</div>
+<!-- 							</div> -->
+<!-- 						</div> -->
 					</div>
 
 				</div>
-				<!-- /. ROW  -->
-				<div class="row">
-					<div class="col-md-3 col-sm-12 col-xs-12">
-						<div
-							class="panel panel-primary text-center no-boder bg-color-green">
-							<div class="panel-body">
-								<i class="fa fa-comments-o fa-5x"></i>
-								<h4>200 New Comments</h4>
-								<h4>See All Comments</h4>
-							</div>
-							<div class="panel-footer back-footer-green">
-								<i class="fa fa-rocket fa-5x"></i> Lorem ipsum dolor sit amet
-								sit sit, consectetur adipiscing elitsit sit gthn ipsum dolor sit
-								amet ipsum dolor sit amet
+<!-- 				/. ROW  -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-md-3 col-sm-12 col-xs-12"> -->
+<!-- 						<div -->
+<!-- 							class="panel panel-primary text-center no-boder bg-color-green"> -->
+<!-- 							<div class="panel-body"> -->
+<!-- 								<i class="fa fa-comments-o fa-5x"></i> -->
+<!-- 								<h4>200 New Comments</h4> -->
+<!-- 								<h4>See All Comments</h4> -->
+<!-- 							</div> -->
+<!-- 							<div class="panel-footer back-footer-green"> -->
+<!-- 								<i class="fa fa-rocket fa-5x"></i> Lorem ipsum dolor sit amet -->
+<!-- 								sit sit, consectetur adipiscing elitsit sit gthn ipsum dolor sit -->
+<!-- 								amet ipsum dolor sit amet -->
 
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			</div>
 			<!-- /. PAGE INNER  -->
 		</div>
