@@ -23,8 +23,8 @@
     %>
 	
     <title>Sticker Story</title>
-    <script src="../js/jquery-1.11.0.js"></script>
-  	<script src="../js/bootstrap.js"></script>
+    <script src="../js/jquery-1.10.2.js"></script>
+  	<script src="../js/bootstrap.min.js"></script>
 <%--   	<%@ include file="../platform/include_start.jsp" %>	 --%>
 	 <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
 
   	<style>
   	body {
-    	background-image: url("../Images/backgound.png");
+    	background-image: url("../img/background.png");
     	padding-top: 1px;
 }
 	}
@@ -104,7 +104,7 @@
     
     
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
-<script src='../Script/jquery-ui.js'></script>	
+<script src='../js/jquery-ui.js'></script>	
 <script src="js/story-page.js" type="text/javascript"></script>
   
     <script>
