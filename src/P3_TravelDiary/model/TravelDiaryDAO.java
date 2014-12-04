@@ -47,6 +47,7 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 	
 	private static final String GET_All_Count="select count(*) from TravelDiary ;";
 	
+	private static final String GET_All="select * from TravelDiary ;";
 	
 	@Override
 	public void insert(TravelDiaryVO travelDiaryVO) {
@@ -215,7 +216,65 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 		return list;
 	}
 	
-	
+	//取出全部資料
+		@Override
+		public List<TravelDiaryVO> getAll() {
+			List<TravelDiaryVO> list=new ArrayList<TravelDiaryVO>();
+			TravelDiaryVO travelDiaryVO=null;
+			
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			try{
+				con=ds.getConnection();
+				pstmt=con.prepareStatement(GET_All);
+				//執行指令
+				rs=pstmt.executeQuery();
+				//一筆一筆撈出來
+				while(rs.next()){
+					//先new一個TravelDiaryVO的物件用來存放資料
+					travelDiaryVO=new TravelDiaryVO();
+					//取文章title
+					travelDiaryVO.setTravelDiary_Name(rs.getString("TravelDiary_Name"));
+					//取文章日期
+					travelDiaryVO.setPublish_date(rs.getTimestamp("publish_date"));
+					//取ID
+					travelDiaryVO.setTravelDiary_ID(rs.getInt("TravelDiary_ID"));
+					//取會員編號
+					travelDiaryVO.setMember_loginID(rs.getString("member_loginID"));
+					travelDiaryVO.setTravelDiary_Content(rs.getString("traveldiary_content"));
+					travelDiaryVO.setDiary_class(rs.getString("diary_class"));
+					//一次將這4筆資料放到list 之後jsp取出
+					list.add(travelDiaryVO);
+				}			
+			}catch(SQLException e){
+				throw new RuntimeException("A database error occured."+e.getMessage());
+			}finally{
+				if(rs!=null){
+					try{
+						rs.close();
+					}catch(SQLException e){
+						e.printStackTrace(System.err);
+					}
+				}
+				if(pstmt!=null){
+					try{
+						pstmt.close();
+					}catch(SQLException e){
+						e.printStackTrace(System.err);
+					}
+				}
+				if(con!=null){
+					try{
+						con.close();
+					}catch(SQLException e){
+						e.printStackTrace(System.err);
+					}
+				}
+			}
+			return list;
+		}
 	//取出要修改的某一筆資料的欄位
 	@Override
 	public TravelDiaryVO findByPrimaryKey(Integer TravelDiary_ID) {
