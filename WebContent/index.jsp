@@ -1,29 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<!-- Bootstrap core CSS -->
-	<!-- Custom styles for this template -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="login_css/signin.css" rel="stylesheet">
-	<script src="login_js/ie-emulation-modes-warning.js"></script>
-  	<script src="js/jquery-1.10.2.js"></script>	
-  	
-<style>
-	.form-group .glyphicon {
-     display:none; 
-    right: 30px;
-    position: absolute;
-    top: 12px;
-    cursor:pointer;
-}
-</style>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+	<%
+		Object sionName = session.getAttribute("userName");
+	%>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <%@ page import="java.util.*" %>
+    <%@ page import="P4_MessageBoard.model.*,P3_TravelDiary.model.*"%>
+    
+<%
+	//message
+	MsgService msgSvc = new MsgService();
+	List<MsgVO> messagelist = msgSvc.getAll();
+	pageContext.setAttribute("messagelist",messagelist);
 	
+	//blog
+	TravelDiaryService blogSvc = new TravelDiaryService();
+	String blogAllCount = blogSvc.getAllCount();
+%>
+	
+	<!-- BOOTSTRAP STYLES-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+<!--    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+ 	<link href='css/googleapis.css' rel='stylesheet' type='text/css' />
 </head>
-
 <body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom:0;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.jsp">下一站，幸福</a> 
+            </div>
+            
+  		<div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
+			<c:if test="<%=sionName == null %>">
+				<a href="P0_login/login.jsp" class="btn btn-danger">login</a>
+			</c:if>
+			<c:if test="<%=sionName != null %>">
+	 			管理者，${userName}&nbsp;您好!!&nbsp; <a href="LoginServlet?action=logOut" class="btn btn-danger square-btn-adjust">Logout</a> 
+			</c:if> 
+		</div>
+      </nav>
+      </div>
     <div id="" class="">
       <div class="">
       	  <div class="col-xs-5"></div>
@@ -66,7 +101,6 @@
           </div>
       </div>
   </div>
-
 
 
 
