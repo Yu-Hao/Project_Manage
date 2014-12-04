@@ -41,7 +41,7 @@
 	<div id="page-wrapper">
 	<div id="page-inner" style="padding-right:1%;">
 	<br>
-	<a href="../newsAndKnowledge.jsp" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
+	<a href="../../index2.jsp" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
 	<a href="addKnowledge.jsp"><input type="button"  class="btn btn-danger btn-lg" value="新增" style="float:right;"></a>
 	<br>
 	<br>
