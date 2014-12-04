@@ -117,7 +117,7 @@
 
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-default">
-							<div class="panel-heading">Bar Chart Example</div>
+							<div class="panel-heading">誰是旅遊王</div>
 							<div class="panel-body">
 								<div id="morris-bar-chart"></div>
 							</div>
@@ -178,6 +178,9 @@
 	(function ($) {
 	//先var變數到外面之後才可以給圓餅圖使用	
 	var team = new Array();
+	
+	var team2 = new Array();
+	var team3 = new Array();
 	//因為圓餅圖網頁一載入時候就會執行所以我撈資料庫的值必須比他之前要先執行
 	//所以先包成function並讓ajax設定改成非同步
 	function gethit(){
@@ -207,6 +210,28 @@
  				});
  			}
  		});	 
+		
+		
+		//去資料庫撈登入前5名
+		$.ajax({ 
+ 			"url": "getLoginMostServlet",
+ 			"type":"post",
+ 			"data":{'action':'getLoginMostTopOne'},
+ 			"dataType":"text",
+ 			"async": false,
+ 			"success":function(datas){
+ 				var myObject = JSON.parse(datas); //記得把字串轉乘json物件
+ 				$.each(myObject,function(i,item){
+ 					
+ 					team2[i]=item.member_loginID;
+ 					team3[i]=item.totalcount;
+					
+
+ 				});
+ 			}
+ 		});	 // END of 登入前5名
+		
+		
 	}	
 	    "use strict";
 	    var mainApp = {
@@ -234,37 +259,39 @@
 	            Morris.Bar({
 	                element: 'morris-bar-chart',
 	                data: [{
-	                    y: '2006',
-	                    a: 100,
-	                    b: 90
+	                    y: team2[0],
+	                    a: team3[0]
 	                }, {
-	                    y: '2007',
-	                    a: 75,
-	                    b: 65
+	                    y: team2[1],
+	                    a: team3[1]
 	                }, {
-	                    y: '2008',
-	                    a: 50,
-	                    b: 40
+	                	y: team2[2],
+	                    a: team3[2]
 	                }, {
-	                    y: '2009',
-	                    a: 75,
-	                    b: 65
+	                	y: team2[3],
+	                    a: team3[3]
 	                }, {
-	                    y: '2010',
-	                    a: 50,
-	                    b: 40
+	                	y: team2[4],
+	                    a: team3[4]
 	                }, {
-	                    y: '2011',
-	                    a: 75,
-	                    b: 65
+	                	y: team2[5],
+	                    a: team3[5]
 	                }, {
-	                    y: '2012',
-	                    a: 100,
-	                    b: 90
+	                	y: team2[6],
+	                    a: team3[6]
+	                }, {
+	                	y: team2[7],
+	                    a: team3[7]
+	                }, {
+	                	y: team2[8],
+	                    a: team3[8]
+	                }, {
+	                	y: team2[9],
+	                    a: team3[9]
 	                }],
 	                xkey: 'y',
-	                ykeys: ['a', 'b'],
-	                labels: ['Series A', 'Series B'],
+	                ykeys: ['a'],
+	                labels: ['登入次數'],
 	                hideHover: 'auto',
 	                resize: true
 	            });

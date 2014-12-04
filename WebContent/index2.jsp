@@ -202,7 +202,7 @@
 						</a>
 					</div>
 					<div class="col-md-2 col-sm-6 col-xs-6">
-						<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">
+						<a href="P1_iud/blog_Manage/blog_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-brown set-icon" style="background-color:#ff56bb"> <i
 									class="fa fa-book"></i>

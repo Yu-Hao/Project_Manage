@@ -77,4 +77,8 @@ public class TravelDiaryService {
 	public String getAllCount(){
 		return dao.getAllCount();
 	}
+	
+	public List<TravelDiaryVO> getAll(){
+		return dao.getAll();
+	}
 }
