@@ -37,28 +37,7 @@
  	<link href='css/googleapis.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom:0;">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.jsp">下一站，幸福</a> 
-            </div>
-            
-  		<div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
-			<c:if test="<%=sionName == null %>">
-				<a href="P0_login/login.jsp" class="btn btn-danger">login</a>
-			</c:if>
-			<c:if test="<%=sionName != null %>">
-	 			管理者，${userName}&nbsp;您好!!&nbsp; <a href="LoginServlet?action=logOut" class="btn btn-danger square-btn-adjust">Logout</a> 
-			</c:if> 
-		</div>
-      </nav>
-      </div>
+    <br><br>
     <div id="" class="">
       <div class="">
       	  <div class="col-xs-5"></div>
@@ -111,6 +90,7 @@
 
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
+<script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 (function ($) {

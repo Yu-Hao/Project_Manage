@@ -17,6 +17,7 @@
 		MemberService memSvc = new MemberService();
 		List<MemberVO> memberList = memSvc.getAll();
 		pageContext.setAttribute("memberList",memberList);
+		
 %>
  <link href="../css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
