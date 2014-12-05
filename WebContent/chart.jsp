@@ -258,37 +258,19 @@
 	         ======================================*/
 	            Morris.Bar({
 	                element: 'morris-bar-chart',
-	                data: [{
-	                    y: team2[0],
-	                    a: team3[0]
-	                }, {
-	                    y: team2[1],
-	                    a: team3[1]
-	                }, {
-	                	y: team2[2],
-	                    a: team3[2]
-	                }, {
-	                	y: team2[3],
-	                    a: team3[3]
-	                }, {
-	                	y: team2[4],
-	                    a: team3[4]
-	                }, {
-	                	y: team2[5],
-	                    a: team3[5]
-	                }, {
-	                	y: team2[6],
-	                    a: team3[6]
-	                }, {
-	                	y: team2[7],
-	                    a: team3[7]
-	                }, {
-	                	y: team2[8],
-	                    a: team3[8]
-	                }, {
-	                	y: team2[9],
-	                    a: team3[9]
-	                }],
+	                data: [
+	                {y: 0, a: 0},
+	                {y: team2[0], a: team3[0]},
+	                {y: 0, a: 0}, 
+	                {y: team2[1], a: team3[1]},
+	                {y: 0, a: 0}, 
+	                {y: team2[2], a: team3[2]},
+	                {y: 0, a: 0}, 
+	                {y: team2[3], a: team3[3]},
+	                {y: 0, a: 0}, 
+	                {y: team2[4], a: team3[4]} 
+// 	                {y: 0, a: 0 }
+	                ],
 	                xkey: 'y',
 	                ykeys: ['a'],
 	                labels: ['登入次數'],
