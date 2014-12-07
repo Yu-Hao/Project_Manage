@@ -14,5 +14,5 @@ public interface TravelDiary_Interface {
 	public String getFriendsBlog(String myFriendID);//取某一位好友的全部文章
 	public String getAllCount();
 	public List<TravelDiaryVO> getAll();
-	
+	public List<TravelDiaryVO> getBlog_count();
 }

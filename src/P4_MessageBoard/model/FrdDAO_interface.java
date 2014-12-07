@@ -10,5 +10,6 @@ public interface FrdDAO_interface {
     public int getsame(String member_loginID, String friend_loginID);
     
     public List<FrdVO> getMyFrdStatus(String friend_loginID);   //列出那些人邀請你以及狀態(0 未確認  1 接受  9拒絕)
+    public List<FrdVO> getFrined_count();
 
 }

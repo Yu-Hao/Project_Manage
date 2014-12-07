@@ -54,5 +54,9 @@ public class FrdService {
 			return dao.getMyFrdStatus(friend_loginID);
 			
 		}
-	
+		
+	//昱豪
+	public List<FrdVO> getFriend_count(){
+			return dao.getFrined_count();
+	}
 }

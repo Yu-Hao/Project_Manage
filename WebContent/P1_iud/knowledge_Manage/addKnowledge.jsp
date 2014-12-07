@@ -104,180 +104,76 @@
 
 <script>
 	(function($) {
-		$("#loadding").prop("hidden",true);
-		
-		var countAdd = 1;
-		
-		$("#addFileBtn").click(function(){
-			countAdd++;
-			if(countAdd<=3){
-// 				$(".addViewTest").after("<input type='file' class='form-control' name=pic"+$.trim(countAdd)+">");
-				$(".addViewPrv").before("<div class='form-group'><label for='description' class='col-sm-3 control-label'>上傳圖片:</label><div class='col-sm-3' style='display:inline;'><input type='file' class='form-control' name='pic"+$.trim(countAdd)+"'></div><div class='col-sm-5'><input type='text' class='form-control' placeholder='景點說明' id='imgDescript"+$.trim(countAdd)+"' name='imgDescript"+$.trim(countAdd)+"'><span id='checkImgDescript"+$.trim(countAdd)+"' style='font-size:18px;color:red;'></span></div></div>");                  
-			}else{
-				swal("最多上傳三張圖片唷!", "", "error");
-			}
-		});
-		
-		
+		  
 		//focus
-		$(':text[id="viewId"]').focus(function(){
-			$("#checkViewID").html("");
+		$(':text[id="knowledge_title"]').focus(function(){
+			$("#checkKnowledge_title").html("");
 		});
 		
-		$(':text[id="viewName"]').focus(function(){
-			$("#checkViewName").html("");
+		$('#knowledge_content').focus(function(){
+			$("#checkKnowledge_content").html("");
 		});
 		
-		$(':text[id="viewAddr"]').focus(function(){
-			$("#checkViewAddr").html("");
+		$('#knowledge_img').focus(function(){
+			$("#checkKnowledge_img").html("");
 		});
 		
-		$(':text[id="viewLng"]').focus(function(){
-			$("#checkViewLng").html("");
-		});
-		
-		$(':text[id="viewLat"]').focus(function(){
-			$("#checkViewLat").html("");
-		});
-		
-		$(':text[id="imgDescript1"]').focus(function(){
-			$("#checkImgDescript1").html("");
-		});
-		
-		$(document).on("focus","#imgDescript2",function(){
-			$("#checkImgDescript2").html("");
-		});
-		
-		$(document).on("focus","#imgDescript3",function(){
-			$("#checkImgDescript3").html("");
-		});
 		
 		//viewname ID驗證**********************
-		$(':text[id="viewId"]').blur(function(){
-			var viewIdCheck = $.trim($(':text[id="viewId"]').val());
-			if(viewIdCheck == ""){
-				$("#checkViewID").html("<img src=images/errorImg.png />代號欄位不可空值");
+		$(':text[id="knowledge_title"]').blur(function(){
+			var knowledge_title = $.trim($(':text[id="knowledge_title"]').val());
+			if(knowledge_title == ""){
+				$("#checkKnowledge_title").html("<img src=../images/errorImg.png />標題欄位不可空值");
 				return;
 			}
-			$("#loadding").prop("hidden",false);
-			$.get("checkViewName.jsp",{"name":viewIdCheck},function(data){
-				if(data==1){
-					$("#checkViewID").html("<img src=images/errorImg.png />此代號已使用過");
-					$("#accountLabel").prop("hidden",false);
-				}else{
-					$("#checkViewID").html("<img src=images/OK.png />此代號可以使用");
-					$("#accountLabel").prop("hidden",true);
+		});
+		
+		$('#knowledge_content').blur(function(){
+			var knowledge_content = $.trim($('#knowledge_content').val());
+			if(knowledge_content == ""){
+				$("#checkKnowledge_content").html("<img src=../images/errorImg.png />內容欄位不可空值");
+				return;
+			}
+		});
+		
+		$('#knowledge_img').blur(function(){
+			var knowledge_img = $.trim($('#knowledge_img').val());
+			if(knowledge_img == ""){
+				$("#checkKnowledge_img").html("<img src=../images/errorImg.png />需上傳一張圖片");
+				return;
+			}
+		});
+		
+		$("#subBtn").click(function(){
+			var knowledge_title = $.trim($(':text[id="knowledge_title"]').val());
+			var knowledge_content = $.trim($('#knowledge_content').val());
+			var knowledge_img = $.trim($('#knowledge_img').val());
+			if(knowledge_title == ""||knowledge_content == ""||knowledge_img==""){
+				
+				if(knowledge_title == ""){
+					$("#checkKnowledge_title").html("<img src=../images/errorImg.png />標題欄位不可空值");
 				}
-				$("#loadding").prop("hidden",true);
-			});
-		});
-		
-		$(':text[id="viewName"]').blur(function(){
-			var viewViewName = $.trim($(':text[id="viewName"]').val());
-			if(viewViewName == ""){
-				$("#checkViewName").html("<img src=images/errorImg.png />景點名稱欄位不可空值");
-				return;
-			}
-		});
-		
-		$(':text[id="viewAddr"]').blur(function(){
-			var viewViewAddr = $.trim($(':text[id="viewAddr"]').val());
-			if(viewViewAddr == ""){
-				$("#checkViewAddr").html("<img src=images/errorImg.png />景點地址欄位不可空值");
-				return;
-			}
-		});
-		
-		$(':text[id="viewLng"]').blur(function(){
-			var viewViewLng = $.trim($(':text[id="viewLng"]').val());
-			if(viewViewLng == ""){
-				$("#checkViewLng").html("<img src=images/errorImg.png />景點經度欄位不可空值");
-				return;
-			}
-		});
-		
-		$(':text[id="viewLat"]').blur(function(){
-			var viewViewLat = $.trim($(':text[id="viewLat"]').val());
-			if(viewViewLat == ""){
-				$("#checkViewLat").html("<img src=images/errorImg.png />景點緯度欄位不可空值");
-				return;
-			}
-		});
-		
-		$(':text[id="imgDescript1"]').blur(function(){
-			var viewImgDescript1 = $.trim($(':text[id="imgDescript1"]').val());
-			if(viewImgDescript1 == ""){
-				$("#checkImgDescript1").html("<img src=images/errorImg.png />景點圖片說明欄位1不可空值");
-				return;
-			}
-		});
-		
-		$(document).on("blur","#imgDescript2",function(){
-			var viewImgDescript2 = $.trim($(':text[id="imgDescript2"]').val());
-			if(viewImgDescript2 == ""){
-				$("#checkImgDescript2").html("<img src=images/errorImg.png />景點圖片說明欄位2不可空值");
-				return;
-			}
-		});
-		
-		$(document).on("blur","#imgDescript3",function(){
-			var viewImgDescript3 = $.trim($(':text[id="imgDescript3"]').val());
-			if(viewImgDescript3 == ""){
-				$("#checkImgDescript3").html("<img src=images/errorImg.png />景點圖片說明欄位3不可空值");
-				return;
-			}
-		});
-		
-// 		$("#subBtn").click(function(){
-// 			var viewIdCheck = $.trim($(':text[id="viewId"]').val());
-// 			var viewViewName = $.trim($(':text[id="viewName"]').val());
-// 			var viewViewAddr = $.trim($(':text[id="viewAddr"]').val());
-// 			var viewViewLng = $.trim($(':text[id="viewLng"]').val());
-// 			var viewViewLat = $.trim($(':text[id="viewLat"]').val());
-// 			var viewPic1 = $.trim($(':file[id="pic1"]').val());
-// 			var viewImgDescript1 = $.trim($(':text[id="imgDescript1"]').val());
-// 			if(viewIdCheck == ""||viewViewName == ""||viewViewAddr == ""||viewViewLng == ""||viewViewLat == ""||viewPic1 == ""||viewImgDescript1 == ""){
 				
-// 				if(viewIdCheck == ""){
-// 					$("#checkViewID").html("<img src=images/errorImg.png />代號欄位不可空值");
-// 				}
-				
-// 				if(viewViewName == ""){
-// 					$("#checkViewName").html("<img src=images/errorImg.png />景點名稱欄位不可空值");
-// 				}
+				if(knowledge_content == ""){
+					$("#checkKnowledge_content").html("<img src=../images/errorImg.png />內容欄位不可空值");
+				}
 			
-// 				if(viewViewAddr == ""){
-// 					$("#checkViewAddr").html("<img src=images/errorImg.png />景點地址欄位不可空值");
-// 				}
-			
-// 				if(viewViewLng == ""){
-// 					$("#checkViewLng").html("<img src=images/errorImg.png />景點經度欄位不可空值");
-// 				}
-				
-// 				if(viewViewLat == ""){
-// 					$("#checkViewLat").html("<img src=images/errorImg.png />景點緯度欄位不可空值");
-// 				}
-			
-// 				if(viewPic1 == ""){
-// 					$("#checkPic1").html("<img src=images/errorImg.png />檔案上傳欄位不可空值");
-// 				}
-			
-// 				if(viewImgDescript1 == ""){
-// 					$("#checkImgDescript1").html("<img src=images/errorImg.png />景點圖片說明欄位1不可空值");
-// 				}
-// 				return false;
-// 			}
-// 		});
+				if(knowledge_img == ""){
+					$("#checkKnowledge_img").html("<img src=../images/errorImg.png />需上傳一張圖片");
+				}
+				return false;
+			}
+		});
 		
 		$("#cleanBtn").click(function(){
-			$("#checkViewID").html("");
-			$("#checkViewName").html("");
-			$("#checkViewAddr").html("");
-			$("#checkViewLng").html("");
-			$("#checkViewLat").html("");
-			$("#checkImgDescript1").html("");
-			$("#checkImgDescript2").html("");
-			$("#checkImgDescript3").html("");
+			$("#checkKnowledge_title").html("");
+			$("#checkKnowledge_content").html("");
+			$("#checkKnowledge_img").html("");
+		});
+		
+		$("#fakeData").click(function(){
+				$("#knowledge_title").val("原來豆乾的「黃」是色素來的！？");
+				$("#knowledge_content").val("你知道嗎？我們常吃的黃色豆干原來並不是黃色的喔！而是加了食用黃色4號或5號色素。為了美觀、引起食慾，許多加工品會使用色素，依規定，目前可使用的食用煤焦色素，包含紅色六號、七號、四十號、黃色四號、五號、綠色三號、藍色一號、二號等；但生鮮肉類、魚貝類、豆類、蔬菜、水果、味噌、醬油、海帶、海苔、茶葉等都不得使用。煤焦色素大多由煤焦油經蒸餾、硫化、硝化…及其他複雜的反應製成。如今已發現好幾種煤焦色素皆具有強烈的致癌性，某些合成色素會危害人體健康，導致生育力下降、畸胎、兒童過動等。選購時，還是避免選擇色彩鮮艷或顏色稀奇的食物最好！");
 		});
 	})(jQuery);
 	

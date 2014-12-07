@@ -9,6 +9,8 @@ import javax.sql.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import P4_MessageBoard.model.FrdVO;
 public class TravelDiaryDAO implements TravelDiary_Interface {
 	
 	private static DataSource ds=null;
@@ -48,6 +50,9 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 	private static final String GET_All_Count="select count(*) from TravelDiary ;";
 	
 	private static final String GET_All="select * from TravelDiary ;";
+	
+	//昱豪
+	private static final String BLOG_COUNT = "select top(6) b.member_loginid, s.member_name, count(*)blog_count from TravelDiary b join sysmember s on b.member_loginID = s.member_loginid group by b.member_loginid,s.member_name;";
 	
 	@Override
 	public void insert(TravelDiaryVO travelDiaryVO) {
@@ -632,6 +637,62 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 				}
 			}
 			return blogAllCount;
+		}
+		
+		//昱豪
+		@Override
+		public List<TravelDiaryVO> getBlog_count() {
+
+			TravelDiaryVO blogVO = null;
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			List<TravelDiaryVO> list = new ArrayList<TravelDiaryVO>();
+			
+			try {
+				con = ds.getConnection();
+				pstmt = con.prepareStatement(BLOG_COUNT);
+				rs = pstmt.executeQuery();
+
+				while (rs.next()) {				
+					blogVO = new TravelDiaryVO();
+					blogVO.setMember_loginID(rs.getString("member_loginID"));//member_loginID
+					blogVO.setMember_name(rs.getString("member_name"));//member_name
+					blogVO.setBlog_count(rs.getString("blog_count"));//friend_count
+					//System.out.println(rs.getString("member_loginID"));
+					//System.out.println(rs.getString("friend_count"));
+					list.add(blogVO);
+				}
+
+			} catch (SQLException se) {
+				throw new RuntimeException("A DB (getPart) error occured. "
+						+ se.getMessage());
+			} finally {
+				if (rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException se) {
+						se.printStackTrace(System.err);
+					}
+
+				}
+				if (pstmt != null) {
+					try {
+						pstmt.close();
+					} catch (SQLException se) {
+						se.printStackTrace(System.err);
+					}
+				}
+				if (con != null) {
+					try {
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace(System.err);
+					}
+				}
+
+			}
+			return list;
 		}
 	
 }

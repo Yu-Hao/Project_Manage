@@ -32,7 +32,12 @@ public class FrdDAO implements FrdDAO_interface {
 
 	private static final String SELECT_FRDSTATUS = "SELECT friendNum, member_loginID, friend_loginID, invite_msg, relationship_status from member_friend where friend_loginID = ?";
 
+	
+	//昱豪
+	private static final String FRIEND_COUNT = "select top(6) f.member_loginid, s.member_name, count(*)friend_count from member_friend f join sysmember s on f.member_loginID = s.member_loginid group by f.member_loginid,s.member_name;"; 
 
+	
+	
 	@Override
 	public void insert(FrdVO frdVO) {
 		Connection con = null;
@@ -365,6 +370,63 @@ public class FrdDAO implements FrdDAO_interface {
 		return list;
 	}
 
+
+	
+	//昱豪
+	@Override
+	public List<FrdVO> getFrined_count() {
+
+		FrdVO frdVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<FrdVO> list = new ArrayList<FrdVO>();
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(FRIEND_COUNT);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {				
+				frdVO = new FrdVO();
+				frdVO.setMember_loginID(rs.getString("member_loginID"));//member_loginID
+				frdVO.setMember_name(rs.getString("member_name"));//member_name
+				frdVO.setFriend_count(rs.getString("friend_count"));//friend_count
+				//System.out.println(rs.getString("member_loginID"));
+				//System.out.println(rs.getString("friend_count"));
+				list.add(frdVO);
+			}
+
+		} catch (SQLException se) {
+			throw new RuntimeException("A DB (getPart) error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace(System.err);
+				}
+			}
+
+		}
+		return list;
+	}
 
 
 }

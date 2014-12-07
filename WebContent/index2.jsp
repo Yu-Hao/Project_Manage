@@ -69,8 +69,23 @@
 <!-- 						UI Elements</a></li> -->
 <!-- 				<li><a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> -->
 <!-- 						Tabs & Panels</a></li> -->
-				<li><a href="chart.jsp"><i
-						class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a></li>
+				<li>
+					<a href="chart.jsp">
+						<i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts
+					</a>
+				</li>
+				<li>
+					<div class="panel panel-primary text-center no-boder bg-color-green">
+							<div class="panel-body">
+								<i class="fa fa-comments-o fa-5x"></i>
+								<div id="onlinesvc">
+									<!--          							<a href="#" id=""><p>※線上克服</p></a>     -->
+								</div>
+
+							</div>
+							<div class="panel-footer back-footer-green">線上客服</div>
+						</div>
+				</li>
 <!-- 				<li><a href="table.html"><i class="fa fa-table fa-3x"></i> -->
 <!-- 						Table Examples</a></li> -->
 <!-- 				<li><a href="form.html"><i class="fa fa-edit fa-3x"></i> -->
@@ -112,7 +127,7 @@
 				<!-- /. ROW  -->
 				<hr />
 				<div class="row">
-					<div class="col-md-2 col-sm-6 col-xs-6">
+					<div class="col-md-4 col-sm-6 col-xs-6">
 						<a href="P1_iud/newsAndKnowledge.jsp"
 							style="text-decoration: none">
 							<div class="panel panel-back noti-box">
@@ -124,15 +139,15 @@
 									<br>
 									<br>
 									<br>
-									<h5 class="main-text" align='center'>
+									<p class="main-text" align='center'>
 										最新消息<br>&<br>急救小知識管理
-									</h5>
+									</p>
 									<h6 class="text-muted "></h6>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-md-2 col-sm-6 col-xs-6">
+					<div class="col-md-4 col-sm-6 col-xs-6">
 						<a href="P1_iud/email_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-red set-icon"> <i
@@ -143,13 +158,13 @@
 									<br>
 									<br>
 									<br>
-									<h4 class="main-text notReplyMail">無客服訊息需回復</h4>
+									<p class="main-text notReplyMail" align='center'>無客服訊息需回復</p>
 									<h6 class="text-muted replyMail"></h6>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-md-2 col-sm-6 col-xs-6">
+					<div class="col-md-4 col-sm-6 col-xs-6">
 						<a href="P1_iud/member_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-green set-icon"> <i
@@ -161,13 +176,15 @@
 									<br>
 									<br>
 									<br>
-									<h4 class="main-text memberText">總會員人數</h4>
+									<p class="main-text memberText" align='center'>總會員人數</p>
 									<h6 class="text-muted memberCount"></h6>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-md-2 col-sm-6 col-xs-6">
+					</div><!-- row -->
+					<div class="row">
+					<div class="col-md-4 col-sm-6 col-xs-6">
 						<a href="P1_iud/viewName_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box set-icon" style="background-color:#0fbbff"> <i
@@ -178,13 +195,13 @@
 									<br>
 									<br>
 									<br>
-									<h4 class="main-text">總景點數量</h4>
+									<p class="main-text" align='center'>總景點數量</p>
 									<h6 class="text-muted viewCount"></h6>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-md-2 col-sm-6 col-xs-6">
+					<div class="col-md-4 col-sm-6 col-xs-6">
 						<a href="P1_iud/message_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-brown set-icon" style="background-color:#ffc870"> <i
@@ -195,13 +212,13 @@
 									<br>
 									<br>
 									<br>
-									<h4 class="main-text">留言板筆數</h4>
+									<p class="main-text" align='center'>留言板筆數</p>
 									<h6 class="text-muted messageCount"></h6>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-md-2 col-sm-6 col-xs-6">
+					<div class="col-md-4 col-sm-6 col-xs-6">
 						<a href="P1_iud/blog_Manage/blog_Manage.jsp" style="text-decoration: none">
 							<div class="panel panel-back noti-box">
 								<span class="icon-box bg-color-brown set-icon" style="background-color:#ff56bb"> <i
@@ -212,7 +229,7 @@
 									<br>
 									<br>
 									<br>
-									<h4 class="main-text" align='center'>Blog筆數</h4>
+									<p class="main-text" align='center'>Blog筆數</p>
 									<h3 class="text-muted blogCount" align='center'>
 										共有<%=blogAllCount%>筆
 									</h3>
@@ -223,27 +240,19 @@
 				</div>
 				<!-- /. ROW  -->
 				<hr />
-				<div class="row">
-					<div class="col-md-9 col-sm-12 col-xs-12">
-						<div class="panel panel-default">
-							<div class="panel-heading">Bar Chart Example</div>
-							<div class="panel-body">
-								<div id="morris-bar-chart"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-12 col-xs-12" style="padding-top:100px">
-						<div
-							class="panel panel-primary text-center no-boder bg-color-green">
-							<div class="panel-body">
-								<i class="fa fa-comments-o fa-5x"></i>
-								<div id="onlinesvc">
-									<!--          							<a href="#" id=""><p>※線上克服</p></a>     -->
-								</div>
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-md-3 col-sm-12 col-xs-12" style="padding-top:100px"> -->
+<!-- 						<div class="panel panel-primary text-center no-boder bg-color-green"> -->
+<!-- 							<div class="panel-body"> -->
+<!-- 								<i class="fa fa-comments-o fa-5x"></i> -->
+<!-- 								<div id="onlinesvc"> -->
+<!-- 									         							<a href="#" id=""><p>※線上克服</p></a>     -->
+<!-- 								</div> -->
 
-							</div>
-							<div class="panel-footer back-footer-green">線上客服</div>
-						</div>
+<!-- 							</div> -->
+<!-- 							<div class="panel-footer back-footer-green">線上客服</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 <!-- 						<div class="panel panel-primary text-center no-boder bg-color-red"> -->
 <!-- 							<div class="panel-body"> -->
 <!-- 								<i class="fa fa-edit fa-5x"></i> -->
@@ -253,9 +262,8 @@
 
 <!-- 							</div> -->
 <!-- 						</div> -->
-					</div>
 
-				</div>
+<!-- 				</div> -->
 <!-- 				/. ROW  -->
 <!-- 				<div class="row"> -->
 <!-- 					<div class="col-md-3 col-sm-12 col-xs-12"> -->

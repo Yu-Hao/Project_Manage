@@ -10,6 +10,23 @@ public class FrdVO implements java.io.Serializable {
 	private String	friend_loginID;
 	private String	invite_msg;
 	private int		relationship_status;
+	
+	//昱豪
+	private String friend_count;
+	private String member_name;
+	
+	public String getMember_name() {
+		return member_name;
+	}
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+	public String getFriend_count() {
+		return friend_count;
+	}
+	public void setFriend_count(String friend_count) {
+		this.friend_count = friend_count;
+	}
 	public int getFriendNum() {
 		return friendNum;
 	}

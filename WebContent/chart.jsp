@@ -17,7 +17,8 @@
 <!-- GOOGLE FONTS-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans'
 	rel='stylesheet' type='text/css' />
-<%@ page import="java.util.*,P10_Chart.model.*"%>	
+	
+<%@ page import="java.util.*,P10_Chart.model.*,P4_MessageBoard.model.*,P3_TravelDiary.model.*"%>	
 <%  
 	eachAreaTopOneDAO topDAO = new eachAreaTopOneDAO();
 	List<eachAreaTopOneVO> listCount = new ArrayList<eachAreaTopOneVO>();
@@ -36,6 +37,40 @@
 		i2++;
 	}
 	
+	//昱豪
+	FrdService frdSvc = new FrdService();
+	List<FrdVO> friend_count = frdSvc.getFriend_count();
+	//String fKing1=null,fKing2=null,fKing3=null,fKing4=null,fKing5=null,fKing6=null;
+	String fKing[] = new String[6];
+	String fCount[] = new String[6];
+	int iCount = 0;
+	for(FrdVO friend_Counts : friend_count){
+// 		fKing[iCount] = friend_Counts.getMember_loginID();
+		fKing[iCount] = friend_Counts.getMember_name();
+		fCount[iCount] = friend_Counts.getFriend_count();
+		iCount++;
+	}
+//  	System.out.println(fKing[0]);
+//  	System.out.println(fCount[0]);
+//  	System.out.println(fKing[1]);
+//  	System.out.println(fCount[1]);
+
+	TravelDiaryService blobSvc = new TravelDiaryService();
+	List<TravelDiaryVO> blog_count = blobSvc.getBlog_count();
+	//String fKing1=null,fKing2=null,fKing3=null,fKing4=null,fKing5=null,fKing6=null;
+	String bKing[] = new String[6];
+	String bCount[] = new String[6];
+	int jCount = 0;
+	for(FrdVO friend_Counts : friend_count){
+// 		bKing[jCount] = friend_Counts.getMember_loginID();
+		bKing[jCount] = friend_Counts.getMember_name();
+		bCount[jCount] = friend_Counts.getFriend_count();
+		jCount++;
+	}
+//  	System.out.println(fKing[0]);
+//  	System.out.println(fCount[0]);
+//  	System.out.println(fKing[1]);
+//  	System.out.println(fCount[1]);
 %>
 </head>
 <body>
@@ -71,8 +106,23 @@
 <!-- 							UI Elements</a></li> -->
 <!-- 					<li><a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> -->
 <!-- 							Tabs & Panels</a></li> -->
-					<li><a class="active-menu" href="chart.jsp"><i
-							class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a></li>
+					<li>
+						<a class="active-menu" href="chart.jsp">
+							<i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts
+						</a>
+					</li>
+					<li>
+					<div class="panel panel-primary text-center no-boder bg-color-green">
+							<div class="panel-body">
+								<i class="fa fa-comments-o fa-5x"></i>
+								<div id="onlinesvc">
+									<!--          							<a href="#" id=""><p>※線上克服</p></a>     -->
+								</div>
+
+							</div>
+							<div class="panel-footer back-footer-green">線上客服</div>
+						</div>
+					</li>	
 <!-- 					<li><a href="table.html"><i class="fa fa-table fa-3x"></i> -->
 <!-- 							Table Examples</a></li> -->
 <!-- 					<li><a href="form.html"><i class="fa fa-edit fa-3x"></i> -->
@@ -123,15 +173,24 @@
 							</div>
 						</div>
 					</div>
+<!-- 					<div class="col-md-6 col-sm-12 col-xs-12"> -->
+<!-- 						<div class="panel panel-default"> -->
+<!-- 							<div class="panel-heading">Area Chart Example</div> -->
+<!-- 							<div class="panel-body"> -->
+<!-- 								<div id="morris-area-chart"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+					<!-- 昱豪 -->
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">Area Chart Example</div>
-							<div class="panel-body">
-								<div id="morris-area-chart"></div>
+							<div class="">
+								<div id="containerF"></div>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /. ROW  -->
 				<div class="row">
@@ -147,12 +206,11 @@
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">Line Chart Example</div>
-							<div class="panel-body">
-								<div id="morris-line-chart"></div>
+							<div class="">
+								<div id="containerc"></div>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /. ROW  -->
 			</div>
@@ -173,9 +231,83 @@
 	<script src="js/morris/morris.js"></script>
 	<!-- CUSTOM SCRIPTS -->
 <!-- 	<script src="js/custom.js"></script> -->
-
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts-3d.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
 	<script>
 	(function ($) {
+		
+		/************************************\製作gerSvc讓他不停地去掃資料******************************************************/
+		
+
+		//SSE服務瀏覽器端實作
+		var getSvcUrl="platform/getSvc.jsp";
+		var source = new EventSource(getSvcUrl);
+		//開啟連結的路徑
+		var url="";
+		//判別是否有傳回相同ID
+		var getID="";
+		source.addEventListener('message', function(e) {
+				if((e.data).length!=0){
+				 console.log(e.data);
+				 console.log("1"+getID);
+				 //當第一次近來時候一定不一樣所以只會append 一次
+				 if(e.data!=getID){
+				  url="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%>/Project_1/P9_OnlineService/OnlineService.jsp?svcmember="+e.data+"&admin=admin123";
+				 
+				 $('#onlinesvc').append("<a href='#' style='color:white;text-decoration: none' class='removeSvc' id="+url+"><p>※您有新訊息※</p></a> ");
+				 getID=e.data;
+				 console.log("2"+getID);
+				
+				}
+				<%-- 				  url="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/P9_OnlineService/OnlineService.jsp?svcmember="+e.data; --%>
+				// 				  $('#onlinesvc').append("<a href="+url+"><p>※線上克服2</p></a> ");
+				// 					$('#tiles').append("<li id='"+item.TravelDiary_ID+"'>"+item.TravelDiary_Content+"<p>"+item.TravelDiary_Name+"</p></li>");
+				// 				  var notifymsg = JSON.parse(e.data);
+				// 				  frdplatform = notifymsg.cooperation_friend;
+				// 				  $('#dialog-checkCoFromFrd').dialog('option', 'title', notifymsg.frdName+' 邀請你一起規劃路線');
+				// 				  $('#dialog-checkCoFromFrd > h4').text(notifymsg.invite_msg);
+				// 				  dialogCoFromFrd.dialog("open");	
+				  }else{
+					  console.log("3"+getID);
+					  console.log(e.data);
+					  //當是null時候清空
+					  getID="";
+				  }
+				}, false);
+				
+			var propID='';
+			var servletURL='';
+			//當後臺管理者下超連結的時候將連結取消掉
+			//因為是動態生成的所以要用on來綁他老爸底下小孩有符合.removeSvc都可以使用click的事件
+			$('#onlinesvc').on('click','.removeSvc',(function(){
+				window.open(propID=$(this).prop('id'), "_blank", " top=5, left=50, width=660, height=600");
+				//當按下管理者按下click時候把超連結移除
+				//並去資料庫將這一筆的欄位改成null
+				//這樣在getSvc.jsp就不會傳資料過來
+				propID=$(this).prop('id');
+				$(this).remove();
+				
+//				應該是要在關閉服務的時候再update null字串(所以是在StoryWebSocket這裡)		
+//		 		servletURL = "P9_OnlineService/OnlineServiceServlet";
+//		   		$.ajax({
+//		     		"type": 'post',
+//		       		"url": servletURL,
+//		       		"data": {"action":"changeToNULL", "svcID":propID},
+//		       		"dataType":"text",
+//		       		"async":false,
+//		       		"success":function(datas){
+		      			
+//		      		}
+//		      	});
+			}));
+			/************************************\製作gerSvc讓他不停地去掃資料******************************************************/
+				
+		
+		
 	//先var變數到外面之後才可以給圓餅圖使用	
 	var team = new Array();
 	
@@ -431,16 +563,134 @@
 
 	        }
 
-	    }
+	    };
+	    
+	    //************************昱豪************************
 	    // Initializing ///
 
 	    $(document).ready(function () {
 	    	gethit();
 	        mainApp.main_fun();
 	    });
-
+	    
+	    
+        $('#containerF').highcharts({
+        	chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            title: {
+                text: '下一站幸福，Top6 好友人氣王!!'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 80,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '好有人數',
+                data: [
+                    {
+                        name: '<%=fKing[0]%>',
+                        y: <%=fCount[0]%>,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['<%=fKing[1]%>',<%=fCount[1]%>],
+                    ['<%=fKing[2]%>',<%=fCount[2]%>],
+                    ['<%=fKing[3]%>',<%=fCount[3]%>],
+                    ['<%=fKing[4]%>',<%=fCount[4]%>],
+                    ['<%=fKing[5]%>',<%=fCount[5]%>]
+                ]
+            }]
+        });
+        
+        //******************
+        //************************昱豪************************
+        $('#containerc').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '部落格發表王~＊'
+            },
+            xAxis: {
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '文章數'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
+            },
+            series: [{
+                name: 'Population',
+                data: [
+                    ['<%= bKing[0]%>', <%=bCount[0]%>],
+                    ['<%= bKing[1]%>', <%=bCount[1]%>],
+                    ['<%= bKing[2]%>', <%=bCount[2]%>],
+                    ['<%= bKing[3]%>', <%=bCount[3]%>],
+                    ['<%= bKing[4]%>', <%=bCount[4]%>],
+                    ['<%= bKing[5]%>', <%=bCount[5]%>],
+                ],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'center',
+                    x: 4,
+                    y: 10,
+                    style: {
+                        fontSize: '15px',
+                        fontFamily: 'Verdana, sans-serif',
+                        textShadow: '0 0 3px black'
+                    }
+                }
+            }]
+        });
 	}(jQuery));
+	
+// 	 label: "北部",
+//      value: team[0]
+//  }, {
+//      label: "中部",
+//      value: team[1]
+//  }, {
+//      label: "南部",
+//      value: team[2]
+//  }, {
+//      label: "東部",
+//      value: team[3],
+	
 
+	        
 </script>
 </body>
 </html>

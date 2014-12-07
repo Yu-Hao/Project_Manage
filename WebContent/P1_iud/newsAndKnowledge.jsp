@@ -50,12 +50,12 @@
                 	<div class="col-md-6 col-sm-6 col-xs-6">   
 	                	<a href="news_Manage/news_Manage.jsp" style="text-decoration: none">          
 							<div class="panel panel-back noti-box">
-		               			<span class="icon-box bg-color-brown set-icon" style="margin-left:240px;background-color:#60b2ff">
+		               			<span class="icon-box bg-color-brown set-icon" style="margin-left:200px;background-color:#60b2ff">
 		                    		<i class="fa fa-bell-o"></i>
 		                		</span>
 			                	<div class="text-box" >
 			                		<br><br><br><br>
-			                    	<h5 class="main-text" align='center'>最新消息&nbsp;&nbsp;管理</h5>
+			                    	<p class="main-text" align='center'>最新消息&nbsp;&nbsp;管理</p>
 			                    	<h3 class="text-muted " align='center'>
 			                    		<c:if test='<%=!newsCount.equals("0")%>'>
 			                    			共<%=newsCount%>筆
@@ -71,12 +71,12 @@
 	                <div class="col-md-6 col-sm-6 col-xs-6">    
 	               	 	<a href="knowledge_Manage/knowledge_Manage.jsp" style="text-decoration: none">       
 							<div class="panel panel-back noti-box">
-		               			<span class="icon-box bg-color-red set-icon" style="margin-left:240px;">
+		               			<span class="icon-box bg-color-red set-icon" style="margin-left:200px;">
 		                   			<i class="fa fa-plus" ></i>
 		                		</span>
 		                		<div class="text-box" >
 		                			<br><br><br><br>
-		                			<h4 class="main-text notReplyMail"  align='center'>急救小知識&nbsp;&nbsp;管理</h4>
+		                			<p class="main-text notReplyMail"  align='center'>急救小知識&nbsp;&nbsp;管理</p>
 		                    		<h3 class="text-muted replyMail" align='center'>
 		                    			<c:if test='<%=!knowledgeCount.equals("0")%>'>
 			                    			共<%=knowledgeCount%>筆

@@ -121,7 +121,6 @@
 			 	$(".deleteBtn").click(function(){
 			 		//var sel = $(this).closest('tr').find('td:nth-child(1)').text();
 	     			var sel = $(this).attr("id");
-	     			alert(sel);
 			     		swal({ title: "Are you sure?",
 					 	text: "確定是否刪除第"+sel+"筆小知識!!",
 					  	type: "warning",   

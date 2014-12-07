@@ -81,4 +81,8 @@ public class TravelDiaryService {
 	public List<TravelDiaryVO> getAll(){
 		return dao.getAll();
 	}
+	
+	public List<TravelDiaryVO> getBlog_count(){
+		return dao.getBlog_count();
+	}
 }

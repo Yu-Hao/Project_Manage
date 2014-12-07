@@ -45,7 +45,6 @@
 	<div id="wrapper">
 		<%@ include file="../../platform/include_aHref2.jsp" %>
 	<div id="page-wrapper">
-		<a href="../newsAndKnowledge.jsp" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;display:inline;"></i></a>
 		<div id="page-inner" style=""padding-right:1%;">
 			<div class="col-sm-10">
 			<a href="../newsAndKnowledge.jsp" style="text-decoration:none;"><i class="fa fa-reply fa-3x" style="color:black;"></i></a>
@@ -184,8 +183,9 @@
 		});
 		
 		$("#fakeData").click(function(){
-		 	$(':text[id="news_title"]').val("宜蘭頭城老街16周年祭典");
-			$("#news_Content").val("宜蘭頭城老街16周年祭典<br>超級好玩唷~~~~~");
+		 	$(':text[id="news_title"]').val("墾丁大街春吶晚會~~~＊");
+		 	$("#news_image").val("Kenting_Street");
+			$("#news_Content").val("所謂春吶是在1995年，兩個外國朋友Wade和Jimi所發起的，以追求「音樂原創」的目標，邀請幾個樂團同好，在四月初的墾丁開始舉辦春吶。接下來幾年，沒有宣傳、不需廣告，僅憑口耳相傳，在眾多樂團與樂迷支持下，春天吶喊已經成為國內樂界的一大盛事，每年四月初，墾丁地區就聚集了國內外許多地下樂團及樂迷，一起沉醉在充滿爆發性的原創音樂裡。這段期間，覺得全國80%以上的地下樂團和外國朋友幾乎都聚集到墾丁來了，走在墾丁簡直像走在國外，而且平時樂團人們就混在街上人群中(因為前一晚才聽過他們的演奏演唱)，即使沒有演奏，卻仍然可以感覺到他們隱隱的散發著自有的旋律，真是音樂無所不在(不是指其他刺耳的宣傳搖頭樂喔)，只要親身體驗一次，就一定會著迷。特別注意：請勿攜帶不被接受的(特殊藥品)，這段期間，全恆春半島的警力，以及屏東市警察大隊都會有派駐大批警力進入各會場，別以為只有門口的駐警，其實主要警力都經過喬裝融入會場中，很多是年輕還攜伴的便衣刑警，甚至都還改以攝影手機蒐證，請勿以身試法。");
 		});
 		
 // 		$('#news_Content').keyup(function(e){
