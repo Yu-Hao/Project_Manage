@@ -40,6 +40,22 @@
 						   <li  >
                         <a   href="../chart.jsp"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
                     </li>	
+                    
+					<!-- 線上課客服用 -->
+					<li>
+					<div class="panel panel-primary text-center no-boder bg-color-green">
+							<div class="panel-body">
+								<i class="fa fa-comments-o fa-5x"></i>
+								<div id="onlinesvc">
+									<!--          							<a href="#" id=""><p>※線上克服</p></a>     -->
+								</div>
+
+							</div>
+							<div class="panel-footer back-footer-green">線上客服</div>
+						</div>
+					</li>    
+					 <!-- 線上課客服用 -->     
+					      
 					                   
                 </ul>
                
