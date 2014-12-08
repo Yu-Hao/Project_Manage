@@ -29,8 +29,7 @@ public class loginMostTopDAO implements loginMostTopDAO_interface{
 		}
 	}
 	
-	private static final String GET_TOP5_MEM = "SELECT Top (10) member_loginID, "
-			+ "totalcount from LoginCount ORDER BY totalcount DESC";
+	private static final String GET_TOP5_MEM = "  select top(10) l.member_loginID , s.member_name , l.totalcount from sysmember s join logincount l on s.member_loginid = l.member_loginid ORDER BY totalcount DESC ;";
 
 	
 	
@@ -61,7 +60,8 @@ try{
 			while(rs.next()){
 				jsonObj = new JSONObject();
 				jsonObj.put(cols.get(0), rs.getString(1));//member_loginID
-				jsonObj.put(cols.get(1), rs.getString(2));//totalcount
+				jsonObj.put(cols.get(1), rs.getString(2));//member_name
+				jsonObj.put(cols.get(2), rs.getString(3));//totalcount
 		
 				jsonArray.put(jsonObj);
 			}

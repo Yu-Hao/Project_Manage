@@ -185,7 +185,7 @@
 					<!-- 昱豪 -->
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-default">
-							<div class="panel-heading">Area Chart Example</div>
+							<div class="panel-heading">下一站幸福，Top6 好友人氣王</div>
 							<div class="">
 								<div id="containerF"></div>
 							</div>
@@ -205,7 +205,7 @@
 					</div>
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-default">
-							<div class="panel-heading">Line Chart Example</div>
+							<div class="panel-heading">部落格發表王~＊</div>
 							<div class="">
 								<div id="containerc"></div>
 							</div>
@@ -355,7 +355,7 @@
  				var myObject = JSON.parse(datas); //記得把字串轉乘json物件
  				$.each(myObject,function(i,item){
  					
- 					team2[i]=item.member_loginID;
+ 					team2[i]=item.member_name;
  					team3[i]=item.totalcount;
 					
 
