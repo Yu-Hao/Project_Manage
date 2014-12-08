@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<title>下一站，幸福</title>
+	<link rel="shortcut icon" href="img/favicon.ico">
+	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	Object sionName = session.getAttribute("userName");
@@ -11,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-<title>Free Bootstrap Admin Template : Binary Admin</title>
+    
 <%@ page import="java.util.*"%>
 <%@ page import="P4_MessageBoard.model.*,P3_TravelDiary.model.*"%>
 
@@ -37,6 +40,7 @@
 <!-- GOOGLE FONTS-->
 <!--    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
 <link href='css/googleapis.css' rel='stylesheet' type='text/css' />
+
 </head>
 <body>
 	<div id="wrapper">
