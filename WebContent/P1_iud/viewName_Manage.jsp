@@ -83,8 +83,8 @@
         			<td>${viewnameList.viewArea}</td>
         			<td>${viewnameList.viewAddr}</td>
         			<td>${viewnameList.view_HitRate}</td>
-        			<td>${viewnameList.viewlng}</td>
         			<td>${viewnameList.viewlat}</td>
+        			<td>${viewnameList.viewlng}</td>
 					<td><a href="updateServlet?name=updateViewName&id=${viewnameList.viewID}"><input type="button"  class="btn btn-danger" value="維護" ></a></td>        			
         		</tr>
         	</c:forEach>

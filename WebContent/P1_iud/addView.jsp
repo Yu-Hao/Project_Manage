@@ -77,12 +77,12 @@
 	                    <div class="form-group" >
 	                        <label for="amount" class="col-sm-3 control-label" >景點經、緯度:</label>
 	                        <div class="col-sm-3" style="display:inline;" >
-	                            <input type="text" class="form-control" id="viewLng"  placeholder="景點經度" name="viewLng" style="float:left;display:inline;">
-	                            <span id="checkViewLng" style="font-size:18px;color:red;"></span>
+	                            <input type="text" class="form-control" id="viewLat"  placeholder="景點經度" name="viewLat" style="float:left;display:inline;">
+	                            <span id="checkViewLat" style="font-size:18px;color:red;"></span>
 	                        </div>
 	                        <div class="col-sm-3"> 
-		                       	<input type="text" class="form-control" id="viewLat"  placeholder="景點緯度" name="viewLat">
-		                       	<span id="checkViewLat" style="font-size:18px;color:red;"></span>
+		                       	<input type="text" class="form-control" id="viewLng"  placeholder="景點緯度" name="viewLng">
+		                       	<span id="checkViewLng" style="font-size:18px;color:red;"></span>
 	                        </div>
 	                    </div> 
 	                    <div class="form-group">
@@ -228,18 +228,18 @@
 			}
 		});
 		
-		$(':text[id="viewLng"]').blur(function(){
-			var viewViewLng = $.trim($(':text[id="viewLng"]').val());
-			if(viewViewLng == ""){
-				$("#checkViewLng").html("<img src=images/errorImg.png />景點經度欄位不可空值");
+		$(':text[id="viewLat"]').blur(function(){
+			var viewViewLat = $.trim($(':text[id="viewLat"]').val());
+			if(viewViewLat == ""){
+				$("#checkViewLat").html("<img src=images/errorImg.png />景點經度欄位不可空值");
 				return;
 			}
 		});
 		
-		$(':text[id="viewLat"]').blur(function(){
-			var viewViewLat = $.trim($(':text[id="viewLat"]').val());
-			if(viewViewLat == ""){
-				$("#checkViewLat").html("<img src=images/errorImg.png />景點緯度欄位不可空值");
+		$(':text[id="viewLng"]').blur(function(){
+			var viewViewLng = $.trim($(':text[id="viewLng"]').val());
+			if(viewViewLng == ""){
+				$("#checkViewLng").html("<img src=images/errorImg.png />景點緯度欄位不可空值");
 				return;
 			}
 		});
@@ -291,11 +291,11 @@
 				}
 			
 				if(viewViewLng == ""){
-					$("#checkViewLng").html("<img src=images/errorImg.png />景點經度欄位不可空值");
+					$("#checkViewLat").html("<img src=images/errorImg.png />景點經度欄位不可空值");
 				}
 				
 				if(viewViewLat == ""){
-					$("#checkViewLat").html("<img src=images/errorImg.png />景點緯度欄位不可空值");
+					$("#checkViewLng").html("<img src=images/errorImg.png />景點緯度欄位不可空值");
 				}
 			
 				if(viewPic1 == ""){
@@ -325,8 +325,8 @@
 			$("#viewId").val("West_Bay");
 			$("#viewName").val("西子灣");
 			$("#viewAddr").val("高雄市鼓山區中山大學");
-			$("#viewLng").val("22.629167");
-			$("#viewLat").val("120.262778");
+			$("#viewLat").val("22.629167");
+			$("#viewLng").val("120.262778");
 		});
 	})(jQuery);
 	

@@ -72,12 +72,12 @@
 	                    <div class="form-group" >
 	                        <label for="amount" class="col-sm-3 control-label" >景點經、緯度:</label>
 	                        <div class="col-sm-3" style="display:inline;" >
-	                            <input type="text" class="form-control" id="viewLng"  placeholder="景點經度" name="viewLng" value="${vnVO.viewlng}" style="float:left;display:inline;">
-	                            <span id="checkViewLng" style="font-size:18px;color:red;"></span>
+	                            <input type="text" class="form-control" id="viewLat"  placeholder="景點經度" name="viewLat" value="${vnVO.viewlng}" style="float:left;display:inline;">
+	                            <span id="checkViewLat" style="font-size:18px;color:red;"></span>
 	                        </div>
 	                        <div class="col-sm-3"> 
-		                       	<input type="text" class="form-control" id="viewLat"  placeholder="景點緯度" name="viewLat" value="${vnVO.viewlat}" >
-		                       	<span id="checkViewLat" style="font-size:18px;color:red;"></span>
+		                       	<input type="text" class="form-control" id="viewLng"  placeholder="景點緯度" name="viewLng" value="${vnVO.viewlat}" >
+		                       	<span id="checkViewLng" style="font-size:18px;color:red;"></span>
 	                        </div>
 	                    </div> 
 	                    <div class="form-group">
