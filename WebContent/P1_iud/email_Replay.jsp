@@ -64,7 +64,7 @@
             						<div class="form-group">
               							<span class="col-md-2 col-md-offset-2 text-center">Subject</span>
               							<div class="col-md-4">
-                							<input name="subject" id="subject" type="text" placeholder="Questions" class="form-control" required value="${ctVO.contactUsSubject}">
+                							<input name="subject" id="subject" type="text" placeholder="Questions" class="form-control" required value="RE:${ctVO.contactUsSubject}">
               							</div>
             						</div>
 						            <div class="form-group">

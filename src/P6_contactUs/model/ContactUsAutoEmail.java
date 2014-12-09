@@ -64,16 +64,16 @@ public class ContactUsAutoEmail extends Thread {
 	     
 
 	        
-	        Message msg = new MimeMessage(session);
+	        MimeMessage msg = new MimeMessage(session);
 	        msg.setFrom(new InternetAddress( fromuser ));
 	        msg.setRecipient(Message.RecipientType.TO, new InternetAddress( contactUsMail ));
-	        msg.setSubject( "下一站!幸福!(客服系統)：" +contactUsSubject);
+	        msg.setSubject( "下一站!幸福!(客服系統)：" +contactUsSubject,"utf-8");
 	       // String text=contactUsName+"您好:\n\n 我們已經收到您的來信，請耐心等候回覆。  \n\n 謝謝。";
 	        //寫給使用者的內容
-	       // msg.setContent(text, "text/html; charset=utf-8");
+	        msg.setContent(contactUsContent, "text/html; charset=utf-8");
 //	        msg.setText(contactUsName+"您好:\n\n 我們已經收到您的來信，請耐心等候回覆。  \n\n 謝謝。"); 
 	        //回覆內容
-	        msg.setText(contactUsContent);  
+//	        msg.setText(contactUsContent,"utf-8");  
 	        Transport transport = session.getTransport("smtp");
 	        transport.connect(host,username,password);
 	        
