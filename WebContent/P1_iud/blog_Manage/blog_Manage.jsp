@@ -4,7 +4,6 @@
 <html>
 <head>
 <%@ include file="../../platform/include_title.jsp" %>
-
 <%@ page import="P3_TravelDiary.model.*"%>
 <%
 

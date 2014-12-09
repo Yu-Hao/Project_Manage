@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>Insert title here</title>
+	<title>下一站，幸福</title>
+	<link rel="shortcut icon" href="../img/favicon.ico">
+	
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 	<%@ page import="java.util.*"%>
